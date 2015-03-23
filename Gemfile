@@ -13,6 +13,7 @@ group :development, :test do
   gem 'spring'
 end
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'devise'
 gem 'high_voltage'
 gem 'pg'

@@ -1,13 +1,35 @@
-/ navigation styled for Bootstrap 3.0
-nav.navbar.navbar-inverse.navbar-fixed-top
+header.navbar
   .container
+    #login-bar-header.primary-tooltips
+      a data-toggle="modal" href="#login-modal"  Submit Property
+      a data-toggle="modal" href="#login-modal"  Login/Register
     .navbar-header
-      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
-        span.sr-only Toggle navigation
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Skip navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        == render 'layouts/navigation_links'
+      .navbar-brand
+        a href="/" Homey
+      .navbar-contact-details
+        .navbar-phone-number +1 555 22 66 8890
+        .navbar-email
+          a href="mailto:info@yourcompany.com"  info@yourcompany.com
+      .clearfix
+      nav.navbar-collapse.collapse aria-expanded="false" role="navigation"
+        .nav.navbar-nav
+          ul
+            li
+              a href="#"  Home
+            li
+              a href="#"  Property
+            li
+              a href="#"  Features
+            li
+              a href="#"  IDX
+            li
+              a href="#"  Blog
+            li
+              a href="#"  Contact
+        #toggle-navbar
+          i.icon-angle-right
