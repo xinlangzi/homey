@@ -14,6 +14,7 @@ group :development, :test do
 end
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'flexslider'
 gem 'devise'
 gem 'high_voltage'
 gem 'pg'

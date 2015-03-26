@@ -1,3 +1,405 @@
-- 10.times.each
-  h2 Welcome
+#property-slideshow.flexslider
+  .guide-block
+    .container
+      .links.btn-group
+        a.btn.btn-default href="/" Hello
+        a.btn.btn-default href="/" Hello
+        a.btn.btn-default href="/" Hello
+  ul.slides
+    li
+      img src="/slide1.png"
+    li
+      img src="/slide2.png"
 
+.container
+  #property-items.show-compare data-view="grid-view" style="opacity: 1;"
+    #compare-properties-popup
+      h4 Compare Properties
+      #compare-properties-thumbnails
+        p
+          a.btn.btn-primary.btn-lg href="http://preview.themetrail.com/realty/property-comparison/"  Compare
+        p.alert.alert-info.hide
+          small You have reached the maximum of four properties per comparison.
+    ul.row.list-unstyled
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips.featured
+          a href="http://preview.themetrail.com/realty/property/lush-villa/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt=("Property - Mansion") height="300" src="/unsplash_mansion-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Lush Villa
+                  .subtitle
+                    span.type Villa
+                    span -
+                    span.status For Rent
+                    span -
+                    span.location Chelsea
+                .property-excerpt
+                  h4.address 125 Oakley St, London, UK
+                  p This is an example of a single property using a full width layout with a property image slideshow. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  1200 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  10 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  3 Bedrooms
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  3 Bathrooms
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  Rented Out
+              i.fa.fa-star data-original-title=("Featured Property") data-toggle="tooltip" title=""
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="68" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              a.property-video-popup href="http://www.youtube.com/watch?v=cgS01tX9Qrk"
+                i.fa.fa-video-camera data-original-title=("Watch Trailer") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="68" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag
+                | $12,000
+                span month
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/for-the-minimalist/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt=("Property - House Front") height="300" src="/picjumbo_house_front-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title For The Minimalist
+                  .subtitle
+                    span.type Apartment
+                    span -
+                    span.status For Sale
+                    span -
+                    span.location London
+                .property-excerpt
+                  h4.address Oxford St, Lonodon, UK
+                  p This is an example of a single property using a full width layout with a single property image. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  250 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  2 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  1 Bedroom
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  1 Bathroom
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  Sold
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="95" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              a.property-video-popup href="http://www.youtube.com/watch?v=Uv_SNg4bhtE"
+                i.fa.fa-video-camera data-original-title=("Watch Trailer") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="95" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag $290,000
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips.featured
+          a href="http://preview.themetrail.com/realty/property/loft-above-the-city/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt="unsplash_houses_narrow" height="300" src="/unsplash_houses_narrow-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Loft Above The City
+                  .subtitle
+                    span.type Apartment
+                    span -
+                    span.status For Rent
+                    span -
+                    span.location Lambeth
+                .property-excerpt
+                  h4.address 180 York Road, London, UK
+                  p This is an example of a single property using a full width layout with a single property image. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  450 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  2 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  1 Bedroom
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  1 Bathroom
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Rent
+              i.fa.fa-star data-original-title=("Featured Property") data-toggle="tooltip" title=""
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="97" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="97" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag
+                | $2,400
+                span week
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/state-of-the-art/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt="unsplash_house_top" height="300" src="/unsplash_house_top-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title State of The Art
+                  .subtitle
+                    span.type House
+                    span -
+                    span.status For Rent
+                    span -
+                    span.location London
+                .property-excerpt
+                  h4.address 45 Regent St, London, UK
+                  p This is an example of a single property using a full width layout with a single property image. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  680 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  5 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  1 Bedroom
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  1 Bathroom
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Rent
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="99" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="99" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag
+                | $2,250
+                span week
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/modern-office/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt="picjumbo_office1" height="300" src="/picjumbo_office1-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Modern Office
+                  .subtitle
+                    span.type Office
+                    span -
+                    span.status For Sale
+                    span -
+                    span.location Auteuil
+                .property-excerpt
+                  h4.address 51 Boulevard Suchet, Paris, France
+                  p This is an example of a single property using a full width layout with a single property image. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  500 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  4 Rooms
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Sale
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="77" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="77" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag $850,000
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/central-with-garden/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt=("Property - House With Garden") height="300" src="/unsplash_house_trees-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Central With Garden
+                  .subtitle
+                    span.type House
+                    span -
+                    span.status For Sale
+                    span -
+                    span.location London
+                .property-excerpt
+                  h4.address Smith Square, Westminster, London, UK
+                  p This is an example of a single property using a boxed layout with a single property image. From the Theme ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  480 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  5 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  1 Bedroom
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  1 Bathroom
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Sale
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="65" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              a.property-video-popup href="http://vimeo.com/100449943"
+                i.fa.fa-video-camera data-original-title=("Watch Trailer") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="65" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag $2,400,000
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/apartment-on-stamford/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt="unsplash_rooftops" height="300" src="/unsplash_rooftops-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Apartment On Stamford
+                  .subtitle
+                    span.type Apartment
+                    span -
+                    span.status For Rent
+                    span -
+                    span.location Lambeth
+                .property-excerpt
+                  h4.address 20 Stamford St, London, UK
+                  p This is an example of a single property using a full width layout with a single property image. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  330 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  3 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  1 Bedroom
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  1 Bathroom
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Rent
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="75" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="75" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag
+                | $3,000
+                span month
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips
+          a href="http://preview.themetrail.com/realty/property/spacious-bright-mansion/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt=("Property - Castle") height="300" src="/unsplash_castle-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Spacious &amp; Bright Mansion
+                  .subtitle
+                    span.type Villa
+                    span -
+                    span.status For Sale
+                    span -
+                    span.location Belgravia
+                .property-excerpt
+                  h4.address 3 Wilton Crescent, London, UK
+                  p This is an example of a single property using a boxed layout with a property image slideshow. From the Theme ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  18000 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  8 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  3 Bedrooms
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  3 Bathrooms
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Sale
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="410" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              a.property-video-popup href="http://vimeo.com/89938769"
+                i.fa.fa-video-camera data-original-title=("Watch Trailer") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="410" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag $12,000,000
+      li.col-lg-4.col-md-6
+        .property-item.primary-tooltips.featured
+          a href="http://preview.themetrail.com/realty/property/living-the-dream/"
+            figure.property-thumbnail
+              img.attachment-property-thumb.wp-post-image alt="picjumbo_dubai_skyscraper" height="300" src="/picjumbo_dubai_skyscraper-600x300.jpg" width="600" /
+              figcaption
+                .property-title
+                  h3.title Living The Dream
+                  .subtitle
+                    span.type House
+                    span -
+                    span.status For Rent
+                    span -
+                    span.location London
+                .property-excerpt
+                  h4.address St. James, London, UK
+                  p This is an example of a single property using a full width layout with a property image slideshow. From the ..
+          .property-content
+            .property-meta.clearfix
+              div
+                .meta-title
+                  i.fa.fa-expand
+                .meta-data data-original-title="Size" data-toggle="tooltip" title=""  1500 sq ft
+              div
+                .meta-title
+                  i.fa.fa-building-o
+                .meta-data data-original-title="Rooms" data-toggle="tooltip" title=""  7 Rooms
+              div
+                .meta-title
+                  i.fa.fa-bed
+                .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  2 Bedrooms
+              div
+                .meta-title
+                  i.fa.fa-tint
+                .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  2 Bathrooms
+            .property-price
+              span.property-status data-original-title="Status" data-toggle="tooltip" title=""  For Rent
+              i.fa.fa-star data-original-title=("Featured Property") data-toggle="tooltip" title=""
+              i.add-to-favorites.fa.fa-heart-o data-fav-id="297" data-original-title=("Add To Favorites") data-toggle="tooltip" title=""
+              i.fa.fa-plus.compare-property data-compare-id="297" data-original-title="Compare" data-toggle="tooltip" title=""
+              .price-tag
+                | $7,500
+                span week
+    #pagination
+      ul.page-numbers
+        li
+          span.page-numbers.current 1
+        li
+          a.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"  2
+        li
+          a.next.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"
+            i.btn.btn-default.fa.fa-angle-right

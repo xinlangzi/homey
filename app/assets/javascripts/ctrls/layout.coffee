@@ -1,4 +1,15 @@
 window.Layout =
 
-  $(document).on 'click', '.navbar-toggle', ->
-    $('body').toggleClass('show-nav')
+  init: ->
+    $(document).on 'click', '.navbar-toggle', ->
+      $('body').toggleClass('show-nav')
+
+    $('.flexslider').flexslider
+      # smoothHeight: true
+      animation: 'fade'
+      # slideshow: true
+      # slideshowSpeed: 5000
+      # controlNav: false
+
+$ ->
+  Layout.init()
