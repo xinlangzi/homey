@@ -25,11 +25,12 @@ gem 'upmin-admin'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
   gem 'capistrano-rails-console'
-  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano-passenger'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
