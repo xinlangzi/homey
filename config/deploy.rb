@@ -44,6 +44,8 @@ set :rvm_ruby_version, "ruby-2.1.5"
 
 set :bundle_without, [:test, :development, :capybara].join(" ")
 
+set :passenger_restart_with_sudo, true
+
 namespace :deploy do
 
   after :restart, :clear_cache do
