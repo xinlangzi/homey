@@ -30,6 +30,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
+  gem 'capistrano-passenger'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
