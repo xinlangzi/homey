@@ -19,6 +19,7 @@ gem 'slim-rails'
 gem 'upmin-admin', github: "upmin/upmin-admin-ruby"
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
+gem 'rmagick'
 
 group :development do
   gem 'better_errors'
