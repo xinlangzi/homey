@@ -19,13 +19,13 @@ class WatermarkUploader < CarrierWave::Uploader::Base
 
       draw.annotate(mark, 0, 0, 0, 0, text) do
         draw.gravity = Magick::CenterGravity
-        draw.pointsize = 100
+        draw.pointsize = 50
         draw.font_family = "Times" # set font
         draw.fill = "black" # set text color
         draw.stroke = "none" # remove stroke
       end
 
-      mark = mark.rotate(-45)
+      # mark = mark.rotate(-45)
       img.composite!(mark, Magick::CenterGravity, Magick::SoftLightCompositeOp)
     end
   end
