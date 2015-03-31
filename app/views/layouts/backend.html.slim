@@ -3,7 +3,7 @@ html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      = content_for?(:title) ? yield(:title) : 'Homey'
+      = content_for?(:title) ? yield(:title) : 'Homey Backend'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Homey'}"
     link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic' type='text/css' media='all'
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
@@ -11,9 +11,5 @@ html
     == csrf_meta_tags
   body
     header
-      == render 'shared/navigation'
-      - if flash[:notice]
-        .notice = flash[:notice]
-      - if flash[:alert]
-        .alert = flash[:alert]
+      == render 'shared/backend_navigation'
       == yield

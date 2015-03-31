@@ -1,12 +1,11 @@
 #property-slideshow.flexslider
   .guide-block
     .container
-      / .links.btn-group
-        / a.btn.btn-default href="/" Hello
   ul.slides
     - Banner.all.each do |banner|
       li
-        img src=banner.file.url
+        a href=banner.url
+          img src=banner.file.url
 
 .container
   #property-items.show-compare data-view="grid-view" style="opacity: 1;"

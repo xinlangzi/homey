@@ -19,7 +19,7 @@ class WatermarkUploader < CarrierWave::Uploader::Base
 
       draw.annotate(mark, 0, 0, 0, 0, text) do
         draw.gravity = Magick::CenterGravity
-        draw.pointsize = 50
+        draw.pointsize = 35
         draw.font_family = "Times" # set font
         draw.fill = "black" # set text color
         draw.stroke = "none" # remove stroke

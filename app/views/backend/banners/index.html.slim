@@ -1,0 +1,11 @@
+.container
+  .row
+    h3 Banners
+    .column
+      table.table
+        tbody
+          - @banners.each do |banner|
+            tr
+              = render banner
+  .row
+    = link_to 'New Banner', new_backend_banner_path

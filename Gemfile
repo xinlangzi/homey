@@ -16,7 +16,6 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'upmin-admin', github: "upmin/upmin-admin-ruby"
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
 gem 'rmagick'

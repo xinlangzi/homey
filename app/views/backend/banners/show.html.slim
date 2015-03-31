@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong File:
+  img src=@banner.file.url width="500px"
+  
+p
+  strong Url:
+  = @banner.url
+
+= link_to 'Edit', edit_backend_banner_path(@banner)
+'|
+= link_to 'Back', backend_banners_path
