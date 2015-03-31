@@ -44,7 +44,7 @@ class Backend::BannersController < Backend::BaseController
   def update
     respond_to do |format|
       if @banner.update(banner_params)
-        format.html { redirect_to @banner, notice: 'Banner was successfully updated.' }
+        format.html { redirect_to [:backend, @banner], notice: 'Banner was successfully updated.' }
         format.json { render :show, status: :ok, location: @banner }
       else
         format.html { render :edit }
