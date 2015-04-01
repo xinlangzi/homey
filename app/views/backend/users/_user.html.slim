@@ -1,8 +1,10 @@
-td
-  = link_to user.email, [:backend, user]
-td
-  = form_for([:backend, user]) do |f|
-    = f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
-    = f.submit 'Change Role', :class => 'button-xs'
-td
-  = link_to("Delete user", backend_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user
+tr
+  td = link_to user.email, [:backend, user]
+  td = user.email
+  td = user.last_sign_in_at
+  td
+    - unless user == current_user
+      - unless user.deleted?
+        = form_for user do |f|
+          = f.select :role, User.roles.keys.map {|role| [role.titleize,role]}, {}, class: 'e-user-role'
+  td = link_to("Delete user", backend_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user

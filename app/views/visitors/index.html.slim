@@ -4,8 +4,9 @@
   ul.slides
     - Banner.all.each do |banner|
       li
-        a href=banner.url
-          img src=banner.file.url
+        .slide
+          a href=banner.url target='_blank'
+            img src=banner.file.url
 
 .container
   #property-items.show-compare data-view="grid-view" style="opacity: 1;"

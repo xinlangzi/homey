@@ -1,0 +1,18 @@
+form{
+  clear: both;
+  padding: 15px;
+  background: #F9F9F9;
+  border: 1px solid #DDD;
+}
+
+.btn-round{
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  @include border-top-radius(25px);
+  @include border-bottom-radius(25px);
+  &.btn-round-xs{
+    padding: 0px 8px;
+    font-size: 11px;
+  }
+}

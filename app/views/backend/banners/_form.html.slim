@@ -1,9 +1,7 @@
 = simple_form_for([:backend, @banner]) do |f|
   = f.error_notification
-
   .form-inputs
     = f.input :file
     = f.input :url
-
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary'

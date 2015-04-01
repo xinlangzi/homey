@@ -1,9 +1,13 @@
-.container
-  .row
-    h3 Users
-    .column
-      table.table
-        tbody
-          - @users.each do |user|
-            tr
-              = render user
+- @title = "Users"
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th Name
+        th Email
+        th Last Signed In
+        th Role
+        th
+    tbody
+      = render @users

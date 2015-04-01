@@ -1,6 +1,9 @@
-tr
-  td = banner.file
-  td = banner.url
-  td = link_to 'Show', [:backend, banner]
-  td = link_to 'Edit', edit_backend_banner_path(banner)
-  td = link_to 'Destroy', [:backend, banner], data: {:confirm => 'Are you sure?'}, :method => :delete
+.img-thumbnail
+  = image_tag(banner.file.url)
+  = banner.url
+  .pull-right
+    = link_to edit_backend_banner_path(banner) do
+      = icon("pencil-square-o")
+    | &nbsp;&nbsp;
+    = link_to [:backend, banner], data: {:confirm => 'Are you sure?'}, :method => :delete
+      = icon("times-circle-o")

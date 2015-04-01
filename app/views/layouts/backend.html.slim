@@ -12,4 +12,8 @@ html
   body
     header
       == render 'shared/backend_navigation'
-      == yield
+      .wrapper
+        == render "shared/page_header"
+        .page-content
+          .container
+            == yield

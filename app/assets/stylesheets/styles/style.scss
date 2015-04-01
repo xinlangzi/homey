@@ -1,0 +1,22 @@
+.wrapper{
+  width: 100%;
+  .page-header{
+    padding: 20px 0px 10px 20px;
+    margin: 0px;
+    border-bottom: 1px solid #DDD;
+    .title{
+      color: #777;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+  .page-content{
+    padding: 10px 20px;
+    background: #FFF;
+    min-height: 500px;
+  }
+  .page-actions{
+    float: right;
+    margin-bottom: 15px;
+  }
+}

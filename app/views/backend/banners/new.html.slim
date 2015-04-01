@@ -1,5 +1,6 @@
-h1 New banner
-
+- @title = "New Banner"
+.page-actions.btn-group
+  = link_to backend_banners_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-plus-sign
+    |  Back
 == render 'form'
-
-= link_to 'Back', backend_banners_path

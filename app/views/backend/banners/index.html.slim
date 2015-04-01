@@ -1,11 +1,10 @@
-.container
-  .row
-    h3 Banners
-    .column
-      table.table
-        tbody
-          - @banners.each do |banner|
-            tr
-              = render banner
-  .row
-    = link_to 'New Banner', new_backend_banner_path
+- @title = "Banners"
+.page-actions.btn-group
+  = link_to new_backend_banner_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-backward
+    |  New Banner
+.clearfix
+.row
+  - @banners.each do |banner|
+    .col-md-4
+      = render banner
