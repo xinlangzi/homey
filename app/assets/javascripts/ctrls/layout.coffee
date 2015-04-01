@@ -11,5 +11,5 @@ window.Layout =
       # slideshowSpeed: 5000
       # controlNav: false
 
-$ ->
+$(document).on 'page:update', ->
   Layout.init()
