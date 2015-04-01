@@ -19,138 +19,99 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe Backend::UsersController, type: :controller do
+  before do
+    sign_in admin
+  end
+
+  let(:admin) { create(:user, :admin) }
+  
 
   # This should return the minimal set of attributes required to create a valid
-  # Backend::User. As you add validations to Backend::User, be sure to
+  # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { email: "test2@example.com", password: "12345678", role: :user }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: "stuff" }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # Backend::UsersController. Be sure to keep this updated too.
+  # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all backend_users as @backend_users" do
-      user = Backend::User.create! valid_attributes
+    it "assigns all users as @users" do
+      user = User.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:backend_users)).to eq([user])
+      expect(assigns(:users)).to eq([admin, user])
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested backend_user as @backend_user" do
-      user = Backend::User.create! valid_attributes
+    it "assigns the requested user as @user" do
+      user = User.create! valid_attributes
       get :show, {:id => user.to_param}, valid_session
-      expect(assigns(:backend_user)).to eq(user)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new backend_user as @backend_user" do
-      get :new, {}, valid_session
-      expect(assigns(:backend_user)).to be_a_new(Backend::User)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested backend_user as @backend_user" do
-      user = Backend::User.create! valid_attributes
-      get :edit, {:id => user.to_param}, valid_session
-      expect(assigns(:backend_user)).to eq(user)
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Backend::User" do
-        expect {
-          post :create, {:backend_user => valid_attributes}, valid_session
-        }.to change(Backend::User, :count).by(1)
-      end
-
-      it "assigns a newly created backend_user as @backend_user" do
-        post :create, {:backend_user => valid_attributes}, valid_session
-        expect(assigns(:backend_user)).to be_a(Backend::User)
-        expect(assigns(:backend_user)).to be_persisted
-      end
-
-      it "redirects to the created backend_user" do
-        post :create, {:backend_user => valid_attributes}, valid_session
-        expect(response).to redirect_to(Backend::User.last)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved backend_user as @backend_user" do
-        post :create, {:backend_user => invalid_attributes}, valid_session
-        expect(assigns(:backend_user)).to be_a_new(Backend::User)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:backend_user => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
+      expect(assigns(:user)).to eq(user)
     end
   end
 
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { role: :admin }
       }
 
-      it "updates the requested backend_user" do
-        user = Backend::User.create! valid_attributes
-        put :update, {:id => user.to_param, :backend_user => new_attributes}, valid_session
+      it "updates the requested user" do
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param, :user => new_attributes}, valid_session
         user.reload
-        skip("Add assertions for updated state")
+        expect(user.role).to eq("admin")
       end
 
-      it "assigns the requested backend_user as @backend_user" do
-        user = Backend::User.create! valid_attributes
-        put :update, {:id => user.to_param, :backend_user => valid_attributes}, valid_session
-        expect(assigns(:backend_user)).to eq(user)
+      it "assigns the requested user as @user" do
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
+        expect(assigns(:user)).to eq(user)
       end
 
-      it "redirects to the backend_user" do
-        user = Backend::User.create! valid_attributes
-        put :update, {:id => user.to_param, :backend_user => valid_attributes}, valid_session
-        expect(response).to redirect_to(user)
+      it "redirects to the user" do
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
+        expect(response).to redirect_to(backend_users_path)
+        expect(flash[:notice]).to eq("User updated.")
       end
     end
 
     context "with invalid params" do
-      it "assigns the backend_user as @backend_user" do
-        user = Backend::User.create! valid_attributes
-        put :update, {:id => user.to_param, :backend_user => invalid_attributes}, valid_session
-        expect(assigns(:backend_user)).to eq(user)
+      it "assigns the user as @user" do
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
+        expect(assigns(:user)).to eq(user)
       end
 
-      it "re-renders the 'edit' template" do
-        user = Backend::User.create! valid_attributes
-        put :update, {:id => user.to_param, :backend_user => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+      it "shows an error message" do
+        expect_any_instance_of(User).to receive(:update_attributes) { false }
+        user = User.create! valid_attributes
+        put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
+        expect(response).to redirect_to(backend_users_path)
+        expect(flash[:alert]).to eq("Unable to update user.")
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested backend_user" do
-      user = Backend::User.create! valid_attributes
+    it "destroys the requested user" do
+      user = User.create! valid_attributes
       expect {
         delete :destroy, {:id => user.to_param}, valid_session
-      }.to change(Backend::User, :count).by(-1)
+      }.to change(User, :count).by(-1)
     end
 
-    it "redirects to the backend_users list" do
-      user = Backend::User.create! valid_attributes
+    it "redirects to the users list" do
+      user = User.create! valid_attributes
       delete :destroy, {:id => user.to_param}, valid_session
       expect(response).to redirect_to(backend_users_url)
     end

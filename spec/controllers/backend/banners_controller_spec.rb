@@ -23,6 +23,9 @@ RSpec.describe Backend::BannersController, type: :controller do
     sign_in user
   end
 
+  let(:user) { create(:user, :admin) }
+
+
   # This should return the minimal set of attributes required to create a valid
   # Banner. As you add validations to Banner, be sure to
   # adjust the attributes here as well.
@@ -34,8 +37,6 @@ RSpec.describe Backend::BannersController, type: :controller do
     { remove_file: 1 }
   }
   
-  let(:user) { create(:user, :admin) }
-
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # BannersController. Be sure to keep this updated too.
