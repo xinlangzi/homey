@@ -57,4 +57,15 @@ namespace :deploy do
     end
   end
 
+  desc 'Upload file'
+  task :upload do
+    on roles(:app) do |h|
+      within current_path do
+        ENV["files"].split(/,\s*/).each do |file|
+          upload! file, current_path.join(file)
+        end
+      end
+    end
+  end
+
 end
