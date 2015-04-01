@@ -72,6 +72,6 @@ class Backend::BannersController < Backend::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def banner_params
-      params.require(:banner).permit(:file, :url)
+      params.require(:banner).permit(:file, :url, :remove_file)
     end
 end

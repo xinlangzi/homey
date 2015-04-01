@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.1'
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -19,6 +19,7 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
 gem 'rmagick'
+gem 'awesome_print'
 
 group :development do
   gem 'better_errors'
@@ -53,4 +54,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end

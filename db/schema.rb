@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150331152436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "banners", force: :cascade do |t|
     t.string   "file"

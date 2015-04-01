@@ -45,6 +45,7 @@ GEM
     autoprefixer-rails (5.1.7.1)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -329,6 +330,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -384,6 +387,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   better_errors
   binding_of_caller
   bootstrap-sass
@@ -422,6 +426,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
   simple_form
   slim-rails
   spring
