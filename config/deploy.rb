@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'www.homeyagency.com'
+set :application, 'staging.homeyagency.com'
 set :repo_url, 'git@github.com:xinlangzi/homey.git'
 
 # Default branch is :master
@@ -40,7 +40,7 @@ set :ssh_options, {
   auth_methods: ["publickey"]
 }
 
-set :rvm_ruby_version, "ruby-2.1.5"
+set :rvm_ruby_version, "ruby-2.2.0"
 
 set :bundle_without, [:test, :development, :capybara].join(" ")
 

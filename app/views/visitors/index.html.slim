@@ -1,15 +1,12 @@
 #property-slideshow.flexslider
   .guide-block
     .container
-      .links.btn-group
-        a.btn.btn-default href="/" Hello
-        a.btn.btn-default href="/" Hello
-        a.btn.btn-default href="/" Hello
   ul.slides
-    li
-      img src="/slide1.png"
-    li
-      img src="/slide2.png"
+    - Banner.all.each do |banner|
+      li
+        .slide
+          a href=banner.url target='_blank'
+            img src=banner.file.url
 
 .container
   #property-items.show-compare data-view="grid-view" style="opacity: 1;"
@@ -396,10 +393,10 @@
                 span week
     #pagination
       ul.page-numbers
-        li
-          span.page-numbers.current 1
-        li
-          a.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"  2
-        li
-          a.next.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"
-            i.btn.btn-default.fa.fa-angle-right
+        / li
+        /   span.page-numbers.current 1
+        / li
+        /   a.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"  2
+        / li
+        /   a.next.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"
+        /     i.btn.btn-default.fa.fa-angle-right

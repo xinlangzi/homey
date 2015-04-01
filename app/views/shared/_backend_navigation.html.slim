@@ -1,0 +1,7 @@
+header.navbar
+  .container
+    .top-header.primary-tooltips
+      a href=backend_users_path Users
+      a href=backend_banners_path Banners
+      a href=root_path Frontend
+      = link_to("Logout", destroy_user_session_path, method: :delete)
