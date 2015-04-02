@@ -10,14 +10,9 @@
     - next if photo.new_record?
     = render photo
       
-= simple_form_for([:backend, @photo], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
-  = f.input :rental_unit_id, as: :hidden
-
-javascript:
-  Dropzone.options.myAwesomeDropzone = {
-    paramName: "photo[file]",
-    dictDefaultMessage: "Drop photos here to upload."
-  }
+- unless @rental_unit.new_record?
+  = simple_form_for([:backend, @photo], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
+    = f.input :rental_unit_id, as: :hidden
 
 = simple_form_for([:backend, @rental_unit]) do |f|
   = f.error_notification
