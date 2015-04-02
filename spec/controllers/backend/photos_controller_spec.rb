@@ -19,6 +19,11 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe Backend::PhotosController, type: :controller do
+  before do
+    sign_in admin
+  end
+
+  let(:admin) { create(:user, :admin) }
 
   # This should return the minimal set of attributes required to create a valid
   # Photo As you add validations to Backend::Photo, be sure to

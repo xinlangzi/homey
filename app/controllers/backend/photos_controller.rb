@@ -5,6 +5,7 @@ class Backend::PhotosController < ApplicationController
   # POST /backend/photos.json
   def create
     @photo = Photo.new(photo_params)
+    authorize @photo
 
     respond_to do |format|
       if @photo.save
@@ -28,6 +29,7 @@ class Backend::PhotosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
+      authorize @photo
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
