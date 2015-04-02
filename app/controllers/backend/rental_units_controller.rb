@@ -74,6 +74,9 @@ class Backend::RentalUnitsController < Backend::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rental_unit_params
-      params.require(:rental_unit).permit(:title, :property_id, :price, :number_of_bedrooms, :number_of_bathrooms, :number_of_dens, :number_of_storage_rooms, :surface_area, :utility_charge_included, :district_id, :short_term_lease, :business_center, :available_date)
+      furniture = RentalUnit.columns.select { |c| c.name =~ /^Furniture/ }.map { |c| c.name }
+      features = RentalUnit.columns.select { |c| c.name =~ /^Feature/ }.map { |c| c.name }
+      facilities = RentalUnit.columns.select { |c| c.name =~ /^Facility/ }.map { |c| c.name }
+      params.require(:rental_unit).permit(:title, :property_id, :price, :number_of_bedrooms, :number_of_bathrooms, :number_of_dens, :number_of_storage_rooms, :surface_area, :utility_charge_included, :district_id, :short_term_lease, :business_center, :available_date, *furniture, *features, *facilities)
     end
 end

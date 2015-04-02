@@ -36,7 +36,7 @@ a {
   }
 }
 
-header.navbar {
+header .navbar {
   position: static;
   margin: 0;
   border-radius: 0;
@@ -188,7 +188,7 @@ header.navbar {
 }
 
 @media (min-width: 768px) {
-  header.navbar {
+  header .navbar {
     text-align: left;
 
     .top-header {
@@ -217,7 +217,7 @@ header.navbar {
 }
 
 @media (max-width: 767px) {
-  header.navbar .container .navbar-collapse {
+  header .navbar .container .navbar-collapse {
     position: absolute;
     z-index: 1001;
     top: 0;

@@ -5,5 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.references :rental_unit
       t.timestamps null: false
     end
+    
+    add_foreign_key :photos, :rental_units
   end
 end
