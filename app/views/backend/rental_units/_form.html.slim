@@ -19,6 +19,6 @@
     = f.input :district_id, collection: District.all, include_blank: false
     = f.input :short_term_lease
     = f.input :business_center
-    = f.input :available_date
+    = f.input :available_date, html5: true
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
