@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
 gem 'rmagick'
 gem 'awesome_print'
+gem 'seed-fu'
 
 group :development do
   gem 'better_errors'

@@ -1,0 +1,11 @@
+tr
+  td = rental_unit.title
+  td = rental_unit.property_id
+  td = rental_unit.price
+  td = rental_unit.number_of_bedrooms
+  td = rental_unit.number_of_bathrooms
+  td = rental_unit.surface_area
+  td = rental_unit.district_id
+  td = link_to 'Show', backend_rental_unit
+  td = link_to 'Edit', edit_backend_rental_unit_path(rental_unit)
+  td = link_to 'Destroy', [:backend, rental_unit], data: {:confirm => 'Are you sure?'}, :method => :delete

@@ -1,0 +1,24 @@
+- @title = "#{@rental_unit.new_record? ? 'New' : 'Editing'} Rental Unit"
+.page-actions.btn-group
+  = link_to backend_rental_units_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-backward
+    |  Back
+
+= simple_form_for([:backend, @rental_unit]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title
+    = f.input :property_id, label: "Property ID"
+    = f.input :price
+    = f.input :number_of_bedrooms
+    = f.input :number_of_bathrooms
+    = f.input :number_of_dens
+    = f.input :number_of_storage_rooms
+    = f.input :surface_area, label: "Surface Area (in \u33A1)"
+    = f.input :utility_charge_included
+    = f.input :district_id, collection: District.all, include_blank: false
+    = f.input :short_term_lease
+    = f.input :business_center
+    = f.input :available_date
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

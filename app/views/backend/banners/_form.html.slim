@@ -1,3 +1,9 @@
+- @title = "#{@banner.new_record? ? 'New' : 'Editing'} Banner"
+.page-actions.btn-group
+  = link_to backend_banners_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-backward
+    |  Back
+
 = simple_form_for([:backend, @banner]) do |f|
   = f.error_notification
   .form-inputs
