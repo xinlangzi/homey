@@ -21,6 +21,7 @@ gem 'fog', require: "fog/aws/storage"
 gem 'rmagick'
 gem 'awesome_print'
 gem 'seed-fu'
+gem 'dropzonejs-rails'
 
 group :development do
   gem 'better_errors'

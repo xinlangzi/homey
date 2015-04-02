@@ -21,6 +21,7 @@ class Backend::RentalUnitsController < Backend::BaseController
 
   # GET /rental_units/1/edit
   def edit
+    @photo = @rental_unit.photos.build
   end
 
   # POST /rental_units
@@ -46,10 +47,8 @@ class Backend::RentalUnitsController < Backend::BaseController
     respond_to do |format|
       if @rental_unit.update(rental_unit_params)
         format.html { redirect_to [:backend, @rental_unit], notice: 'Rental unit was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rental_unit }
+        format.json { render :show, status: :ok, location: [:backend, @rental_unit] }
       else
-        puts "failure"
-        ap @rental_unit.errors
         format.html { render :edit }
         format.json { render json: @rental_unit.errors, status: :unprocessable_entity }
       end

@@ -109,6 +109,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.7.1)
+      rails (> 3.1)
     erubis (2.7.0)
     excon (0.45.1)
     execjs (2.4.0)
@@ -406,6 +408,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
+  dropzonejs-rails
   factory_girl_rails
   faker
   flexslider

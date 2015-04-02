@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :backend do
+    resources :photos
+  end
+  namespace :backend do
     resources :banners
     resources :users
     resources :rental_units

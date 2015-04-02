@@ -1,0 +1,6 @@
+.col-md-4 id=dom_id(photo)
+  .img-thumbnail
+    = image_tag(photo.file.url)
+    .pull-right
+      = link_to [:backend, photo], data: {:confirm => 'Are you sure?'}, method: :delete, remote: true
+        = icon("times-circle-o")

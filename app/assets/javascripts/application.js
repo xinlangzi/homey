@@ -15,5 +15,6 @@
 //= require jquery.flexslider
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require dropzone
 //= require_tree .
 //= require_tree ./ctrls
