@@ -1,9 +1,10 @@
 /*
  *= require dropzone/dropzone
 */
-
 @import "framework_and_overrides";
+@import "bootstrap-datetimepicker";
 @import "flexslider";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "dropzone/dropzone";
 @import "styles/*";

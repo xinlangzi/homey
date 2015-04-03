@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require jquery.flexslider
 //= require turbolinks
+//= require moment
 //= require bootstrap-sprockets
+//= require bootstrap-datetimepicker
 //= require dropzone
 //= require_tree .
 //= require_tree ./ctrls

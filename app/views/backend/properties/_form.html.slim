@@ -6,37 +6,47 @@
 
 .clearfix
 .row
-  - @property.photos.each do |photo|
-    - next if photo.new_record?
-    = render photo
-      
+  - @property.images.each do |image|
+    - next if image.new_record?
+    = render image
+
 - unless @property.new_record?
-  = simple_form_for([:backend, @photo], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
-    = f.input :property_id, as: :hidden
+  = simple_form_for([:backend, @image], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
+    = f.input :imageable_type, as: :hidden
+    = f.input :imageable_id, as: :hidden
 
 = simple_form_for([:backend, @property]) do |f|
   = f.error_notification
   .form-inputs
+    = f.input :category, collection: enum_options(Property.categories)
     = f.input :title
     = f.input :property_id, label: "Property ID"
     = f.input :price
-    = f.input :number_of_bedrooms
-    = f.input :number_of_bathrooms
-    = f.input :number_of_dens
-    = f.input :number_of_storage_rooms
+    = f.input :bedrooms
+    = f.input :bathrooms
+    = f.input :dens
+    = f.input :storage_rooms
     = f.input :surface_area, label: "Surface Area (in \u33A1)"
     = f.input :utility_charge_included
     = f.input :district_id, collection: District.all, include_blank: false
     = f.input :short_term_lease
     = f.input :business_center
-    = f.input :available_date, html5: true, input_html: { id: "property_available_date" }
-    
-    - { "Furniture" => "Furniture / Equipment", "Feature" => "Features", "Facility" => "Compound Featured Description/Facilities" }.each do |key, value|
-      fieldset
-        legend = value
-        - Property.columns.select { |c| c.name =~ /^#{key}/ }.each do |column|
-          = f.input column.name, label: column.name.gsub(/^#{key} /, ''), input_html: { id: column.name.gsub(/^#{key} /, 'property_').parameterize("_").underscore }
-
+    = f.input :available_date, as: :date_picker
+    fieldset
+      legend Furniture / Equipment
+      .row
+        - Property::FURNITURES.each do |column, name|
+          .col-xs-3 = f.input column, label: name
+    fieldset
+      legend Features
+      .row
+        - Property::FEATURES.each do |column, name|
+          .col-xs-3 = f.input column, label: name
+    fieldset
+      legend Compound Featured Description/Facilities
+      .row
+        - Property::FACILITIES.each do |column, name|
+          .col-xs-3 = f.input column, label: name
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
 

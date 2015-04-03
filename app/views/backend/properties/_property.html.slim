@@ -2,8 +2,8 @@ tr
   td = link_to property.title, [:backend, property]
   td = property.property_id
   td = property.price
-  td = property.number_of_bedrooms
-  td = property.number_of_bathrooms
+  td = property.bedrooms
+  td = property.bathrooms
   td = property.surface_area
   td = property.district.name
   td = link_to edit_backend_property_path(property) do

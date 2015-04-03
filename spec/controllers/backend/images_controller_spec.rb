@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe Backend::PhotosController, type: :controller do
+RSpec.describe Backend::ImagesController, type: :controller do
   before do
     sign_in admin
   end
@@ -27,7 +27,7 @@ RSpec.describe Backend::PhotosController, type: :controller do
   let(:property) { create(:property) }
 
   # This should return the minimal set of attributes required to create a valid
-  # Photo As you add validations to Backend::Photo, be sure to
+  # Image As you add validations to Backend::Image, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     { file: fixture_file_upload("test1.jpg"), property_id: property.id }
@@ -39,40 +39,40 @@ RSpec.describe Backend::PhotosController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # Backend::PhotosController. Be sure to keep this updated too.
+  # Backend::ImagesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Backend::Photo" do
+      it "creates a new Backend::Image" do
         expect {
-          xhr :post, :create, {:photo => valid_attributes}, valid_session
-        }.to change(Photo, :count).by(1)
+          xhr :post, :create, {:image => valid_attributes}, valid_session
+        }.to change(Image, :count).by(1)
       end
 
-      it "assigns a newly created backend_photo as @photo" do
-        xhr :post, :create, {:photo => valid_attributes}, valid_session
-        expect(assigns(:photo)).to be_a(Photo)
-        expect(assigns(:photo)).to be_persisted
+      it "assigns a newly created backend_image as @image" do
+        xhr :post, :create, {:image => valid_attributes}, valid_session
+        expect(assigns(:image)).to be_a(Image)
+        expect(assigns(:image)).to be_persisted
         expect(response).to be_success
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved backend_photo as @photo" do
-        xhr :post, :create, {:photo => invalid_attributes}, valid_session
-        expect(assigns(:photo)).to be_a_new(Photo)
+      it "assigns a newly created but unsaved backend_image as @image" do
+        xhr :post, :create, {:image => invalid_attributes}, valid_session
+        expect(assigns(:image)).to be_a_new(Image)
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested photo" do
-      photo = Photo.create! valid_attributes
+    it "destroys the requested image" do
+      image = Image.create! valid_attributes
       expect {
-        xhr :delete, :destroy, {:id => photo.to_param}, valid_session
-      }.to change(Photo, :count).by(-1)
+        xhr :delete, :destroy, {:id => image.to_param}, valid_session
+      }.to change(Image, :count).by(-1)
       expect(response).to render_template(:destroy)
     end
   end

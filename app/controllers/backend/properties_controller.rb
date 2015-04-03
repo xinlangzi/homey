@@ -21,7 +21,7 @@ class Backend::PropertiesController < Backend::BaseController
 
   # GET /propertys/1/edit
   def edit
-    @photo = @property.photos.build
+    @image = @property.images.build
   end
 
   # POST /propertys
@@ -74,9 +74,13 @@ class Backend::PropertiesController < Backend::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      furniture = Property.columns.select { |c| c.name =~ /^Furniture/ }.map { |c| c.name }
-      features = Property.columns.select { |c| c.name =~ /^Feature/ }.map { |c| c.name }
-      facilities = Property.columns.select { |c| c.name =~ /^Facility/ }.map { |c| c.name }
-      params.require(:property).permit(:title, :property_id, :price, :number_of_bedrooms, :number_of_bathrooms, :number_of_dens, :number_of_storage_rooms, :surface_area, :utility_charge_included, :district_id, :short_term_lease, :business_center, :available_date, *furniture, *features, *facilities)
+      furnitures = Property::FURNITURES.keys
+      features = Property::FEATURES.keys
+      facilities = Property::FACILITIES.keys
+      params.require(:property).permit(
+        :category, :title, :property_id, :price, :bedrooms, :bathrooms, :dens, :storage_rooms,
+        :surface_area, :utility_charge_included, :district_id, :short_term_lease,
+        :business_center, :available_date, *furnitures, *features, *facilities
+      )
     end
 end
