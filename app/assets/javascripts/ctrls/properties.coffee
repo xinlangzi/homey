@@ -1,4 +1,4 @@
-window.RentalUnit =
+window.Property =
   events: ->
 
   init: ->
@@ -6,7 +6,7 @@ window.RentalUnit =
       paramName: "photo[file]",
       dictDefaultMessage: "Drop photos here to upload."
       
-RentalUnit.events()
+Property.events()
 
 $(document).on 'page:update', ->
-  RentalUnit.init()
+  Property.init()
