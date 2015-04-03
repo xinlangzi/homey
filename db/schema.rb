@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402225312) do
+ActiveRecord::Schema.define(version: 20150403002711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,29 @@ ActiveRecord::Schema.define(version: 20150402225312) do
     t.string "name"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "file"
-    t.integer  "rental_unit_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
   end
 
-  create_table "rental_units", force: :cascade do |t|
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "property_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
     t.string   "title"
-    t.string   "property_id"
+    t.string   "property_id",                                                    null: false
     t.decimal  "price"
     t.integer  "number_of_bedrooms"
     t.integer  "number_of_bathrooms"
@@ -110,9 +123,11 @@ ActiveRecord::Schema.define(version: 20150402225312) do
     t.boolean  "Facility Snooker",                               default: false, null: false
     t.boolean  "Facility Salon",                                 default: false, null: false
     t.boolean  "Facility Park",                                  default: false, null: false
+    t.string   "slug"
   end
 
-  add_index "rental_units", ["property_id"], name: "index_rental_units_on_property_id", unique: true, using: :btree
+  add_index "properties", ["property_id"], name: "index_properties_on_property_id", unique: true, using: :btree
+  add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -138,6 +153,6 @@ ActiveRecord::Schema.define(version: 20150402225312) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "photos", "rental_units"
-  add_foreign_key "rental_units", "districts", name: "rental_units_district_id_fk"
+  add_foreign_key "photos", "properties"
+  add_foreign_key "properties", "districts", name: "rental_units_district_id_fk"
 end

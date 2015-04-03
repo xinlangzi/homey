@@ -1,20 +1,20 @@
-- @title = "#{@rental_unit.new_record? ? 'New' : 'Editing'} Rental Unit"
+- @title = "#{@property.new_record? ? 'New' : 'Editing'} Property"
 .page-actions.btn-group
-  = link_to backend_rental_units_path, :class => 'btn btn-default btn-round' do
+  = link_to backend_properties_path, :class => 'btn btn-default btn-round' do
     span.glyphicon.glyphicon-backward
     |  Back
 
 .clearfix
 .row
-  - @rental_unit.photos.each do |photo|
+  - @property.photos.each do |photo|
     - next if photo.new_record?
     = render photo
       
-- unless @rental_unit.new_record?
+- unless @property.new_record?
   = simple_form_for([:backend, @photo], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
-    = f.input :rental_unit_id, as: :hidden
+    = f.input :property_id, as: :hidden
 
-= simple_form_for([:backend, @rental_unit]) do |f|
+= simple_form_for([:backend, @property]) do |f|
   = f.error_notification
   .form-inputs
     = f.input :title
@@ -29,13 +29,13 @@
     = f.input :district_id, collection: District.all, include_blank: false
     = f.input :short_term_lease
     = f.input :business_center
-    = f.input :available_date, html5: true, input_html: { id: "rental_unit_available_date" }
+    = f.input :available_date, html5: true, input_html: { id: "property_available_date" }
     
     - { "Furniture" => "Furniture / Equipment", "Feature" => "Features", "Facility" => "Compound Featured Description/Facilities" }.each do |key, value|
       fieldset
         legend = value
-        - RentalUnit.columns.select { |c| c.name =~ /^#{key}/ }.each do |column|
-          = f.input column.name, label: column.name.gsub(/^#{key} /, ''), input_html: { id: column.name.gsub(/^#{key} /, 'rental_unit_').parameterize("_").underscore }
+        - Property.columns.select { |c| c.name =~ /^#{key}/ }.each do |column|
+          = f.input column.name, label: column.name.gsub(/^#{key} /, ''), input_html: { id: column.name.gsub(/^#{key} /, 'property_').parameterize("_").underscore }
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

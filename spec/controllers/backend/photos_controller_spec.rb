@@ -24,12 +24,13 @@ RSpec.describe Backend::PhotosController, type: :controller do
   end
 
   let(:admin) { create(:user, :admin) }
+  let(:property) { create(:property) }
 
   # This should return the minimal set of attributes required to create a valid
   # Photo As you add validations to Backend::Photo, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { file: fixture_file_upload("test1.jpg") }
+    { file: fixture_file_upload("test1.jpg"), property_id: property.id }
   }
 
   let(:invalid_attributes) {

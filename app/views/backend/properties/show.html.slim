@@ -1,0 +1,45 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @property.title
+p
+  strong Property:
+  = @property.property_id
+p
+  strong Price:
+  = @property.price
+p
+  strong Number of bedrooms:
+  = @property.number_of_bedrooms
+p
+  strong Number of bathrooms:
+  = @property.number_of_bathrooms
+p
+  strong Number of dens:
+  = @property.number_of_dens
+p
+  strong Number of storage rooms:
+  = @property.number_of_storage_rooms
+p
+  strong Surface area:
+  = @property.surface_area
+p
+  strong Utility charge included:
+  = @property.utility_charge_included
+p
+  strong District:
+  = @property.district.name
+p
+  strong Short term lease:
+  = @property.short_term_lease
+p
+  strong Business center:
+  = @property.business_center
+p
+  strong Available date:
+  = @property.available_date
+
+= link_to 'Edit', edit_backend_property_path(@property)
+'|
+= link_to 'Back', backend_properties_path

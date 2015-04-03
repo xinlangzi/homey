@@ -34,6 +34,6 @@ class Backend::PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:rental_unit_id, :file)
+      params.require(:photo).permit(:property_id, :file)
     end
 end

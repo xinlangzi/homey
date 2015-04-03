@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :backend do
     resources :banners
     resources :users
-    resources :rental_units
+    resources :properties
   end
   
   devise_for :users

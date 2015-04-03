@@ -1,8 +1,8 @@
 - @title = "Rental Units"
 .page-actions.btn-group
-  = link_to new_backend_rental_unit_path, :class => 'btn btn-default btn-round' do
+  = link_to new_backend_property_path, :class => 'btn btn-default btn-round' do
     span.glyphicon.glyphicon-plus-sign
-    |  New Rental Unit
+    |  New Property
 
 table border=1
   thead
@@ -17,5 +17,5 @@ table border=1
       th
       th
   tbody
-    - @rental_units.each do |rental_unit|
-      = render rental_unit
+    - @properties.each do |property|
+      = render property

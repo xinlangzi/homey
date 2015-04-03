@@ -1,3 +1,3 @@
 class District < ActiveRecord::Base
-  has_many :rental_units
+  has_many :properties
 end
