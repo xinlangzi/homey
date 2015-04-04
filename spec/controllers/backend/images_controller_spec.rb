@@ -30,7 +30,7 @@ RSpec.describe Backend::ImagesController, type: :controller do
   # Image As you add validations to Backend::Image, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { file: fixture_file_upload("test1.jpg"), property_id: property.id }
+    { file: fixture_file_upload("test1.jpg"), imageable: property }
   }
 
   let(:invalid_attributes) {

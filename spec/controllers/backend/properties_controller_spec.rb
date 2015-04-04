@@ -24,18 +24,14 @@ RSpec.describe Backend::PropertiesController, type: :controller do
   end
 
   let(:admin) { create(:user, :admin) }
-  
+
 
   # This should return the minimal set of attributes required to create a valid
   # Property. As you add validations to Property, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    { title: "beautiful place", district_id: 1, property_id: "here" }
-  }
+  let(:valid_attributes) { attributes_for(:property) }
 
-  let(:invalid_attributes) {
-    { district_id: 80 }
-  }
+  let(:invalid_attributes) { { district_id: 80 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
