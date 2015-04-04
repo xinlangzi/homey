@@ -68,16 +68,4 @@ module PropertyConstant
     boolean59: "Park"
   }.freeze
 
-  TRANSPORTATIONS = {
-    km1: "To BRT",
-    km2: "To Metro",
-    km3: "To Supermarket",
-    km4: "To Beach",
-    km5: "To Airport",
-    km6: "To Railway Station",
-    km7: "To International School",
-    km8: "To University"
-  }.freeze
-
-
 end

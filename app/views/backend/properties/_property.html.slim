@@ -1,11 +1,10 @@
 tr
+  td = link_to property.property_id, [:backend, property]
+  td = property.category.titleize
   td = link_to property.title, [:backend, property]
-  td = property.property_id
-  td = property.price
-  td = property.bedrooms
-  td = property.bathrooms
-  td = property.surface_area
+  td = number_to_currency(property.price, unit: "￥")
   td = property.district.name
+  td = property.surface_area
   td = link_to edit_backend_property_path(property) do
     = icon("pencil-square-o")
   td = link_to [:backend, property], data: {:confirm => 'Are you sure?'}, :method => :delete

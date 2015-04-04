@@ -6,7 +6,7 @@ class WatermarkUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-  
+
   process :add_watermark => "homeyagency.com"
 
   def add_watermark(text)

@@ -25,6 +25,11 @@ gem 'awesome_print'
 gem 'seed-fu'
 gem 'dropzonejs-rails'
 gem 'friendly_id'
+# search
+gem 'ransack'
+# pagination
+gem 'kaminari'
+
 
 group :development do
   gem 'better_errors'

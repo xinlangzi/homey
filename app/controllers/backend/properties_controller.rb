@@ -4,7 +4,8 @@ class Backend::PropertiesController < Backend::BaseController
   # GET /propertys
   # GET /propertys.json
   def index
-    @properties = Property.all
+    @search = Property.search(params[:q])
+    @properties = @search.result.page(params[:page])
     authorize Property
   end
 

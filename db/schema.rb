@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403151838) do
+ActiveRecord::Schema.define(version: 20150404004335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20150403151838) do
     t.decimal  "km6",                     precision: 10, scale: 2
     t.decimal  "km7",                     precision: 10, scale: 2
     t.decimal  "km8",                     precision: 10, scale: 2
+    t.text     "transportation"
   end
 
   add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree
