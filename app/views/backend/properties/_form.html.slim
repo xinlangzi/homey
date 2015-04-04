@@ -5,12 +5,12 @@
     |  Back
 
 .clearfix
-.row
-  - @property.images.reject(&:new_record?).each do |image|
-    .col-md-4
-      = render image
-
 - unless @property.new_record?
+  .row
+    - @property.images.reject(&:new_record?).each do |image|
+      .col-md-3
+        = render image
+
   = simple_form_for([:backend, @image], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
     = f.input :imageable_type, as: :hidden
     = f.input :imageable_id, as: :hidden
