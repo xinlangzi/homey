@@ -54,3 +54,19 @@
           - @property.images.each do |image|
             li  data-thumb=image.file.url
               img src=image.file.url
+  ul.nav.nav-tabs role="tablist"
+    li.active role="presentation"
+      a aria-controls="furnitures" data-toggle="tab" href="#furnitures" role="tab"  Furniture/Equipment
+    li role="presentation"
+      a aria-controls="features" data-toggle="tab" href="#features" role="tab" Features
+    li role="presentation"
+      a aria-controls="facilities" data-toggle="tab" href="#facilities" role="tab" Facilities
+    li role="presentation"
+      a aria-controls="transportation" data-toggle="tab" href="#transportation" role="tab" Transportation
+  .tab-content
+    #furnitures.tab-pane.active role="tabpanel"
+      div Furnitures
+    #features.tab-pane role="tabpanel"
+      div Features
+    #facilities.tab-pane role="tabpanel"  ...
+    #transportation.tab-pane role="tabpanel"  ...

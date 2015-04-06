@@ -34,4 +34,25 @@
       }
     }
   }
+  ul.nav-tabs{
+    background: #666;
+    // padding: 5px;
+    li{
+      margin-bottom: 0px;
+      &.active a{
+        background: rgba(0, 0, 0, 0.8);
+        color: #FFF;
+      }
+      a{
+        color: #DDD;
+        border-radius: 0px;
+        border: none;
+        &:hover{
+          opacity: 0.8;
+          background: rgba(0, 0, 0, 0.6);
+          border: none;
+        }
+      }
+    }
+  }
 }

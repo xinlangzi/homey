@@ -4,7 +4,7 @@ window.Layout =
     $(document).on 'click', '.navbar-toggle', ->
       $('body').toggleClass('show-nav')
 
-    $('.banners').flexslider
+    $('#property-slideshow').flexslider
       # smoothHeight: true
       animation: 'fade'
       # slideshow: true
