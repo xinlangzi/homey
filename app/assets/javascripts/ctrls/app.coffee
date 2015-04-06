@@ -7,6 +7,8 @@ window.App =
     App.dropzone()
     App.datepicker()
     App.datetimepicker()
+    App.fadeAlert()
+  
 
 ##### BEGIN EVENTS#####
   disableWith: ->
@@ -30,7 +32,9 @@ window.App =
 
   datetimepicker: ->
     $('input.date_time_picker').datetimepicker()
-
+    
+  fadeAlert: ->
+    $(".alert").delay(200).addClass("in").fadeOut(4000);
 
 # events only run once to avoid the firing twice or more
 App.events()
