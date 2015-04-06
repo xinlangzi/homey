@@ -25,6 +25,20 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    puts ">>> Loading Seed Data"
+    SeedFu.quiet = true
+    SeedFu.seed
+    puts "<<< Loaded Seed Data"
+  end
+
+  config.before(:each) do
+    Timecop.freeze(Time.local(2015, 5, 1, 10, 0))
+  end
+
+  config.after(:each) do
+    Timecop.return
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -47,4 +61,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.include Devise::TestHelpers, type: :controller
+
 end

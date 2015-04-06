@@ -1,0 +1,58 @@
+.property{
+  .basic{
+    background: #FFF;
+    border: 1px solid #EEE;
+    padding: 2px;
+    .title{
+      background: #F6700E;
+      padding: 10px;
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 300;
+      i{
+        font-size: 13px;
+        font-weight: bold;
+      }
+    }
+    .price{
+      font-size: 24px;
+      padding: 10px 2px;
+      position: relative;
+      margin: 5px -2px;
+      border-bottom: 1px solid #EEE;
+    }
+    ul{
+      list-style: none;
+      padding: 0px;
+      color: #888;
+      li{
+        padding: 4px;
+        border-bottom: 1px dotted #E9E9E9;
+        span:last-child{
+          float: right;
+        }
+      }
+    }
+  }
+  ul.nav-tabs{
+    background: #666;
+    // padding: 5px;
+    li{
+      margin-bottom: 0px;
+      &.active a{
+        background: rgba(0, 0, 0, 0.8);
+        color: #FFF;
+      }
+      a{
+        color: #DDD;
+        border-radius: 0px;
+        border: none;
+        &:hover{
+          opacity: 0.8;
+          background: rgba(0, 0, 0, 0.6);
+          border: none;
+        }
+      }
+    }
+  }
+}

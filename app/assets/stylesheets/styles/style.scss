@@ -1,9 +1,10 @@
 .wrapper{
   width: 100%;
   .page-header{
+    background: #FFF;
     padding: 20px 0px 10px 20px;
     margin: 0px;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid #CCC;
     .title{
       color: #777;
       font-size: 20px;
@@ -12,7 +13,6 @@
   }
   .page-content{
     padding: 10px 20px;
-    background: #FFF;
     min-height: 500px;
   }
   .page-actions{
@@ -20,3 +20,6 @@
     margin-bottom: 15px;
   }
 }
+
+.green{ color: green; }
+.red{ color: red; }

@@ -45,6 +45,7 @@ GEM
     autoprefixer-rails (5.1.7.1)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -55,6 +56,8 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap3-datetimepicker-rails (3.1.3)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (4.0.2)
       columnize (= 0.9.0)
@@ -108,6 +111,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.7.1)
+      rails (> 3.1)
     erubis (2.7.0)
     excon (0.45.1)
     execjs (2.4.0)
@@ -208,6 +213,8 @@ GEM
     foreman (0.78.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     high_voltage (2.2.1)
@@ -225,6 +232,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     loofah (2.0.1)
@@ -235,6 +245,8 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    momentjs-rails (2.9.0)
+      railties (>= 3.1)
     multi_json (1.11.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -245,6 +257,8 @@ GEM
     parser (2.2.0.3)
       ast (>= 1.1, < 3.0)
     pg (0.18.1)
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     powerpack (0.1.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -289,6 +303,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.4.2)
+    ransack (1.6.5)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rmagick (2.13.4)
@@ -324,11 +344,16 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    seed-fu (2.3.5)
+      activerecord (>= 3.1, < 4.3)
+      activesupport (>= 3.1, < 4.3)
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -362,6 +387,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    timecop (0.7.3)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -384,9 +410,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 3.1.3)
   byebug
   capistrano (~> 3.4.0)
   capistrano-bundler
@@ -399,17 +427,21 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
+  dropzonejs-rails
   factory_girl_rails
   faker
   flexslider
   fog
   font-awesome-sass
   foreman
+  friendly_id
   high_voltage
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
+  momentjs-rails
   pg
   pry-rails
   pry-rescue
@@ -417,15 +449,19 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.1)
   rails_layout
+  ransack
   rmagick
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
+  seed-fu
   selenium-webdriver
+  shoulda-matchers
   simple_form
   slim-rails
   spring
   spring-commands-rspec
+  timecop
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

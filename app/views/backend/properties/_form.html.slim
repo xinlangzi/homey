@@ -1,0 +1,72 @@
+- @title = "#{@property.new_record? ? 'New' : 'Editing'} Property"
+.page-actions.btn-group
+  = link_to backend_properties_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-backward
+    |  Back
+
+.clearfix
+- unless @property.new_record?
+  .row
+    - @property.images.reject(&:new_record?).each do |image|
+      .col-md-3
+        = render image
+
+  = simple_form_for([:backend, @image], html: { class: "dropzone", id: "my_awesome_dropzone" }) do |f|
+    = f.input :imageable_type, as: :hidden
+    = f.input :imageable_id, as: :hidden
+
+= simple_form_for([:backend, @property]) do |f|
+  = f.error_notification
+  .row
+    .col-md-3.col-xs-6
+      = f.input :property_id, label: "Property ID"
+    .col-md-3.col-xs-6
+      = f.input :title
+    .col-md-3.col-xs-6
+      = f.input :category, collection: enum_options(Property.categories)
+    .col-md-3.col-xs-6
+      = f.input :price
+    .col-md-3.col-xs-6
+      = f.input :bedrooms
+    .col-md-3.col-xs-6
+      = f.input :bathrooms
+    .col-md-3.col-xs-6
+      = f.input :dens
+    .col-md-3.col-xs-6
+      = f.input :storage_rooms
+    .col-md-3.col-xs-6
+      = f.input :surface_area, label: "Surface Area (in \u33A1)"
+    .col-md-3.col-xs-6
+      = f.input :district_id, collection: District.all, include_blank: false
+    .col-md-3.col-xs-6
+      = f.input :available_date, as: :date_picker
+    .col-md-3.col-xs-6
+    .col-md-12.col-xs-12
+      .row
+        .col-md-3.col-xs-6
+          = f.input :utility_charge_included
+        .col-md-3.col-xs-6
+          = f.input :short_term_lease
+    .col-md-12.col-xs-12
+      = f.input :business_center, label: 'Business Center', input_html: { rows: 5 }
+  fieldset
+    legend Furniture / Equipment
+    .row
+      - Property::FURNITURES.each do |column, name|
+        .col-xs-3 = f.input column, label: name
+  fieldset
+    legend Features
+    .row
+      - Property::FEATURES.each do |column, name|
+        .col-xs-3 = f.input column, label: name
+  fieldset
+    legend Compound Featured Description/Facilities
+    .row
+      - Property::FACILITIES.each do |column, name|
+        .col-xs-3 = f.input column, label: name
+  fieldset
+    legend Transportation
+    = f.input :transportation, label: false, input_html: { rows: 8 }
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+

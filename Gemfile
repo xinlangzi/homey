@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.1'
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -7,7 +7,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'momentjs-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'font-awesome-sass'
 gem 'flexslider'
 gem 'devise'
@@ -19,6 +21,15 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
 gem 'rmagick'
+gem 'awesome_print'
+gem 'seed-fu'
+gem 'dropzonejs-rails'
+gem 'friendly_id'
+# search
+gem 'ransack'
+# pagination
+gem 'kaminari'
+
 
 group :development do
   gem 'better_errors'
@@ -53,4 +64,6 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
+  gem 'timecop'
 end

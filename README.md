@@ -21,13 +21,17 @@ Ruby on Rails
 
 This application requires:
 
-- Ruby 2.1.5
-- Rails 4.2.0
+- Ruby 2.2.1
+- Rails 4.2.1
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
 Getting Started
 ---------------
+
+On Mac:
+
+```brew install gs``` so that the watermark will not fail for lacking fonts.
 
 Documentation and Support
 -------------------------
