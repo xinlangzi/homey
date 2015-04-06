@@ -7,7 +7,7 @@ class Property < ActiveRecord::Base
   belongs_to :district
   has_many :images, as: :imageable
 
-  validates :category, :available_date, presence: true
+  validates :category, :title, :available_date, presence: true
   validates :district, presence: true, associated: true
   validates :property_id, uniqueness: { case_sensitive: false }, presence: true
 

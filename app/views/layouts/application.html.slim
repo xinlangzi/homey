@@ -13,8 +13,8 @@ html
   body
     header
       == render 'shared/navigation'
-      - if flash[:notice]
-        .notice = flash[:notice]
+      / - if flash[:notice]
+      /   .notice = flash[:notice]
       - if flash[:alert]
         .alert = flash[:alert]
       == yield

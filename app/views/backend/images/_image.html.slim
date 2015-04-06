@@ -1,6 +1,5 @@
 .img-thumbnail id=dom_id(image)
-  .img-thumbnail
-    = image_tag(image.file.url)
-    .pull-right
-      = link_to [:backend, image], data: {:confirm => 'Are you sure?'}, method: :delete, remote: true
-        = icon("times-circle-o")
+  = image_tag(image.file.url)
+  .pull-right
+    = link_to [:backend, image], data: {:confirm => 'Are you sure?'}, method: :delete, remote: true
+      = icon("times-circle-o")

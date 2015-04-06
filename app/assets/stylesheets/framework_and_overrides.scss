@@ -1,7 +1,12 @@
 // import the CSS framework
+$padding-base-vertical: 4px;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 2px 0 0;
+}
 // make all images responsive by default
 img {
   @extend .img-responsive;
