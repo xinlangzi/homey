@@ -30,22 +30,9 @@
       nav.navbar-collapse.collapse aria-expanded="false" role="navigation"
         .nav.navbar-nav
           ul
-            li
-              a href="#"  Apartments
-            li
-              a href="#"  Villas
-            li
-              a href="#"  Lane Houses
-            li
-              a href="#"  Shops
-            li
-              a href="#"  Offices
-            li
-              a href="#"  Factories
-            li
-              a href="#"  Serviced Apartments
-            li
-              a href="#"  Others
+            - Property.categories.each do |key, value|
+              li
+                = link_to(key.titleize, properties_path(q: { category_eq: value }))
         #toggle-navbar
           i.icon-angle-right
 

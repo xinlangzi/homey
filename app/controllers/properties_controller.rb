@@ -1,9 +1,16 @@
 class PropertiesController < ApplicationController
+  skip_filter :authenticate_user!
   before_action :set_property, only: [:show]
 
   # GET /propertys/1
   # GET /propertys/1.json
   def show
+  end
+
+  def index
+    @q = Property.ransack(params[:q])
+    @properties = @q.result(distinct: true).page(params[:page]).per(12)
+    authorize Property
   end
 
   private
