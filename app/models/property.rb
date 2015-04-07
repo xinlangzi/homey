@@ -13,4 +13,7 @@ class Property < ActiveRecord::Base
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartment: 7, others: 8 }
 
+  def rooms
+    [bedrooms, bathrooms, dens, storage_rooms].map(&:to_i).sum
+  end
 end

@@ -37,6 +37,9 @@
   ul.nav-tabs{
     background: #666;
     // padding: 5px;
+    li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+      border: none !important;
+    }
     li{
       margin-bottom: 0px;
       &.active a{
@@ -47,12 +50,25 @@
         color: #DDD;
         border-radius: 0px;
         border: none;
+        margin-right: 0;
         &:hover{
           opacity: 0.8;
           background: rgba(0, 0, 0, 0.6);
           border: none;
         }
       }
+    }
+  }
+  .row.booleans{
+    color: #999;
+    .fa{
+      line-height: 2;
+    }
+    .fa-check{
+      color: $base;
+    }
+    .yes{
+      color: #333;
     }
   }
 }
