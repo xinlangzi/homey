@@ -29,7 +29,8 @@ gem 'friendly_id'
 gem 'ransack'
 # pagination
 gem 'kaminari'
-
+# because of the CDN
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem 'better_errors'
