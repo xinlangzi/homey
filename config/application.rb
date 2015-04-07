@@ -16,7 +16,6 @@ Bundler.require(*Rails.groups)
 
 module Homey
   class Application < Rails::Application
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
