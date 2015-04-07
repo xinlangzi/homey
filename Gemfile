@@ -30,6 +30,10 @@ gem 'ransack'
 # pagination
 gem 'kaminari'
 
+
+# http://kennethjiang.blogspot.com/2014/07/set-up-cors-in-cloudfront-for-custom.html
+gem 'font_assets'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -210,6 +210,8 @@ GEM
       nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
+    font_assets (0.1.11)
+      rack
     foreman (0.78.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
@@ -433,6 +435,7 @@ DEPENDENCIES
   flexslider
   fog
   font-awesome-sass
+  font_assets
   foreman
   friendly_id
   high_voltage
