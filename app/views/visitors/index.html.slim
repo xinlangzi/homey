@@ -73,11 +73,5 @@
                 / i.fa.fa-plus.compare-property data-compare-id="68" data-original-title="Compare" data-toggle="tooltip" title=""
                 .price-tag #{number_to_currency(property.price, unit: '￥', precision: 0)}/month
         / #pagination
-    /   ul.page-numbers
-    /     / li
-    /     /   span.page-numbers.current 1
-    /     / li
-    /     /   a.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"  2
-    /     / li
-    /     /   a.next.page-numbers href="http://preview.themetrail.com/realty/page/2/#property-items"
-    /     /     i.btn.btn-default.fa.fa-angle-right
+        .clearfix
+        center = paginate @properties
