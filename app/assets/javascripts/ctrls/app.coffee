@@ -18,6 +18,9 @@ window.App =
 ##### END EVENTS#######
 
   dropzone: ->
+    # need to disable autoDiscover otherwise non-AJAX will be discovered twice and throw JS exception
+    # need to manually discover otherwise AJAX responses will not be discovered
+    Dropzone.autoDiscover = false;
     Dropzone.discover()
 
   datepicker: ->
@@ -25,7 +28,7 @@ window.App =
       pickTime: false
       defaultDate: ''
       useCurrent: false
-      format: 'MM/DD/YYYY'
+      format: 'YYYY-MM-DD'
     ).on('dp.change', ->
       $(this).blur()
     )
