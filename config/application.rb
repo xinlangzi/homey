@@ -27,7 +27,7 @@ module Homey
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
-    config.font_assets.origin = '*'
+    # config.font_assets.origin = '*'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
