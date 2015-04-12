@@ -23,7 +23,11 @@
           .property-item.primary-tooltips.featured
             a href=property_path(property) target='_blank'
               figure.property-thumbnail
-                = image_tag(property.images.first.file.url, class: 'attachment-property-thumb wp-post-image', width: 600, height: 300)
+                - image = property.images.first
+                - if image
+                  = image_tag(image.file.url, class: 'attachment-property-thumb wp-post-image', width: 600, height: 300)
+                - else
+                  div style="width: 600px; height: 300px" No Image
                 figcaption
                   .property-title
                     .title = property.title

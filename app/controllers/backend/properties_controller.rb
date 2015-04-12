@@ -50,6 +50,7 @@ class Backend::PropertiesController < Backend::BaseController
         format.html { redirect_to [:backend, @property], notice: 'Rental unit was successfully updated.' }
         format.json { render :show, status: :ok, location: [:backend, @property] }
       else
+        @image = @property.images.build
         format.html { render :edit }
         format.json { render json: @property.errors, status: :unprocessable_entity }
       end

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :index]
 
   devise_for :users
-  root to: 'visitors#index'
+  root to: 'properties#index'
 end
