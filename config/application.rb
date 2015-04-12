@@ -16,7 +16,6 @@ Bundler.require(*Rails.groups)
 
 module Homey
   class Application < Rails::Application
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -27,6 +26,8 @@ module Homey
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    # config.font_assets.origin = '*'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

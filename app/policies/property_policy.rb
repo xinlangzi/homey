@@ -6,11 +6,11 @@ class PropertyPolicy
   end
 
   def index?
-    @current_user.admin?
+    true
   end
 
   def show?
-    @current_user.admin?
+    true
   end
 
   def update?

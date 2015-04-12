@@ -291,6 +291,7 @@ header .navbar {
 .property-item {
   position: relative;
   margin-bottom: 30px;
+  border: 1px solid #DDD;
   img{
     max-width: none;
     width: 100%;
@@ -316,7 +317,7 @@ header .navbar {
     text-align: center;
     background: #fff;
     .property-meta {
-      min-height: 85px;
+      min-height: 72px;
       padding: 15px;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 0.9em;
@@ -427,7 +428,7 @@ header .navbar {
     overflow: hidden;
     .price-tag {
       float: right;
-      color: #999999;
+      color: #333;
     }
   }
 }
@@ -475,7 +476,7 @@ header .navbar {
       display: block;
     }
     .property-price {
-      line-height: 50px !important;
+      line-height: 40px !important;
     }
     .property-content{
       .property-meta {
