@@ -61,18 +61,21 @@
     #furnitures.tab-pane.active role="tabpanel"
       .row.booleans
         - Property::FURNITURES.each do |column, name|
-          - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
-          .col-xs-3 class=vals.first = icon(vals.last, name)
+          - if @property.send(column)
+            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
+            .col-xs-3 class="yes" = icon("check", name)
     #features.tab-pane role="tabpanel"
       .row.booleans
         - Property::FEATURES.each do |column, name|
-          - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
-          .col-xs-3 class=vals.first = icon(vals.last, name)
+          - if @property.send(column)
+            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
+            .col-xs-3 class="yes" = icon("check", name)
     #facilities.tab-pane role="tabpanel"
       .row.booleans
         - Property::FACILITIES.each do |column, name|
-          - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
-          .col-xs-3 class=vals.first = icon(vals.last, name)
+          - if @property.send(column)
+            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
+            .col-xs-3 class="yes" = icon("check", name)
     #transportation.tab-pane role="tabpanel"
       = simple_format(@property.transportation)
   br
