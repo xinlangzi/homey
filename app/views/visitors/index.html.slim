@@ -72,6 +72,6 @@
                 /   i.fa.fa-video-camera data-original-title=("Watch Trailer") data-toggle="tooltip" title=""
                 / i.fa.fa-plus.compare-property data-compare-id="68" data-original-title="Compare" data-toggle="tooltip" title=""
                 .price-tag #{number_to_currency(property.price, unit: '￥', precision: 0)}/month
-        / #pagination
-        .clearfix
-        center = paginate @properties
+    / #pagination
+    .clearfix
+    center = paginate @properties
