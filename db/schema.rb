@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404004335) do
+ActiveRecord::Schema.define(version: 20150413185003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "banners", force: :cascade do |t|
     t.string   "file"
@@ -136,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150404004335) do
     t.decimal  "km7",                     precision: 10, scale: 2
     t.decimal  "km8",                     precision: 10, scale: 2
     t.text     "transportation"
+    t.integer  "area_id"
   end
 
   add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree
@@ -164,4 +171,5 @@ ActiveRecord::Schema.define(version: 20150404004335) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "properties", "areas"
 end

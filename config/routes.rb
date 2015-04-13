@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :backend do
+    resources :areas
+  end
+  namespace :backend do
     resources :banners
     resources :users
     resources :images

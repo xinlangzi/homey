@@ -1,0 +1,7 @@
+- @title = "#{@area.name}"
+.page-actions.btn-group
+  = link_to 'Edit', edit_backend_area_path(@area), :class => 'btn btn-default btn-round'
+  = link_to 'Back', backend_areas_path, :class => 'btn btn-default btn-round'
+
+.clearfix
+= render 'detail'

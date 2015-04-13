@@ -5,6 +5,7 @@ class Property < ActiveRecord::Base
   friendly_id :property_id, use: :slugged
 
   belongs_to :district
+  belongs_to :area
   has_many :images, as: :imageable
 
   validates :category, :title, :available_date, presence: true
