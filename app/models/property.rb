@@ -10,6 +10,7 @@ class Property < ActiveRecord::Base
 
   validates :category, :title, :available_date, presence: true
   validates :district, presence: true, associated: true
+  validates :area, presence: true, associated: true
   validates :property_id, uniqueness: { case_sensitive: false }, presence: true
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartments: 7, others: 8 }

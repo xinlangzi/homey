@@ -48,7 +48,7 @@ RSpec.describe Backend::AreasController, type: :controller do
     it "assigns all areas as @areas" do
       area = Area.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:areas)).to eq([area])
+      expect(assigns(:areas)).to include(area)
     end
   end
 

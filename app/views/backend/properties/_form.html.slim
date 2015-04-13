@@ -41,6 +41,7 @@
     .col-md-3.col-xs-6
       = f.input :available_date, as: :date_picker
     .col-md-3.col-xs-6
+      = f.input :area_id, collection: Area.all, include_blank: false
     .col-md-12.col-xs-12
       .row
         .col-md-3.col-xs-6

@@ -29,6 +29,9 @@
           li
             span District
             span #{@property.district.name}
+          li
+            span Area
+            span #{@property.area.name}
           - if @property.utility_charge_included
             li.green
               = icon("check-circle-o", "Utility Charge Included")
