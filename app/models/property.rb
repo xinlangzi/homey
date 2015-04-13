@@ -18,4 +18,11 @@ class Property < ActiveRecord::Base
   def rooms
     [bedrooms, bathrooms, dens, storage_rooms].map(&:to_i).sum
   end
+  
+  def self.latest
+    Area.all.reduce({}) do |hash, area|
+      hash[area] = area.properties.order(updated_at: :desc).limit(6)
+      hash
+    end
+  end
 end

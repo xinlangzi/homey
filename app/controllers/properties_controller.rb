@@ -9,7 +9,11 @@ class PropertiesController < ApplicationController
 
   def index
     @q = Property.ransack(params[:q])
-    @properties = @q.result(distinct: true).page(params[:page]).per(12)
+    if params[:q].present?
+      @properties = @q.result(distinct: true).page(params[:page]).per(12)
+    else
+      @latest_properties = Property.latest
+    end
     authorize Property
   end
 
