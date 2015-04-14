@@ -25,6 +25,11 @@ class Property < ActiveRecord::Base
     "5 Brs" => 5,
     "5 Brs+" => 6
   }
+  
+  # need this so that friendly_id will regenerate the slug in case the property_id changes
+  def should_generate_new_friendly_id?
+    true
+  end
 
   def rooms
     [bedrooms, bathrooms, dens, storage_rooms].map(&:to_i).sum
