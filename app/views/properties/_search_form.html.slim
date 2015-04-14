@@ -1,0 +1,15 @@
+div
+  p Property Search
+  = simple_form_for @q, url: properties_path, html: {method: :get} do |f|
+    = f.input :bedrooms_eq, as: :select ,collection: Property::BEDROOM_SELECT, label: 'Bedrooms', required: false
+    = f.input :price_gteq, label: "Min Price", required: false
+    = f.input :price_lteq, label: "Max Price", required: false
+    = f.input :district_id_eq, label: "District", required: false, collection: District.all
+    = f.input :category_eq, label: "Property Type", required: false, collection: enum_options(Property.categories)
+    = f.input :property_id_eq, label: "Property ID", required: false, hint: "If you know the Property ID of the apartment you are looking for, type it in here."
+    - [:boolean33, :boolean39, :boolean40, :boolean41].each do |column|
+      = f.input column.to_s + "_eq", label: PropertyConstant::FEATURES[column], required: false, as: :boolean
+    - [:boolean55].each do |column|
+      = f.input column.to_s + "_eq", label: PropertyConstant::FACILITIES[column], required: false, as: :boolean
+    = f.input :short_term_lease_eq, label: "Short Term Lease", required: false, as: :boolean
+    = f.submit "Search"

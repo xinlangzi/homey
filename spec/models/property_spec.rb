@@ -20,4 +20,15 @@ RSpec.describe Property, type: :model do
       expect(latest).to include({"Rui Jing" => [subject]})
     end
   end
+  
+  describe ".sanitize_params" do
+    it "should remove empty booleans" do
+      hash = { q: { boolean32: "0", keep_me: "0", bedrooms_eq: "6" } }
+      Property.sanitize_params(hash)
+      expect(hash[:q][:boolean32]).to be_nil
+      expect(hash[:q][:keep_me]).to eq("0")
+      expect(hash[:q][:bedrooms_eq]).to be_nil
+      expect(hash[:q][:bedrooms_gteq]).to eq("5")
+    end
+  end
 end

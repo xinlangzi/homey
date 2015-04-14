@@ -8,6 +8,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
+    Property.sanitize_params(params) if params[:q]
     @q = Property.ransack(params[:q])
     if params[:q].present?
       @properties = @q.result(distinct: true).page(params[:page]).per(12)
@@ -18,6 +19,7 @@ class PropertiesController < ApplicationController
   end
 
   private
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.friendly.find(params[:id])

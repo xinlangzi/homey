@@ -14,6 +14,15 @@ class Property < ActiveRecord::Base
   validates :property_id, uniqueness: { case_sensitive: false }, presence: true
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartments: 7, others: 8 }
+  
+  BEDROOM_SELECT = {
+    "1 Br" => 1,
+    "2 Brs" => 2,
+    "3 Brs" => 3,
+    "4 Brs" => 4,
+    "5 Brs" => 5,
+    "5 Brs+" => 6
+  }
 
   def rooms
     [bedrooms, bathrooms, dens, storage_rooms].map(&:to_i).sum
@@ -25,4 +34,14 @@ class Property < ActiveRecord::Base
       hash
     end
   end
+  
+  def self.sanitize_params(parm)
+    parm[:q].delete_if { |key, value| (key =~ /^boolean/ || key == "short_term_lease_eq") && value == "0" }
+    
+    if parm[:q][:bedrooms_eq] == "6"
+      parm[:q].delete(:bedrooms_eq)
+      parm[:q][:bedrooms_gteq] = "5"
+    end
+  end
+  
 end
