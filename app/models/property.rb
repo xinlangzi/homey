@@ -15,6 +15,8 @@ class Property < ActiveRecord::Base
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartments: 7, others: 8 }
   
+  mount_uploader :map, SimpleUploader
+  
   BEDROOM_SELECT = {
     "1 Br" => 1,
     "2 Brs" => 2,

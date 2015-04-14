@@ -45,6 +45,10 @@
             div Business Center
             small
               i = @property.business_center
+          - if @property.map.present?
+            li
+              = link_to("Map", @property.map.url, target: :blank)
+            
     .col-md-9.col-sm-8
       .flexslider.images
         ul.slides

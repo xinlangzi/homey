@@ -82,7 +82,8 @@ class Backend::PropertiesController < Backend::BaseController
       params.require(:property).permit(
         :category, :title, :property_id, :price, :bedrooms, :bathrooms, :dens, :storage_rooms,
         :surface_area, :utility_charge_included, :district_id, :area_id, :short_term_lease,
-        :business_center, :available_date, *furnitures, *features, *facilities, :transportation
+        :business_center, :available_date, *furnitures, *features, *facilities, :transportation,
+        :map
       )
     end
 end
