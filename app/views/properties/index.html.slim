@@ -31,9 +31,13 @@
             - properties.each do |property|
               = render property
 
-    - if @properties.present?
-      ul.row.list-unstyled
-        - @properties.each do |property|
-          = render property
-      .clearfix
-      center = paginate @properties
+    - unless @properties.nil?
+      - if @properties.empty?
+        h2 No properties match. Please try relaxing your criteria.
+      - else
+        h2 Search Results
+        ul.row.list-unstyled
+          - @properties.each do |property|
+            = render property
+        .clearfix
+        center = paginate @properties
