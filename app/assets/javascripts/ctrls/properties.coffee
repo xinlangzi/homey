@@ -9,6 +9,7 @@ window.Property =
     $('.property .images').flexslider
       animation: "slide"
       controlNav: "thumbnails"
+      slideshow: false
 
 
 Property.events()
