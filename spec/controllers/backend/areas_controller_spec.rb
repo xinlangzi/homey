@@ -91,7 +91,8 @@ RSpec.describe Backend::AreasController, type: :controller do
 
       it "redirects to the created area" do
         post :create, {:area => valid_attributes}, valid_session
-        expect(response).to redirect_to([:backend, Area.last])
+        expect(response).to redirect_to(backend_areas_url)
+        expect(flash[:notice]).to eq("Area was successfully created.")
       end
     end
 
@@ -130,7 +131,8 @@ RSpec.describe Backend::AreasController, type: :controller do
       it "redirects to the area" do
         area = Area.create! valid_attributes
         put :update, {:id => area.to_param, :area => valid_attributes}, valid_session
-        expect(response).to redirect_to([:backend, area])
+        expect(response).to redirect_to(backend_areas_url)
+        expect(flash[:notice]).to eq("Area was successfully updated.")
       end
     end
 
