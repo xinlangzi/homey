@@ -1,0 +1,26 @@
+#property-slideshow.flexslider
+  .guide-block
+    .container
+  ul.slides
+    - Banner.all.each do |banner|
+      li
+        .slide
+          a href=banner.url target='_blank'
+            img src=banner.file.url
+.container
+  = render "properties/search_form"
+  .row
+    .col-md-9.latest-properties
+      -if @latest_properties.present?
+        .title Latest Properties
+        - @latest_properties.each do |area, properties|
+          - next if properties.empty?
+          .subtitle
+            .more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
+            .area = link_to properties_url(q: {area_id_eq: area.id}) do
+              = icon("dot-circle-o", area.name)
+          ul.row.list-unstyled
+            - properties.each do |property|
+              = render property
+          hr
+    .col-md-3

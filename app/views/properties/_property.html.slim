@@ -6,7 +6,7 @@ li.col-lg-4.col-md-6
         - if image
           = image_tag(image.file.url, class: 'attachment-property-thumb wp-post-image', width: 600, height: 300)
         - else
-          div style="width: 600px; height: 300px" No Image
+          = image_tag("/noimage.png", width: 600, height: 300)
         figcaption
           .property-title
             .title = property.title

@@ -14,7 +14,8 @@
       - else
         a href=new_user_registration_path Sign Up
         a href=new_user_session_path Sign In
-    .navbar-header
+  .navbar-header
+    .container
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
         span.sr-only Skip navigation
         span.icon-bar
@@ -27,14 +28,16 @@
         .navbar-email
           a href="mailto:info@yourcompany.com"  info@yourcompany.com
       .clearfix
-      nav.navbar-collapse.collapse aria-expanded="false" role="navigation"
-        .nav.navbar-nav
-          ul
-            - Property.categories.each do |key, value|
-              li
-                = link_to(key.titleize, properties_path(q: { category_eq: value }))
-        #toggle-navbar
-          i.icon-angle-right
+    .gray-nav
+      .container
+        nav.navbar-collapse.collapse aria-expanded="false" role="navigation"
+          .nav.navbar-nav
+            ul
+              - Property.categories.each do |key, value|
+                li
+                  = link_to(key.titleize, properties_path(q: { category_eq: value }))
+          #toggle-navbar
+            i.icon-angle-right
 
 
-          ///////Others
+            ///////Others

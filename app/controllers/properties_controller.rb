@@ -10,16 +10,12 @@ class PropertiesController < ApplicationController
   def index
     Property.sanitize_params(params) if params[:q]
     @q = Property.ransack(params[:q])
-    if params[:q].present?
-      @properties = @q.result(distinct: true).page(params[:page]).per(12)
-    else
-      @latest_properties = Property.latest
-    end
+    @properties = @q.result(distinct: true).page(params[:page]).per(12)
     authorize Property
   end
 
   private
-    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.friendly.find(params[:id])

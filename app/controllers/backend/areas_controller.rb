@@ -31,7 +31,7 @@ class Backend::AreasController < Backend::BaseController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to [:backend, @area], notice: 'Area was successfully created.' }
+        format.html { redirect_to backend_areas_url, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Backend::AreasController < Backend::BaseController
   def update
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to [:backend, @area], notice: 'Area was successfully updated.' }
+        format.html { redirect_to backend_areas_url, notice: 'Area was successfully updated.' }
         format.json { render :show, status: :ok, location: @area }
       else
         format.html { render :edit }

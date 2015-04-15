@@ -1,43 +1,12 @@
-#property-slideshow.flexslider
-  .guide-block
-    .container
-  ul.slides
-    - Banner.all.each do |banner|
-      li
-        .slide
-          a href=banner.url target='_blank'
-            img src=banner.file.url
-
 .container
-  #property-items.show-compare data-view="grid-view" style="opacity: 1;"
-    / #compare-properties-popup
-    /   h4 Compare Properties
-    /   #compare-properties-thumbnails
-    /     p
-    /       a.btn.btn-primary.btn-lg href="#"  Compare
-    /     p.alert.alert-info.hide
-    /       small You have reached the maximum of four properties per comparison.
-
-    = render "search_form"
-    
-    -if @latest_properties.present?
-      div Latest Properties
-    
-      ul
-        - @latest_properties.each do |area, properties|
-          - next if properties.empty?
-          li = link_to(area.name, properties_url(q: {area_id_eq: area.id}))
-          ul.row.list-unstyled
-            - properties.each do |property|
-              = render property
-
-    - unless @properties.nil?
-      - if @properties.empty?
-        h2 No properties match. Please try relaxing your criteria.
-      - else
-        h2 Search Results
-        ul.row.list-unstyled
-          - @properties.each do |property|
-            = render property
-        .clearfix
-        center = paginate @properties
+  = render "search_form"
+  - unless @properties.nil?
+    - if @properties.empty?
+      h2 No properties match. Please try relaxing your criteria.
+    - else
+      h4 Search Results
+      ul.row.list-unstyled
+        - @properties.each do |property|
+          = render property
+      .clearfix
+      center = paginate @properties
