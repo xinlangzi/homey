@@ -15,6 +15,8 @@ class Property < ActiveRecord::Base
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartments: 7, others: 8 }
 
+  scope :bedroom_count, ->(amount) { amount == "6" ? where('bedrooms >= 5') : where('bedrooms = ?', amount)}
+  
   mount_uploader :map, SimpleUploader
 
   BEDROOM_SELECT = {
@@ -42,13 +44,9 @@ class Property < ActiveRecord::Base
     end
   end
 
-  def self.sanitize_params(parm)
-    parm[:q].delete_if { |key, value| (key =~ /^boolean/ || key == "short_term_lease_eq") && value == "0" }
-
-    if parm[:q][:bedrooms_eq] == "6"
-      parm[:q].delete(:bedrooms_eq)
-      parm[:q][:bedrooms_gteq] = "5"
-    end
+  private
+  
+  def self.ransackable_scopes(auth_object = nil)
+    [:bedroom_count]
   end
-
 end

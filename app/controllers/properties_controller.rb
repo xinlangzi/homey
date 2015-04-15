@@ -8,7 +8,6 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    Property.sanitize_params(params) if params[:q]
     @q = Property.ransack(params[:q])
     @properties = @q.result(distinct: true).page(params[:page]).per(12)
     authorize Property

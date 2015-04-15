@@ -21,14 +21,22 @@ RSpec.describe Property, type: :model do
     end
   end
   
-  describe ".sanitize_params" do
-    it "should remove empty booleans" do
-      hash = { q: { boolean32: "0", keep_me: "0", bedrooms_eq: "6" } }
-      Property.sanitize_params(hash)
-      expect(hash[:q][:boolean32]).to be_nil
-      expect(hash[:q][:keep_me]).to eq("0")
-      expect(hash[:q][:bedrooms_eq]).to be_nil
-      expect(hash[:q][:bedrooms_gteq]).to eq("5")
+  describe ".bedroom_count" do
+    
+    it "should remove consider 6 to be >= 5" do
+      subject.reload
+      expect(Property.ransack("bedroom_count" => "3").result.length).to eq(1)
+      expect(Property.ransack("bedroom_count" => "5").result).to be_empty
+      expect(Property.ransack("bedroom_count" => "6").result).to be_empty
+      subject.update_attribute(:bedrooms, 5)
+      expect(Property.ransack("bedroom_count" => "5").result.length).to eq(1)
+      expect(Property.ransack("bedroom_count" => "6").result.length).to eq(1)
+      subject.update_attribute(:bedrooms, 6)
+      expect(Property.ransack("bedroom_count" => "5").result).to be_empty
+      expect(Property.ransack("bedroom_count" => "6").result.length).to eq(1)
+      subject.update_attribute(:bedrooms, 7)
+      expect(Property.ransack("bedroom_count" => "5").result).to be_empty
+      expect(Property.ransack("bedroom_count" => "6").result.length).to eq(1)
     end
   end
 end

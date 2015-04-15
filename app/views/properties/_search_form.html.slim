@@ -1,12 +1,12 @@
 .search-box
-  = simple_form_for @q, url: properties_path, html: {method: :get} do |f|
+  = search_form_for @q, url: properties_path, html: {method: :get} do |f|
     .row
       .col-md-2
         = f.input :district_id_eq, label: false, required: false, collection: District.all, include_blank: '-- District --'
       .col-md-2
         = f.input :category_eq, label: false, required: false, collection: enum_options(Property.categories, use_integer: true), include_blank: '-- Property Type --'
       .col-md-2
-        = f.input :bedrooms_eq, as: :select ,collection: Property::BEDROOM_SELECT, label: false, required: false, include_blank: '-- Bedrooms --'
+        = f.input :bedroom_count, as: :select ,collection: Property::BEDROOM_SELECT, label: false, required: false, include_blank: '-- Bedrooms --'
       .col-md-2
         = f.input :price_gteq, label: false, placeholder: "Min Price", required: false
       .col-md-2
@@ -17,9 +17,9 @@
       .col-md-10
         .checkboxs
           - [:boolean33, :boolean39, :boolean40, :boolean41].each do |column|
-            = f.input column.to_s + "_eq", label: PropertyConstant::FEATURES[column], required: false, as: :boolean
+            = f.input column.to_s + "_eq", label: PropertyConstant::FEATURES[column], required: false, as: :boolean, unchecked_value: ""
           - [:boolean55].each do |column|
-            = f.input column.to_s + "_eq", label: PropertyConstant::FACILITIES[column], required: false, as: :boolean
-          = f.input :short_term_lease_eq, label: "Short Term Lease", required: false, as: :boolean
+            = f.input column.to_s + "_eq", label: PropertyConstant::FACILITIES[column], required: false, as: :boolean, unchecked_value: ""
+          = f.input :short_term_lease_eq, label: "Short Term Lease", required: false, as: :boolean, unchecked_value: ""
       .col-md-2
         = f.submit "Search Properties", class: 'btn btn-primary'
