@@ -6,9 +6,12 @@ window.Property =
 
 
   slideImages: ->
-    $('.property .images').flexslider
+    window.Property.flexslider = $('.property .images').flexslider
       animation: "slide"
       controlNav: "thumbnails"
+      slideshow: false
+      animationLoop: false
+    # console.log(window.Property.flexslider.data().flexslider.vars)
 
 
 Property.events()

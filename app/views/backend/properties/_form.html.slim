@@ -41,6 +41,7 @@
     .col-md-3.col-xs-6
       = f.input :available_date, as: :date_picker
     .col-md-3.col-xs-6
+      = f.input :area_id, collection: Area.all, include_blank: false
     .col-md-12.col-xs-12
       .row
         .col-md-3.col-xs-6
@@ -67,6 +68,12 @@
   fieldset
     legend Transportation
     = f.input :transportation, label: false, input_html: { rows: 8 }
+  fieldset
+    legend Map
+    = f.input :map, as: :file, label: false
+    - if @property.map
+      = image_tag(@property.map.url, class: 'attachment-property-thumb wp-post-image', width: 600, height: 300)
+    
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
 

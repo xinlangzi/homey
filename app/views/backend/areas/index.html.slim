@@ -1,0 +1,16 @@
+- @title = "Areas"
+.page-actions.btn-group
+  = link_to new_backend_area_path, :class => 'btn btn-default btn-round' do
+    span.glyphicon.glyphicon-plus-sign
+    |  New Area
+
+.clearfix
+table.table
+  thead
+    tr
+      th Name
+      th
+      th
+  tbody
+    - @areas.each do |area|
+      = render area

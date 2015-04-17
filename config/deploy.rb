@@ -40,7 +40,7 @@ set :ssh_options, {
   auth_methods: ["publickey"]
 }
 
-set :rvm_ruby_version, "ruby-2.2.1"
+set :rvm_ruby_version, "ruby-2.2.2"
 
 set :bundle_without, [:test, :development, :capybara].join(" ")
 

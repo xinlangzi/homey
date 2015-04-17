@@ -72,3 +72,28 @@
     }
   }
 }
+
+
+.latest-properties{
+  & > .title{
+    padding: 10px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: lighten($base, 5%);
+    text-align: center;
+    color: #FFF;
+  }
+  & > .subtitle{
+    padding: 5px 0px;
+    .area{
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .more{
+      float: right;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+  }
+}

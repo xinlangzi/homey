@@ -29,6 +29,9 @@
           li
             span District
             span #{@property.district.name}
+          li
+            span Area
+            span #{@property.area.try(:name)}
           - if @property.utility_charge_included
             li.green
               = icon("check-circle-o", "Utility Charge Included")
@@ -57,6 +60,10 @@
       a aria-controls="facilities" data-toggle="tab" href="#facilities" role="tab" Facilities
     li role="presentation"
       a aria-controls="transportation" data-toggle="tab" href="#transportation" role="tab" Transportation
+    - if @property.map.present?
+      li role="presentation"
+        a aria-controls="transportation" data-toggle="tab" href="#map" role="tab" Map
+
   .tab-content.white-block
     #furnitures.tab-pane.active role="tabpanel"
       .row.booleans
@@ -78,5 +85,8 @@
             .col-xs-3 class="yes" = icon("check", name)
     #transportation.tab-pane role="tabpanel"
       = simple_format(@property.transportation)
+    - if @property.map.present?
+      #map.tab-pane role="tabpanel"
+        = image_tag(@property.map.url)
   br
   br

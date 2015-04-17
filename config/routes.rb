@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :backend do
+    resources :areas
+  end
+  namespace :backend do
     resources :banners
     resources :users
     resources :images
@@ -10,5 +13,5 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :index]
 
   devise_for :users
-  root to: 'properties#index'
+  root to: 'pages#home'
 end

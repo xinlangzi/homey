@@ -11,10 +11,12 @@ FactoryGirl.define do
     surface_area 150
     utility_charge_included false
     district_id 1
+    area_id 1
     short_term_lease false
     business_center "Richest"
     available_date Date.today
     district
+    area
   end
 
 end
