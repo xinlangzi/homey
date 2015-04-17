@@ -1,0 +1,31 @@
+class Backend::SystemsController < Backend::BaseController
+  before_action :set_system, only: [:index, :edit, :update]
+
+  def index
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @system.update(system_params)
+        format.html { redirect_to backend_systems_path, notice: 'System was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_system
+      @system = System.find_or_create_by({})
+      authorize @system
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def system_params
+      params.require(:system).permit(:logo, :slogan, :email, :phone)
+    end
+end
