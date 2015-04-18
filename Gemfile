@@ -31,6 +31,9 @@ gem 'ransack'
 # pagination
 gem 'kaminari'
 gem 'recaptcha', require: 'recaptcha/rails'
+
+# queue
+gem 'sinatra', require: false
 gem 'sidekiq'
 
 group :development do
