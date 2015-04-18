@@ -48,5 +48,7 @@ module Homey
     config.active_record.raise_in_transactional_callbacks = true
     
     config.assets.version = "1.0"
+    
+    config.active_job.queue_adapter = :sidekiq
   end
 end

@@ -30,6 +30,8 @@ gem 'friendly_id'
 gem 'ransack'
 # pagination
 gem 'kaminari'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'sidekiq'
 
 group :development do
   gem 'better_errors'
@@ -45,6 +47,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'letter_opener_web'
 end
 
 group :development, :test do

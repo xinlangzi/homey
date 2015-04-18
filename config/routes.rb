@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :images
     resources :properties
     resources :systems, only: [:index, :edit, :update]
+    resources :inquiries, exclude: [:new, :create]
   end
 
   resources :properties, only: [:show, :index]
+  resources :inquiries, only: [:new, :create]
 
   devise_for :users
   root to: 'pages#home'

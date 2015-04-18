@@ -1,0 +1,24 @@
+- @title = "Contact Form"
+.container
+  .page-header
+    h3 Contact Us
+  .docs-featurette
+    .row
+      .col-md-offset-3.col-md-6
+        .panel.panel-default
+          .panel-heading Contact us!
+          .panel-body
+            - if flash[:error]
+              .alert.alert-danger = flash[:error]
+            br
+            = simple_form_for @inquiry do |f|
+              = f.input :name
+              = f.input :email
+              = f.input :mobile_phone
+              = f.input :comment, :as => :text, input_html: { rows: 5 }
+              = f.input :property_id, label: "Property ID"
+              .row
+                .col-md-8
+                  = recaptcha_tags ajax: true
+                .col-md-4
+                  = f.button :submit, 'Ready to Send', :class=> "btn btn-danger send-mail"
