@@ -42,6 +42,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-passenger'
+  gem 'capistrano-sidekiq'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
