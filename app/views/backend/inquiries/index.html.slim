@@ -1,0 +1,14 @@
+- @title = "Inquiries"
+.clearfix
+table.table
+  thead
+    tr
+      th Name
+      th Email
+      th Mobile Phone
+      th Comment
+      th Property ID
+      th Delete
+  tbody
+    - @inquiries.each do |inquiry|
+      = render inquiry

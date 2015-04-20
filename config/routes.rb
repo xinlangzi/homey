@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :images
     resources :properties
     resources :systems, only: [:edit, :update]
-    resources :inquiries, exclude: [:new, :create]
+    resources :inquiries, only: [:show, :index, :destroy]
   end
 
   resources :properties, only: [:show, :index]
