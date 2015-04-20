@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+# source 'https://ruby.taobao.org'
 ruby '2.2.2'
 gem 'rails', '4.2.1'
 gem 'sprockets', '~> 2.12.3' # version 3.0.0 did not work for me.

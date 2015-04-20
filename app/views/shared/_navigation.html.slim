@@ -8,7 +8,7 @@
       a data-toggle="modal" href="#login-modal" Contact Us
       - if user_signed_in?
         - if current_user.admin?
-          a href=backend_users_path Backend
+          a href=backend_properties_path Backend
         = link_to("Edit account", edit_user_registration_path)
         = link_to("Sign Out", destroy_user_session_path, method: :delete)
       - else
@@ -22,11 +22,13 @@
         span.icon-bar
         span.icon-bar
       .navbar-brand
-        a href="/" Welcome to Homey
+        a href="/"
+          = image_tag(System.default.logo.url, class: 'logo') rescue 'Homey'
+        .slogan = System.default.slogan
       .navbar-contact-details
-        .navbar-phone-number +1 555 22 66 8890
+        .navbar-phone-number = System.default.phone
         .navbar-email
-          a href="mailto:info@yourcompany.com"  info@yourcompany.com
+          = mail_to(System.default.email, System.default.email)
       .clearfix
     .gray-nav
       .container

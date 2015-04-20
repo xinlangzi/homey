@@ -1,8 +1,5 @@
 class Backend::SystemsController < Backend::BaseController
-  before_action :set_system, only: [:index, :edit, :update]
-
-  def index
-  end
+  before_action :set_system, only: [:edit, :update]
 
   def edit
   end
@@ -20,7 +17,7 @@ class Backend::SystemsController < Backend::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_system
-      @system = System.find_or_create_by({})
+      @system = System.default
       authorize @system
     end
 

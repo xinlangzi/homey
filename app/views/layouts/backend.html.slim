@@ -16,5 +16,8 @@ html
       .wrapper
         == render "shared/page_header"
         .page-content
-          .container
-            == yield
+          .row
+            .col-md-2
+              == render 'shared/backend_sidebar'
+            .col-md-10.white-block
+              == yield
