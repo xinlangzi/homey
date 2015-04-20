@@ -1,7 +1,7 @@
 class InquiriesController < ApplicationController
   # GET /inquiries/new
   def new
-    @inquiry = Inquiry.new
+    @inquiry = Inquiry.new(property_id: params[:property_id])
     authorize @inquiry
   end
 

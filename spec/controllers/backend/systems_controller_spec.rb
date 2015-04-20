@@ -41,17 +41,9 @@ RSpec.describe Backend::SystemsController, type: :controller do
   # SystemsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all systems as @systems" do
-      system = System.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:system)).to eq(system)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested system as @system" do
-      system = System.create! valid_attributes
+      system = System.first
       get :edit, {:id => system.to_param}, valid_session
       expect(assigns(:system)).to eq(system)
     end
@@ -64,14 +56,14 @@ RSpec.describe Backend::SystemsController, type: :controller do
       }
 
       it "updates the requested system" do
-        system = System.create! valid_attributes
+        system = System.first
         put :update, {:id => system.to_param, :system => new_attributes}, valid_session
         system.reload
         expect(system.slogan).to eq("gotta poop")
       end
 
       it "assigns the requested system as @system" do
-        system = System.create! valid_attributes
+        system = System.first
         put :update, {:id => system.to_param, :system => valid_attributes}, valid_session
         expect(assigns(:system)).to eq(system)
       end
@@ -79,7 +71,7 @@ RSpec.describe Backend::SystemsController, type: :controller do
       it "redirects to the system" do
         system = System.create! valid_attributes
         put :update, {:id => system.to_param, :system => valid_attributes}, valid_session
-        expect(response).to redirect_to(backend_systems_path)
+        expect(response).to redirect_to(edit_backend_system_path(0))
       end
     end
   end

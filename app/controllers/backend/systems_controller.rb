@@ -7,7 +7,7 @@ class Backend::SystemsController < Backend::BaseController
   def update
     respond_to do |format|
       if @system.update(system_params)
-        format.html { redirect_to backend_systems_path, notice: 'System was successfully updated.' }
+        format.html { redirect_to edit_backend_system_path(0), notice: 'System was successfully updated.' }
       else
         format.html { render :edit }
       end

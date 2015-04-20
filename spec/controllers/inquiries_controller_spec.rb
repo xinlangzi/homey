@@ -38,8 +38,9 @@ RSpec.describe InquiriesController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new inquiry as @inquiry" do
-      get :new, {}, valid_session
+      get :new, {property_id: "xxx"}, valid_session
       expect(assigns(:inquiry)).to be_a_new(Inquiry)
+      expect(assigns(:inquiry).property_id).to eq("xxx")
     end
   end
 

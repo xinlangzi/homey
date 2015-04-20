@@ -45,6 +45,9 @@
             div Business Center
             small
               i = @property.business_center
+        = link_to new_inquiry_path(property_id: @property.property_id), :class => 'btn btn-default btn-round' do
+          span.glyphicon.glyphicon-envelope
+          |  Request More Info
     .col-md-9.col-sm-8
       .flexslider.images
         ul.slides
