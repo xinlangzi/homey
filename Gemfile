@@ -37,6 +37,8 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sinatra', require: false
 gem 'sidekiq'
 
+gem 'ckeditor'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

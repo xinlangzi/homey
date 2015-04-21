@@ -18,5 +18,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require dropzone
+//= require ckeditor/init
 //= require_tree .
 //= require_tree ./ctrls
