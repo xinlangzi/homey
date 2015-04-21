@@ -37,6 +37,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sinatra', require: false
 gem 'sidekiq'
 
+gem 'mini_magick'
 gem 'ckeditor'
 
 group :development do
