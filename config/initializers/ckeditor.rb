@@ -31,9 +31,12 @@ Ckeditor.setup do |config|
   # Customize ckeditor assets path
   # By default: nil
   # config.asset_path = "http://www.example.com/assets/ckeditor/"
-
+  
   # To reduce the asset precompilation time, you can limit plugins and/or languages to those you need:
   # By default: nil (no limit)
   # config.assets_languages = ['en', 'uk']
+  config.assets_languages = ['en', 'cn']
   # config.assets_plugins = ['image', 'smiley']
 end
+
+Rails.application.config.assets.precompile += %w( ckeditor/* )
