@@ -22,7 +22,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
-gem 'rmagick'
+# gem 'rmagick'
 gem 'awesome_print'
 gem 'seed-fu'
 gem 'dropzonejs-rails'
