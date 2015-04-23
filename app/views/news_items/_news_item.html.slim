@@ -1,0 +1,6 @@
+li
+  .subtitle
+    .area = link_to news_item_url(news_item) do
+      = icon("dot-circle-o", news_item.title)
+    = news_item.content.html_safe
+  

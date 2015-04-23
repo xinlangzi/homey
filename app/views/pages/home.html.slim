@@ -23,4 +23,10 @@
             - properties.each do |property|
               = render property
           hr
-    .col-md-3
+    .col-md-3.latest-properties
+      .title Latest News
+      .subtitle
+        .more = link_to("View All", news_items_url)
+      ul.list-unstyled
+        - @latest_news.each do |news_item|
+          = render news_item

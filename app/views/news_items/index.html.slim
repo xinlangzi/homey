@@ -1,0 +1,7 @@
+ul
+  - @news_items.each do |news_item|
+    li.block_copy
+      div = news_item.title
+      div = news_item.content.html_safe
+.clearfix
+center = paginate @news_items
