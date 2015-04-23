@@ -27,6 +27,6 @@
       .title Latest News
       .subtitle
         .more = link_to("View All", news_items_url)
-      ul.list-unstyled
+      ul.list-unstyled.block_copy
         - @latest_news.each do |news_item|
           = render news_item

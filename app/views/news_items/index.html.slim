@@ -1,6 +1,6 @@
-ul
+ul.block_copy
   - @news_items.each do |news_item|
-    li.block_copy
+    li
       div = news_item.title
       div = news_item.content.html_safe
 .clearfix

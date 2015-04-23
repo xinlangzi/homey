@@ -1,10 +1,14 @@
 window.NewsItem =
+  restrictCopy: ->
+    return false
+    
   events: ->
-    if $(".block_copy")
-      $(document).on 'copy', ->
-        return false
     
   init: ->
+    if $(".block_copy").length > 0
+      $(document).on 'copy', NewsItem.restrictCopy
+    else
+      $(document).off 'copy', NewsItem.restrictCopy
     
 
 NewsItem.events()
