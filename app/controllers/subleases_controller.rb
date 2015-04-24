@@ -1,5 +1,6 @@
 class SubleasesController < ApplicationController
   before_action :set_sublease, only: [:index, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new]
 
   # GET /subleases/1
   # GET /subleases/1.json
