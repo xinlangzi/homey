@@ -3,10 +3,11 @@
     .row
       .col-md-9
         .page.white-block.block_copy
-          .title = @sublease.title
-          .date = @sublease.created_at
-          .content = @sublease.content.html_safe
-          .clearfix
+          - if @sublease
+            .title = @sublease.title
+            .date = @sublease.created_at
+            .content = @sublease.content.html_safe
+            .clearfix
       .col-md-3
         = link_to new_sublease_path, class: 'btn btn-primary btn-block' do
           span.glyphicon.glyphicon-plus-sign
