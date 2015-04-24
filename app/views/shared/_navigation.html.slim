@@ -2,10 +2,10 @@
   .container
     .top-header.primary-tooltips
       a href=root_path Home
-      a data-toggle="modal" href="#login-modal" Properties
+      a data-toggle="modal" href="/properties" Properties
       a data-toggle="modal" href="#login-modal" Our Services
       a data-toggle="modal" href="#login-modal" Online Request
-      a data-toggle="modal" href="#login-modal" Contact Us
+      a data-toggle="modal" href="/inquiries/new" Contact Us
       - if user_signed_in?
         = link_to("Subleases", subleases_path)
         - if current_user.admin?
