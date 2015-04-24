@@ -1,0 +1,5 @@
+ul.list-unstyled.list-items
+  - @news_items.each do |news_item|
+    li = link_to news_item.title, news_items_path(id: news_item.id, page: params[:page]), class: 'item'
+  li = paginate @news_items, remote: true
+

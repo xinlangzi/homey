@@ -24,7 +24,7 @@ RSpec.describe SubleasesController, type: :controller do
   end
 
   let(:admin) { create(:user, :admin) }
-  
+
 
   # This should return the minimal set of attributes required to create a valid
   # Sublease. As you add validations to Sublease, be sure to
@@ -50,13 +50,13 @@ RSpec.describe SubleasesController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "assigns the requested sublease as @sublease" do
-      sublease = Sublease.create! valid_attributes
-      get :show, {:id => sublease.to_param}, valid_session
-      expect(assigns(:sublease)).to eq(sublease)
-    end
-  end
+  # describe "GET #show" do
+  #   it "assigns the requested sublease as @sublease" do
+  #     sublease = Sublease.create! valid_attributes
+  #     get :show, {:id => sublease.to_param}, valid_session
+  #     expect(assigns(:sublease)).to eq(sublease)
+  #   end
+  # end
 
   describe "GET #new" do
     it "assigns a new sublease as @sublease" do
@@ -65,13 +65,13 @@ RSpec.describe SubleasesController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested sublease as @sublease" do
-      sublease = Sublease.create! valid_attributes
-      get :edit, {:id => sublease.to_param}, valid_session
-      expect(assigns(:sublease)).to eq(sublease)
-    end
-  end
+  # describe "GET #edit" do
+  #   it "assigns the requested sublease as @sublease" do
+  #     sublease = Sublease.create! valid_attributes
+  #     get :edit, {:id => sublease.to_param}, valid_session
+  #     expect(assigns(:sublease)).to eq(sublease)
+  #   end
+  # end
 
   describe "POST #create" do
     context "with valid params" do
@@ -106,60 +106,60 @@ RSpec.describe SubleasesController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        { title: "another" }
-      }
+  # describe "PUT #update" do
+  #   context "with valid params" do
+  #     let(:new_attributes) {
+  #       { title: "another" }
+  #     }
 
-      it "updates the requested sublease" do
-        sublease = Sublease.create! valid_attributes
-        put :update, {:id => sublease.to_param, :sublease => new_attributes}, valid_session
-        sublease.reload
-        expect(sublease.title).to eq("another")
-      end
+  #     it "updates the requested sublease" do
+  #       sublease = Sublease.create! valid_attributes
+  #       put :update, {:id => sublease.to_param, :sublease => new_attributes}, valid_session
+  #       sublease.reload
+  #       expect(sublease.title).to eq("another")
+  #     end
 
-      it "assigns the requested sublease as @sublease" do
-        sublease = Sublease.create! valid_attributes
-        put :update, {:id => sublease.to_param, :sublease => valid_attributes}, valid_session
-        expect(assigns(:sublease)).to eq(sublease)
-      end
+  #     it "assigns the requested sublease as @sublease" do
+  #       sublease = Sublease.create! valid_attributes
+  #       put :update, {:id => sublease.to_param, :sublease => valid_attributes}, valid_session
+  #       expect(assigns(:sublease)).to eq(sublease)
+  #     end
 
-      it "redirects to the sublease" do
-        sublease = Sublease.create! valid_attributes
-        put :update, {:id => sublease.to_param, :sublease => valid_attributes}, valid_session
-        expect(response).to redirect_to(sublease)
-      end
-    end
+  #     it "redirects to the sublease" do
+  #       sublease = Sublease.create! valid_attributes
+  #       put :update, {:id => sublease.to_param, :sublease => valid_attributes}, valid_session
+  #       expect(response).to redirect_to(sublease)
+  #     end
+  #   end
 
-    context "with invalid params" do
-      it "assigns the sublease as @sublease" do
-        sublease = Sublease.create! valid_attributes
-        put :update, {:id => sublease.to_param, :sublease => invalid_attributes}, valid_session
-        expect(assigns(:sublease)).to eq(sublease)
-      end
+  #   context "with invalid params" do
+  #     it "assigns the sublease as @sublease" do
+  #       sublease = Sublease.create! valid_attributes
+  #       put :update, {:id => sublease.to_param, :sublease => invalid_attributes}, valid_session
+  #       expect(assigns(:sublease)).to eq(sublease)
+  #     end
 
-      it "re-renders the 'edit' template" do
-        sublease = Sublease.create! valid_attributes
-        put :update, {:id => sublease.to_param, :sublease => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
+  #     it "re-renders the 'edit' template" do
+  #       sublease = Sublease.create! valid_attributes
+  #       put :update, {:id => sublease.to_param, :sublease => invalid_attributes}, valid_session
+  #       expect(response).to render_template("edit")
+  #     end
+  #   end
+  # end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested sublease" do
-      sublease = Sublease.create! valid_attributes
-      expect {
-        delete :destroy, {:id => sublease.to_param}, valid_session
-      }.to change(Sublease, :count).by(-1)
-    end
+  # describe "DELETE #destroy" do
+  #   it "destroys the requested sublease" do
+  #     sublease = Sublease.create! valid_attributes
+  #     expect {
+  #       delete :destroy, {:id => sublease.to_param}, valid_session
+  #     }.to change(Sublease, :count).by(-1)
+  #   end
 
-    it "redirects to the subleases list" do
-      sublease = Sublease.create! valid_attributes
-      delete :destroy, {:id => sublease.to_param}, valid_session
-      expect(response).to redirect_to(subleases_url)
-    end
-  end
+  #   it "redirects to the subleases list" do
+  #     sublease = Sublease.create! valid_attributes
+  #     delete :destroy, {:id => sublease.to_param}, valid_session
+  #     expect(response).to redirect_to(subleases_url)
+  #   end
+  # end
 
 end

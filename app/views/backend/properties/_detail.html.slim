@@ -45,16 +45,17 @@
             div Business Center
             small
               i = @property.business_center
-        - unless (current_user && current_user.admin?)
-          = link_to new_inquiry_path(property_id: @property.property_id), :class => 'btn btn-default btn-round' do
-            span.glyphicon.glyphicon-envelope
-            |  Request More Info
+
+          li
+            = link_to new_inquiry_path(property_id: @property.property_id), class: 'btn btn-lg btn-success btn-block' do
+              = icon("envelope-o", "Online Request")
     .col-md-9.col-sm-8
       .flexslider.images
         ul.slides
           - @property.images.each do |image|
             li  data-thumb=image.file.url
               img src=image.file.url
+  br
   ul.nav.nav-tabs role="tablist"
     li.active role="presentation"
       a aria-controls="furnitures" data-toggle="tab" href="#furnitures" role="tab"  Furniture/Equipment

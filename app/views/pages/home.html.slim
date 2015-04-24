@@ -23,14 +23,17 @@
             - properties.each do |property|
               = render property
           hr
-    .col-md-3.latest-properties
-      .title Latest News
-      .subtitle
-        .more = link_to("View All", news_items_url)
-      ul.list-unstyled.block_copy
-        - @latest_news.each do |news_item|
-          = render news_item
-      .title Subleases
-      ul.list-unstyled.block_copy
-        - @subleases.each do |sublease|
-          = render sublease
+    .col-md-3
+      .right-block
+        .title Latest News
+        ul.list-unstyled.block_copy
+          - @latest_news.each do |news_item|
+            li = link_to news_item.title, news_item, class: 'item'
+          li.more = link_to("View All", news_items_url)
+
+      .right-block
+        .title Subleases
+        ul.list-unstyled.block_copy
+          - @subleases.each do |sublease|
+            li = link_to sublease.title, sublease, class: 'item'
+          li.more = link_to("View All", subleases_url)

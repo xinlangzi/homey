@@ -1,17 +1,17 @@
-- @title = "Subleases"
-.page-actions.btn-group
-  = link_to new_backend_news_item_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-plus-sign
-    |  New Sublease
-
-.clearfix
-table.table
-  thead
-    tr
-      th Title
-      th Last Updated
-      th
-      th
-  tbody
-    - @subleases.each do |sublease|
-      = render sublease
+.main
+  .container
+    .row
+      .col-md-9
+        .page.white-block.block_copy
+          .title = @sublease.title
+          .date = @sublease.created_at
+          .content = @sublease.content.html_safe
+          .clearfix
+      .col-md-3
+        = link_to new_sublease_path, class: 'btn btn-primary btn-block' do
+          span.glyphicon.glyphicon-plus-sign
+          |  New Sublease
+        br
+        .right-block
+          .title All Subleases
+          = render 'items'

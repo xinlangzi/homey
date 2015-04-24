@@ -38,12 +38,12 @@ RSpec.describe NewsItemsController, type: :controller do
       expect(assigns(:news_items)).to eq([news_item])
     end
   end
-  
+
   describe "GET #show" do
     it "assigns the requested news_item as @news_item" do
       news_item = NewsItem.create! valid_attributes
       get :show, {:id => news_item.to_param}, valid_session
-      expect(assigns(:news_item)).to eq(news_item)
+      expect(response).to redirect_to(news_items_path(id: news_item.id))
     end
   end
 end

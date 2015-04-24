@@ -28,6 +28,7 @@
 }
 
 .search-box{
+  background: #FFF;
   margin: 15px 0px;
   border: 3px solid #EEE;
   form{
@@ -42,6 +43,10 @@
       }
     }
   }
+}
+
+.main{
+  margin: 15px 0px;
 }
 
 .green{ color: green; }
