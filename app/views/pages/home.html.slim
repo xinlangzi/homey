@@ -30,3 +30,7 @@
       ul.list-unstyled.block_copy
         - @latest_news.each do |news_item|
           = render news_item
+      .title Subleases
+      ul.list-unstyled.block_copy
+        - @subleases.each do |sublease|
+          = render sublease

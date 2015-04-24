@@ -7,6 +7,7 @@
       a data-toggle="modal" href="#login-modal" Online Request
       a data-toggle="modal" href="#login-modal" Contact Us
       - if user_signed_in?
+        = link_to("Subleases", subleases_path)
         - if current_user.admin?
           a href=backend_properties_path Backend
         = link_to("Edit account", edit_user_registration_path)

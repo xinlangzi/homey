@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :index]
   resources :inquiries, only: [:new, :create]
   resources :news_items, only: [:show, :index]
+  resources :subleases
 
   devise_for :users
   root to: 'pages#home'

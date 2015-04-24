@@ -1,0 +1,2 @@
+class Sublease < Post
+end
