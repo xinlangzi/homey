@@ -20,3 +20,15 @@ html
       - if flash[:alert]
         .alert = flash[:alert]
       == yield
+
+    .modal.fade#copyModal
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close type="button" data-dismiss="modal" aria-label="Close"
+              span aria-hidden="true" &times;
+            h4.modal-title Naughty!
+          .modal-body
+            p We don't allow copying from this page. If you try again, we'll call the PSB on you! :)
+          .modal-footer
+            button.btn.btn-default type="button" data-dismiss="modal" Close

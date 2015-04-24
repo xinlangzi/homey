@@ -1,5 +1,6 @@
 window.NewsItem =
   restrictCopy: ->
+    $("#copyModal").modal("show")
     return false
     
   events: ->
