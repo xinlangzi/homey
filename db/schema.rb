@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423222116) do
+ActiveRecord::Schema.define(version: 20150424205114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "areas", force: :cascade do |t|
     t.string   "name",       null: false
@@ -180,6 +181,23 @@ ActiveRecord::Schema.define(version: 20150423222116) do
   end
 
   add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "kind",           limit: 2, null: false
+    t.integer  "intention",      limit: 2
+    t.integer  "category",       limit: 2
+    t.integer  "bathroom_count", limit: 2
+    t.integer  "bedroom_count",  limit: 2
+    t.integer  "budget"
+    t.date     "start_of_lease"
+    t.date     "end_of_lease"
+    t.string   "name",                     null: false
+    t.string   "email",                    null: false
+    t.string   "mobile_phone",             null: false
+    t.text     "comments"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "systems", force: :cascade do |t|
     t.string   "logo"

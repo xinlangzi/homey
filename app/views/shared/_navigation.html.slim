@@ -1,11 +1,10 @@
 .navbar
   .container
     .top-header.primary-tooltips
-      a href=root_path Home
-      a data-toggle="modal" href="/properties" Properties
-      a data-toggle="modal" href="#login-modal" Our Services
-      a data-toggle="modal" href="#login-modal" Online Request
-      a data-toggle="modal" href="/inquiries/new" Contact Us
+      = link_to("Home", root_path)
+      = link_to("Properties", properties_path)
+      = link_to("Online Request", new_request_path)
+      = link_to("Contact Us", new_inquiry_path)
       - if user_signed_in?
         = link_to("Subleases", subleases_path)
         - if current_user.admin?
