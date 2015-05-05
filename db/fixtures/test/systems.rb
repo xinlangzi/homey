@@ -1,3 +1,3 @@
 System.seed(:id,
-  { id: 1, slogan: "Welcome", email: "info@homeyagency.com" }
+  { id: 1, slogan: "Welcome", email: "realestate@homeyagency.com" }
 )

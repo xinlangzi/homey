@@ -5,8 +5,8 @@ RSpec.describe ApplicationMailer, type: :mailer do
     let!(:inquiry) { create(:inquiry) }
     it "create email" do
       email = ApplicationMailer.new_inquiry(inquiry.id)
-      expect(email.to).to eq(["info@homeyagency.com"])
-      expect(email.from).to eq(["info@homeyagency.com"])
+      expect(email.to).to eq(["realestate@homeyagency.com"])
+      expect(email.from).to eq(["realestate@homeyagency.com"])
       expect(email.subject).to eq("Prospective Customer Left Inquiry")
     end
   end
@@ -15,8 +15,8 @@ RSpec.describe ApplicationMailer, type: :mailer do
     let!(:request) { create(:request) }
     it "create email" do
       email = ApplicationMailer.new_request(request.id)
-      expect(email.to).to eq(["info@homeyagency.com"])
-      expect(email.from).to eq(["info@homeyagency.com"])
+      expect(email.to).to eq(["realestate@homeyagency.com"])
+      expect(email.from).to eq(["realestate@homeyagency.com"])
       expect(email.subject).to eq("Prospective Customer Left Request")
     end
   end
