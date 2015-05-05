@@ -72,10 +72,8 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.smtp_settings = {
-    address: "email-smtp.us-west-2.amazonaws.com",
-    # address: "smtp.zoho.com",
+    address: "smtp.mandrillapp.com",
     port: 587,
-    domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: Rails.application.secrets.smtp_username,
