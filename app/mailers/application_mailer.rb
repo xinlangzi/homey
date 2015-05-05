@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "info@homeyagency.com"
+  default from: "realestate@homeyagency.com"
   layout 'mailer'
   
   def new_inquiry(inquiry_id)
