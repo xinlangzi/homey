@@ -6,6 +6,8 @@
 
 p = "Name: #{@inquiry.name}"
 p = "Email: #{mail_to(@inquiry.email)}".html_safe
-p = "Mobile Phone: #{@inquiry.mobile_phone}"
+p 
+  | Mobile Phone: 
+  a href="tel:#{@inquiry.mobile_phone}" = @inquiry.mobile_phone
 p = "Comment: #{@inquiry.comment}"
 p = "Property ID: #{link_to(@inquiry.property_id, [:backend, Property.friendly.find(@inquiry.property_id)]) rescue @inquiry.property_id}".html_safe

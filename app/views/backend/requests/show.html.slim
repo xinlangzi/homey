@@ -1,0 +1,21 @@
+- @title = "#{@request.name}"
+.page-actions.btn-group
+  = link_to 'Back', backend_requests_path, :class => 'btn btn-default btn-round'
+
+.clearfix
+
+p = "Kind: #{@request.kind}"
+- if @request.expat?
+  p = "Intention: #{@request.intention}"
+  p = "Category: #{@request.category}"
+  p = "Bathroom Count: #{@request.bathroom_count}"
+  p = "Bedroom Count: #{@request.bedroom_count}"
+  p = "Budget: #{@request.budget}"
+  p = "Start of Lease: #{@request.start_of_lease}"
+  p = "End of Lease: #{@request.end_of_lease}"
+p = "Name: #{@request.name}"
+p = "Email: #{mail_to(@request.email)}".html_safe
+p 
+  | Mobile Phone: 
+  a href="tel:#{@request.mobile_phone}" = @request.mobile_phone
+p = "Comments: #{@request.comments}"

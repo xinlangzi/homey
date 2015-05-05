@@ -4,6 +4,6 @@ class Inquiry < ActiveRecord::Base
   validates :comment, presence: true
   
   after_create do
-    InquiryMailer.prospective_customer(self.id).deliver_later(wait: 1.minute)
+    ApplicationMailer.new_inquiry(self.id).deliver_later(wait: 1.minute)
   end
 end

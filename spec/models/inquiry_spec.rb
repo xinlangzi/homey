@@ -10,6 +10,6 @@ RSpec.describe Inquiry, type: :model do
     job = jobs[ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper].first
     expect(job["at"].to_f - job["enqueued_at"].to_f).to eq(60.0)
     args = job["args"].first["arguments"]
-    expect(args[0..1] << args[3]).to eq(["InquiryMailer", "prospective_customer", inquiry.id])
+    expect(args[0..1] << args[3]).to eq(["ApplicationMailer", "new_inquiry", inquiry.id])
   end
 end

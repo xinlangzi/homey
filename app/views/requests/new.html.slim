@@ -23,7 +23,7 @@
                       .form-inputs
                         = f.input :kind, as: :hidden, input_html: { value: "expat" }
                         = f.input :intention, collection: enum_options(Request.intentions), required: true, include_blank: false
-                        = f.input :category, collection: enum_options(Property.categories), required: true, include_blank: false
+                        = f.input :category, collection: enum_options(Request.categories), required: true, include_blank: false
                         = f.input :bathroom_count
                         = f.input :bedroom_count
                         = f.input :budget
