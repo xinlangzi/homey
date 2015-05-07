@@ -9,8 +9,8 @@
         = link_to("Subleases", subleases_path)
         - if current_user.admin?
           a href=backend_properties_path Backend
-        = link_to("Edit account", edit_user_registration_path)
-        = link_to("Sign Out", destroy_user_session_path, method: :delete)
+        = link_to("Edit Account", edit_user_registration_path)
+        = link_to("Logout", destroy_user_session_path, method: :delete)
       - else
         a href=new_user_registration_path Sign Up
         a href=new_user_session_path Sign In

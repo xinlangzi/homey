@@ -1,21 +1,48 @@
-- @title = "#{@request.name}"
+- @title = "Online Request: #{@request.name}"
 .page-actions.btn-group
   = link_to 'Back', backend_requests_path, :class => 'btn btn-default btn-round'
 
 .clearfix
 
-p = "Kind: #{@request.kind}"
-- if @request.expat?
-  p = "Intention: #{@request.intention}"
-  p = "Category: #{@request.category}"
-  p = "Bathroom Count: #{@request.bathroom_count}"
-  p = "Bedroom Count: #{@request.bedroom_count}"
-  p = "Budget: #{@request.budget}"
-  p = "Start of Lease: #{@request.start_of_lease}"
-  p = "End of Lease: #{@request.end_of_lease}"
-p = "Name: #{@request.name}"
-p = "Email: #{mail_to(@request.email)}".html_safe
-p 
-  | Mobile Phone: 
-  a href="tel:#{@request.mobile_phone}" = @request.mobile_phone
-p = "Comments: #{@request.comments}"
+table.table
+  tr
+    th Submitted
+    td = @request.created_at.to_s
+  tr
+    th Kind
+    td = @request.kind
+  tr
+    th Name
+    td = @request.name
+  tr
+    th Email
+    td = mail_to(@request.email)
+  tr
+    th Mobile Phone
+    td
+      a href="tel:#{@request.mobile_phone}" = @request.mobile_phone
+  tr
+    th Comment
+    td = @request.comments
+  - if @request.expat?
+    tr
+      th Intention
+      td = @request.intention
+    tr
+      th Category
+      td = @request.category
+    tr
+      th Bathroom Count
+      td = @request.bathroom_count
+    tr
+      th Bedroom Count
+      td = @request.bedroom_count
+    tr
+      th Budget
+      td = @request.budget
+    tr
+      th Start of Lease
+      td = @request.start_of_lease
+    tr
+      th End of Lease
+      td = @request.end_of_lease

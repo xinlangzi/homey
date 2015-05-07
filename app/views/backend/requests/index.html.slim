@@ -3,6 +3,7 @@
 table.table
   thead
     tr
+      th ID
       th Kind
       th Name
       th Email
@@ -12,3 +13,5 @@ table.table
   tbody
     - @requests.each do |request|
       = render request
+center
+  = paginate @requests

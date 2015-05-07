@@ -4,7 +4,7 @@ class Backend::InquiriesController < Backend::BaseController
   # GET /inquiries
   # GET /inquiries.json
   def index
-    @inquiries = Inquiry.all
+    @inquiries = Inquiry.order("id DESC").page(params[:page])
     authorize Inquiry
   end
 

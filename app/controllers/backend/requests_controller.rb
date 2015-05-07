@@ -4,7 +4,7 @@ class Backend::RequestsController < Backend::BaseController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @requests = Request.order("id DESC").page(params[:page])
     authorize Request
   end
 

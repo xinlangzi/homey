@@ -8,7 +8,10 @@ table.table
       th Mobile Phone
       th Comment
       th Property ID
+      th Submimted
       th Delete
   tbody
     - @inquiries.each do |inquiry|
       = render inquiry
+center
+  = paginate @inquiries
