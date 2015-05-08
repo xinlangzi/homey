@@ -1,4 +1,4 @@
-District.seed(:id,
+District.seed_once(:id,
   { id: 1, name: "Si Ming" },
   { id: 2, name: "Hu Li" },
   { id: 3, name: "Hai Cang" },

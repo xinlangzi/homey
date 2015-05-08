@@ -1,3 +1,5 @@
+require 'seed-fu/capistrano3'
+
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -68,3 +70,5 @@ namespace :deploy do
   end
 
 end
+
+before "deploy:publishing", "db:seed_fu"
