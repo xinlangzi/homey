@@ -1,0 +1,10 @@
+tr
+  td = link_to(inquiry.name, [:backend, inquiry])
+  td = mail_to(inquiry.email)
+  td
+    a href="tel:#{inquiry.mobile_phone}" = inquiry.mobile_phone
+  td = inquiry.comment
+  td = link_to(inquiry.property_id, [:backend, inquiry.property]) rescue inquiry.property_id
+  td = inquiry.created_at.to_s
+  td = link_to [:backend, inquiry], data: {:confirm => 'Are you sure?'}, :method => :delete
+    = icon("times-circle-o")

@@ -1,0 +1,13 @@
+.flash
+  - if flash[:notice]
+    .alert.alert-success
+      a.close href="#" data-dismiss="alert" &times;
+      = flash[:notice]
+  - if flash[:alert]
+    .alert.alert-warning
+      a.close href="#" data-dismiss="alert" &times;
+      = flash[:alert]
+  - if flash[:error]
+    .alert.alert-danger
+      a.close href="#" data-dismiss="alert" &times;
+      = flash[:error]

@@ -1,0 +1,9 @@
+= simple_form_for(@sublease) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, required: true
+    = f.input :content, as: current_user.user? ? :text : :ckeditor
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Cancel', subleases_path, class: 'btn btn-parimary'

@@ -1,3 +1,13 @@
+.logo{
+  width: 150px;
+}
+.slogan{
+  font-family: Lato;
+  padding: 5px 0px;
+  color: #444;
+  font-size: 18px;
+  font-style: italic;
+}
 *{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -35,7 +45,6 @@ a {
     text-decoration: none;
   }
 }
-
 header .navbar {
   position: static;
   margin: 0;

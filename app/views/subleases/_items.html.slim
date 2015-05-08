@@ -1,0 +1,5 @@
+ul.list-unstyled.list-items
+  - @subleases.each do |sublease|
+    li = link_to sublease.title, subleases_path(id: sublease.id, page: params[:page]), class: 'item'
+  li = paginate @subleases, remote: true
+

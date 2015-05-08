@@ -6,17 +6,25 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Homey'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Homey'}"
+    link rel="shortcut icon" href="/favicon.ico"
     link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic' type='text/css' media='all' data-turbolinks-track="true"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
     header
+      == render 'shared/alert'
       == render 'shared/navigation'
-      - if flash[:notice]
-        .alert.alert-info.fade
-          a.close href="#" data-dismiss="alert" &times;
-          = flash[:notice]
-      - if flash[:alert]
-        .alert = flash[:alert]
       == yield
+
+    .modal.fade#copyModal
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close type="button" data-dismiss="modal" aria-label="Close"
+              span aria-hidden="true" &times;
+            h4.modal-title Naughty!
+          .modal-body
+            p We don't allow copying from this page. If you try again, we'll call the PSB on you! &#9786;
+          .modal-footer
+            button.btn.btn-default type="button" data-dismiss="modal" Close

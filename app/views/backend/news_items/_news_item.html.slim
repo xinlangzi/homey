@@ -1,0 +1,7 @@
+tr
+  td = link_to news_item.title, [:backend, news_item]
+  td = news_item.updated_at
+  td = link_to edit_backend_news_item_path(news_item) do
+    = icon("pencil-square-o")
+  td = link_to [:backend, news_item], data: {:confirm => 'Are you sure?'}, :method => :delete
+    = icon("times-circle-o")

@@ -1,0 +1,7 @@
+- @title = @news_item.title
+.page-actions.btn-group
+  = link_to 'Edit', edit_backend_news_item_path(@news_item), :class => 'btn btn-default btn-round'
+  = link_to 'Back', backend_news_items_path, :class => 'btn btn-default btn-round'
+
+.clearfix
+= render 'detail'

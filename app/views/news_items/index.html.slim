@@ -1,0 +1,13 @@
+.main
+  .container
+    .row
+      .col-md-9
+        .page.white-block.block_copy
+          .title = @news_item.title
+          .date = @news_item.created_at
+          .content = @news_item.content.html_safe
+          .clearfix
+      .col-md-3
+        .right-block
+          .title All News
+          = render 'items'

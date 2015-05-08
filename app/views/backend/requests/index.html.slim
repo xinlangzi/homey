@@ -1,0 +1,17 @@
+- @title = "Requests"
+.clearfix
+table.table
+  thead
+    tr
+      th ID
+      th Kind
+      th Name
+      th Email
+      th Mobile Phone
+      th Comment
+      th Delete
+  tbody
+    - @requests.each do |request|
+      = render request
+center
+  = paginate @requests

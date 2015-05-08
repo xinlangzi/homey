@@ -23,8 +23,8 @@ li.col-lg-4.col-md-6
                 li.red
                   = icon("check-circle-o", "Short Term Lease")
               li class="#{property.available_date < Date.today ? 'green' : 'red'}"
-                = icon("calendar", "Available Date")
-                span = property.available_date
+                = icon("calendar", date_label(property))
+                span = " " + property.available_date.to_s
               li
                 div Business Center
                 small

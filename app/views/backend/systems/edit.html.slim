@@ -1,0 +1,17 @@
+- @title = "Editing System Configuration"
+
+= simple_form_for([:backend, @system]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :logo, as: :file
+    - if @system.logo
+      = image_tag(@system.logo.url, class: 'logo pull-left')
+      .clearfix
+      br
+
+    = f.input :slogan
+    = f.input :phone
+    = f.input :email
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

@@ -1,0 +1,10 @@
+tr
+  td = link_to "##{request.id}", [:backend, request]
+  td = request.kind.try(:titleize)
+  td = request.name
+  td = mail_to(request.email)
+  td
+    a href="tel:#{request.mobile_phone}" = request.mobile_phone
+  td = request.comments
+  td = link_to [:backend, request], data: {:confirm => 'Are you sure?'}, :method => :delete
+    = icon("times-circle-o")

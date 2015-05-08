@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+# source 'https://ruby.taobao.org'
 ruby '2.2.2'
 gem 'rails', '4.2.1'
 gem 'sprockets', '~> 2.12.3' # version 3.0.0 did not work for me.
@@ -21,7 +22,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
-gem 'rmagick'
+# gem 'rmagick'
 gem 'awesome_print'
 gem 'seed-fu'
 gem 'dropzonejs-rails'
@@ -30,6 +31,14 @@ gem 'friendly_id'
 gem 'ransack'
 # pagination
 gem 'kaminari'
+gem 'recaptcha', require: 'recaptcha/rails'
+
+# queue
+gem 'sinatra', require: false
+gem 'sidekiq'
+
+gem 'mini_magick'
+gem 'ckeditor'
 
 group :development do
   gem 'better_errors'
@@ -40,11 +49,13 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-passenger'
+  gem 'capistrano-sidekiq'
   gem 'foreman'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'letter_opener_web'
 end
 
 group :development, :test do

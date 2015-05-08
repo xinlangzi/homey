@@ -1,3 +1,11 @@
+.flash{
+  position: fixed;
+  top: 0px;
+  display: block;
+  width: 100%;
+  z-index: 100;
+}
+
 .wrapper{
   width: 100%;
   .page-header{
@@ -24,9 +32,11 @@
 .white-block{
   background: #FFF;
   padding: 10px;
+  border: 1px solid #DDD;
 }
 
 .search-box{
+  background: #FFF;
   margin: 15px 0px;
   border: 3px solid #EEE;
   form{
@@ -40,6 +50,15 @@
         color: #666;
       }
     }
+  }
+}
+
+.main{
+  margin: 15px 0px;
+  .title{
+    font-size: 24px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #DDD;
   }
 }
 
