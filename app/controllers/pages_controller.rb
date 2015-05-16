@@ -8,4 +8,10 @@ class PagesController < ApplicationController
     @subleases = Sublease.latest
   end
 
+  def our_service
+  end
+
+  def contact_us
+  end
+
 end

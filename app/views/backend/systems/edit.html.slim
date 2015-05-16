@@ -12,6 +12,11 @@
     = f.input :slogan
     = f.input :phone
     = f.input :email
+    = f.input :our_service, as: :ckeditor, label: "Our Service"
+    = f.input :contact_us, as: :ckeditor, label: "Contact Us"
+    = f.input :to_be_vip, as: :ckeditor, label: "How to become VIP"
+    = f.input :escape_clause, as: :ckeditor, label: "Escape Clause(免责条款)"
+    = f.input :faq_to_owner, as: :ckeditor, label: "FAQ to Owner"
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

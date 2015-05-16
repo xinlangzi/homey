@@ -4,6 +4,9 @@
   .form-inputs
     = f.input :title, required: true
     = f.input :content, as: current_user.user? ? :text : :ckeditor
+    center
+      = System.default.escape_clause.html_safe
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to 'Cancel', subleases_path, class: 'btn btn-parimary'
+

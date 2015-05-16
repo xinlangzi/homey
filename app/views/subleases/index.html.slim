@@ -7,6 +7,9 @@
             .title = @sublease.title
             .date = @sublease.created_at
             .content = @sublease.content.html_safe
+            .alert.alert-warning
+              b Escape Clause:
+              span = System.default.escape_clause.html_safe
             .clearfix
       .col-md-3
         = link_to new_sublease_path, class: 'btn btn-primary btn-block' do

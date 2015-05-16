@@ -3,8 +3,9 @@
     .top-header.primary-tooltips
       = link_to("Home", root_path)
       = link_to("Properties", properties_path)
+      = link_to("Our Service", '/our_service')
       = link_to("Online Request", new_request_path)
-      = link_to("Contact Us", new_inquiry_path)
+      = link_to("Contact Us", '/contact_us')
       - if user_signed_in?
         = link_to("Subleases", subleases_path)
         - if current_user.admin?
