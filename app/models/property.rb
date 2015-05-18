@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
   include PropertyConstant
 
   friendly_id :property_id, use: :slugged
+  mount_uploader :map, SimpleUploader
 
   belongs_to :district
   belongs_to :area
@@ -11,13 +12,13 @@ class Property < ActiveRecord::Base
   validates :category, :title, :available_date, presence: true
   validates :district, presence: true, associated: true
   validates :area, presence: true, associated: true
-  validates :property_id, uniqueness: { case_sensitive: false }, presence: true
+  validates :property_id, uniqueness: { case_sensitive: false }
 
   enum category: { apartments: 1, villas: 2, lane_houses: 3, studios: 4, shops: 5, offices: 6, serviced_apartments: 7, others: 8 }
 
   scope :bedroom_count, ->(amount) { amount == "6" ? where('bedrooms >= 5') : where('bedrooms = ?', amount)}
-  
-  mount_uploader :map, SimpleUploader
+
+  before_create :auto_property_id
 
   BEDROOM_SELECT = {
     "1 Br" => 1,
@@ -45,8 +46,16 @@ class Property < ActiveRecord::Base
   end
 
   private
-  
+
   def self.ransackable_scopes(auth_object = nil)
     [:bedroom_count]
+  end
+
+  def auto_property_id
+    secure_random = SecureRandom.hex(3).upcase
+    while Property.find_by(property_id: secure_random)
+      secure_random = SecureRandom.hex(3).upcase
+    end
+    self.property_id = secure_random
   end
 end

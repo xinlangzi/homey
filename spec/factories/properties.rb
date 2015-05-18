@@ -2,7 +2,6 @@ FactoryGirl.define do
   factory :property do
     category :apartments
     title "FuLong"
-    property_id "XMFL001"
     price "5000"
     bedrooms 3
     bathrooms 2
