@@ -3,4 +3,4 @@
     .title Our Service
     .content
       br
-      = System.default.our_service.html_safe
+      = System.default.our_service.try(:html_safe)

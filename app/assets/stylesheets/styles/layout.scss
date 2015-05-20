@@ -8,6 +8,11 @@
   font-size: 18px;
   font-weight: 200;
 }
+#switch_user_identifier{
+  position: absolute;
+  top: 40px;
+  right: 300px;
+}
 *{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -77,13 +82,17 @@ header .navbar {
     text-align: center;
     a {
       display: inline-block;
-      padding: 0 1em;
-      line-height: 2.5;
+      padding: 3px 1em 6px 1em;
+      line-height: 1.5;
       color: #F6F6F6;
-      opacity: 0.8;
+      opacity: 0.9;
       background-color: $base;
-      // background-color: rgba(255, 255, 255, 0.1);
       margin: 0px 1px;
+      @include border-radius-separate(0, 0, 10px, 10px);
+      &.online-request{
+        background: #FF2A6D;
+        font-weight: bold;
+      }
       &:hover {
         color: #FFF;
         opacity: 1;

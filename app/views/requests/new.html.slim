@@ -53,3 +53,5 @@
                   = f.input :mobile_phone, required: true, label: "Mobile/电话"
                   = f.input :comments, label: "Intention/意向", hint: "请尽量将您有意出租或出售房源的小区名，门牌号，楼层，意向月租金/售价，屋内设施等信息描述详尽，我们会根据您的要求第一时间给您回复。", input_html: { rows: 8}
                   = f.submit class: 'btn btn-primary'
+              .col-md-6
+                = System.default.faq_to_owner.try(:html_safe)

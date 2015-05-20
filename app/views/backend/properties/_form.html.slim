@@ -20,8 +20,6 @@
   = f.error_notification
   .row
     .col-md-3.col-xs-6
-      = f.input :property_id, label: "Property ID"
-    .col-md-3.col-xs-6
       = f.input :title
     .col-md-3.col-xs-6
       = f.input :category, collection: enum_options(Property.categories)

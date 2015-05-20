@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
+gem 'switch_user'
 # gem 'rmagick'
 gem 'awesome_print'
 gem 'seed-fu'

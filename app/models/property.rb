@@ -2,7 +2,7 @@ class Property < ActiveRecord::Base
   extend FriendlyId
   include PropertyConstant
 
-  friendly_id :property_id, use: :slugged
+  friendly_id :property_id
   mount_uploader :map, SimpleUploader
 
   belongs_to :district

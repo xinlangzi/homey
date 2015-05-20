@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? || Rails.env.capybara?
 
   namespace :backend do
+    resources :base
     resources :areas
     resources :banners
     resources :users
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/our_service', to: 'pages#our_service'
   get '/contact_us', to: 'pages#contact_us'
+  get '/backend', to: 'backend/base#index'
   root to: 'pages#home'
 
 end

@@ -1,17 +1,27 @@
 ul.list-group.sidebar-nav
+  - case true
+  - when current_user.admin?
+    li.list-group-item
+      a href=backend_properties_path Properties
+    li.list-group-item
+      a href=backend_news_items_path News
+    li.list-group-item
+      a href=backend_inquiries_path Inquiries
+    li.list-group-item
+      a href=backend_requests_path Online Requests
+    li.list-group-item
+      a href=backend_banners_path Banners
+    li.list-group-item
+      a href=backend_areas_path Areas
+    li.list-group-item
+      a href=backend_users_path Users
+    li.list-group-item
+      a href=edit_backend_system_path(0) System
+  - when current_user.vip?
+    li.list-group-item
+      a href='#' Orders
+  - else
+    li.list-group-item
+      a href='#' How to Become VIP
   li.list-group-item
-    a href=backend_properties_path Properties
-  li.list-group-item
-    a href=backend_news_items_path News
-  li.list-group-item
-    a href=backend_inquiries_path Inquiries
-  li.list-group-item
-    a href=backend_requests_path Online Requests
-  li.list-group-item
-    a href=backend_banners_path Banners
-  li.list-group-item
-    a href=backend_areas_path Areas
-  li.list-group-item
-    a href=backend_users_path Users
-  li.list-group-item
-    a href=edit_backend_system_path(0) System
+    a href=edit_user_registration_path Edit Account
