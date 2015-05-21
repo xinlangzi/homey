@@ -33,13 +33,13 @@ table.table
       td = @request.category
     tr
       th Bathroom Count
-      td = @request.bathroom_count
+      td = "#{@request.bathroom_min} - #{@request.bathroom_max}"
     tr
       th Bedroom Count
-      td = @request.bedroom_count
+      td = "#{@request.bedroom_min} - #{@request.bedroom_max}"
     tr
       th Budget
-      td = @request.budget
+      td = "#{@request.budget_min} - #{@request.budget_max}"
     tr
       th Start of Lease
       td = @request.start_of_lease

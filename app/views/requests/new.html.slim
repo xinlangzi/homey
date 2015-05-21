@@ -19,17 +19,26 @@
                 = simple_form_for(@request) do |f|
                   = f.error_notification
                   = f.input :kind, as: :hidden, input_html: { value: "expat" }
-                  = f.input :intention, collection: enum_options(Request.intentions), required: true, include_blank: false
                   .row
+                    .col-md-6
+                      = f.input :intention, collection: enum_options(Request.intentions), required: true, include_blank: false
                     .col-md-6
                       = f.input :category, collection: enum_options(Request.categories), required: true, include_blank: false
-                    .col-md-6
-                      = f.input :budget
                   .row
                     .col-md-6
-                      = f.input :bedroom_count
+                      = f.input :budget_min, label: "Minimum Budget"
                     .col-md-6
-                      = f.input :bathroom_count
+                      = f.input :budget_max, label: "Maximum Budget"
+                  .row
+                    .col-md-6
+                      = f.input :bedroom_min, label: "Minimum Bedroom Count"
+                    .col-md-6
+                      = f.input :bedroom_max, label: "Maximum Bedroom Count"
+                  .row
+                    .col-md-6
+                      = f.input :bathroom_min, label: "Minimum Bathroom Count"
+                    .col-md-6
+                      = f.input :bathroom_max, label: "Maximum Bathroom Count"
                   .row.rentable
                     .col-md-6
                       = f.input :start_of_lease, as: :date_picker

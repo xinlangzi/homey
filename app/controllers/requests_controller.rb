@@ -24,6 +24,6 @@ class RequestsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:kind, :intention, :category, :bathroom_count, :bedroom_count, :budget, :start_of_lease, :end_of_lease, :name, :email, :mobile_phone, :comments)
+      params.require(:request).permit(:kind, :intention, :category, :budget_min, :budget_max, :bedroom_min, :bedroom_max, :bathroom_min, :bathroom_max, :start_of_lease, :end_of_lease, :name, :email, :mobile_phone, :comments)
     end
 end
