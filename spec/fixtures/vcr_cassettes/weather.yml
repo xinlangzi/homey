@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?APPID=80b6ec393a6d1d7484a3cb1c2eaafabd&id=1790645&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 21 May 2015 22:47:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Source:
+      - back
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: |
+        {"coord":{"lon":118.08,"lat":24.48},"sys":{"message":0.0226,"country":"CN","sunrise":1432156897,"sunset":1432205213},"weather":[{"id":501,"main":"Rain","description":"moderate rain","icon":"10n"}],"base":"stations","main":{"temp":19.41,"temp_min":19.41,"temp_max":19.41,"pressure":1012.64,"sea_level":1023.52,"grnd_level":1012.64,"humidity":100},"wind":{"speed":4.71,"deg":34.0014},"clouds":{"all":100},"rain":{"3h":6.445},"dt":1432248446,"id":1790645,"name":"Xiamen","cod":200}
+    http_version: 
+  recorded_at: Fri, 01 May 2015 17:00:00 GMT
+recorded_with: VCR 2.9.3

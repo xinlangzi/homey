@@ -47,6 +47,8 @@ set :bundle_without, [:test, :development, :capybara].join(" ")
 
 set :passenger_restart_with_sudo, true
 
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 namespace :deploy do
 
   after :restart, :clear_cache do

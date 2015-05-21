@@ -8,6 +8,13 @@
   font-size: 18px;
   font-weight: 200;
 }
+.weather {
+  float: left;
+  color: black;
+  img {
+    display: inline;
+  }
+}
 #switch_user_identifier{
   position: absolute;
   top: 40px;

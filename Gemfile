@@ -40,6 +40,7 @@ gem 'sidekiq'
 
 gem 'mini_magick'
 gem 'ckeditor'
+gem 'whenever', :require => false
 
 group :development do
   gem 'better_errors'
@@ -78,4 +79,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'timecop'
+  gem 'vcr'
+  gem 'webmock'
 end
