@@ -1,4 +1,4 @@
-- @title = "#{@news_item.new_record? ? 'New' : 'Editing'} News Item"
+- @title = "#{@news_item.new_record? ? 'New' : 'Editing'} Resource"
 .page-actions.btn-group
   = link_to backend_news_items_path, :class => 'btn btn-default btn-round' do
     span.glyphicon.glyphicon-backward
@@ -14,4 +14,4 @@
     = f.input :content, as: :ckeditor
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, "#{@news_item.new_record? ? 'Create' : 'Update'} Resource"

@@ -25,7 +25,7 @@
           hr
     .col-md-3
       .right-block
-        .title Latest News
+        .title Latest Resources
         ul.list-unstyled.block_copy
           - @latest_news.each do |news_item|
             li = link_to news_item.title, news_item, class: 'item'
