@@ -1,5 +1,6 @@
 tr
   td = link_to area.name, [:backend, area]
+  td = area.description
   td = link_to edit_backend_area_path(area) do
     = icon("pencil-square-o")
   td = link_to [:backend, area], data: {:confirm => 'Are you sure?'}, :method => :delete

@@ -18,7 +18,7 @@
           .subtitle
             .more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
             .area = link_to properties_url(q: {area_id_eq: area.id}) do
-              = icon("dot-circle-o", area.name)
+              = icon("dot-circle-o", area)
           ul.row.list-unstyled
             - properties.each do |property|
               = render property

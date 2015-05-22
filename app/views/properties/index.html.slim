@@ -5,6 +5,7 @@
       h2 No properties match. Please try relaxing your criteria.
     - else
       h4 Search Results
+      h5 = @area_desc
       ul.row.list-unstyled
         - @properties.each do |property|
           = render property
