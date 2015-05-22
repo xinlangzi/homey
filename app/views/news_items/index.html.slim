@@ -7,6 +7,7 @@
           .date = @news_item.created_at
           .content = @news_item.content.html_safe
           .clearfix
+          .copyright &copy; #{Time.now.year} homeyagency.com All Rights Reserved
       .col-md-3
         .right-block
           .title All Resources
