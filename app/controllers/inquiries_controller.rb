@@ -3,9 +3,9 @@ class InquiriesController < ApplicationController
   def new
     @inquiry = Inquiry.new(property_id: params[:property_id])
     authorize @inquiry
-    captcha = JSON.parse(open("http://api.textcaptcha.com/homeyagency.com.json").read)
-    @inquiry.captcha_question = captcha["q"]
-    session[:captcha_response] = captcha["a"]
+    captcha = Captcha.random.first
+    @inquiry.captcha_question = captcha.question
+    session[:captcha_response] = eval(captcha.answer)
   end
   
   # POST /inquiries
