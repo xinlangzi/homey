@@ -2,10 +2,12 @@
   = render "search_form"
   - unless @properties.nil?
     - if @properties.empty?
-      h2 No properties match. Please try relaxing your criteria.
+      .alert.alert-danger
+        b No properties match. Please try relaxing your criteria.
     - else
-      h4 Search Results
-      h5 = @area_desc
+      .alert.alert-warning
+        b Search Results:&nbsp;
+        span = @area_desc
       ul.row.list-unstyled
         - @properties.each do |property|
           = render property

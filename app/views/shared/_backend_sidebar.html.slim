@@ -1,6 +1,8 @@
 ul.list-group.sidebar-nav
   - case true
-  - when current_user.admin?
+  - when current_user.admin? || current_user.customer_service?
+    li.list-group-item
+      a href='/backend' Dashboard
     li.list-group-item
       a href=backend_properties_path Properties
     li.list-group-item
@@ -19,9 +21,11 @@ ul.list-group.sidebar-nav
       a href=edit_backend_system_path(0) System
   - when current_user.vip?
     li.list-group-item
+      a href='/backend' Dashboard
+    li.list-group-item
       a href='#' Orders
   - else
     li.list-group-item
-      a href='#' How to Become VIP
+      a href='/backend' Dashboard
   li.list-group-item
     a href=edit_user_registration_path Edit Account

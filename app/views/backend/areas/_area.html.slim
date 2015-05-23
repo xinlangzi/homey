@@ -1,5 +1,5 @@
 tr
-  td = link_to area.name, [:backend, area]
+  td = link_to area.name, edit_backend_area_path(area)
   td = area.description
   td = link_to edit_backend_area_path(area) do
     = icon("pencil-square-o")

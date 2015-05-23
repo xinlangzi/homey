@@ -4,7 +4,10 @@ tr
   td = user.last_sign_in_at
   td
     - unless user == current_user
-      = form_for [:backend, user] do |f|
-        = f.select :role, User.roles.keys.map {|role| [role.titleize,role]}, {}, class: 'e-user-role'
-        = f.submit class: "button-xs"
-      td = link_to("Delete user", backend_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs')
+      = form_for [:backend, user], html: { class: 'form-inline' } do |f|
+        .form-group
+          = f.select :role, User.roles.keys.map {|role| [role.titleize,role]}, {}, class: 'form-control input-sm e-user-role'
+        = f.submit 'Update', class: "btn btn-default"
+  td
+    - unless user == current_user
+      = link_to("Delete", backend_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs')

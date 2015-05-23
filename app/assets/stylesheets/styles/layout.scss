@@ -70,7 +70,7 @@ header .navbar {
   -o-transition: all 0.4s;
   transition: all 0.4s;
   .navbar-header a {
-    color: #444;
+    color: #333;
   }
   background-color: #FFF;
   .navbar-collapse {
@@ -149,11 +149,12 @@ header .navbar {
   .navbar-phone-number {
     font-size: 1em;
     color: #444;
+    font-weight: bold;
   }
   .navbar-email {
     margin-top: 5px;
     font-size: 1em;
-    opacity: 0.5;
+    opacity: 0.8;
   }
   .container .navbar-collapse {
     max-height: none;
@@ -407,8 +408,8 @@ header .navbar {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
-    padding: 15px 15px;
+    height: 80px;
+    padding: 10px;
     opacity: 0;
     line-height: 1.7;
     text-align: left;
@@ -418,6 +419,14 @@ header .navbar {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    ul{
+      padding-left: 15px;
+      li{
+        font-size: 12px;
+        padding-left: 0px;
+        line-height: 14px;
+      }
+    }
     &::after {
       position: absolute;
       top: 0;

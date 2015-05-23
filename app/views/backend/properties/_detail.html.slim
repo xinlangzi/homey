@@ -48,10 +48,12 @@
             div Business Center
             small
               i = @property.business_center
-
           li
             = link_to new_inquiry_path(property_id: @property.property_id), class: 'btn btn-lg btn-success btn-block' do
               = icon("envelope-o", "Online Request")
+          - if policy(@property).edit?
+            li
+              = link_to 'Edit this Property', edit_backend_property_path(@property), :class => 'btn btn-danger btn-block'
     .col-md-9.col-sm-8
       .flexslider.images
         ul.slides
