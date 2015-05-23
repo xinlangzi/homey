@@ -32,7 +32,6 @@ gem 'friendly_id'
 gem 'ransack'
 # pagination
 gem 'kaminari'
-gem 'recaptcha', require: 'recaptcha/rails'
 
 # queue
 gem 'sinatra', require: false
