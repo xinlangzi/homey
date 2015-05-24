@@ -1,10 +1,12 @@
 - @title = "Banners"
-.page-actions.btn-group
-  = link_to new_backend_banner_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-plus-sign
-    |  New Banner
-.clearfix
-.row
-  - @banners.each do |banner|
-    .col-md-4
-      = render banner
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to new_backend_banner_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-plus-sign
+      |  New Banner
+.content
+  .row
+    - @banners.each do |banner|
+      .col-md-4
+        = render banner

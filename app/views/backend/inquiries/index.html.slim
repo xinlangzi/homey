@@ -1,17 +1,20 @@
 - @title = "Inquiries"
-.clearfix
-table.table
-  thead
-    tr
-      th Name
-      th Email
-      th Mobile Phone
-      th Comment
-      th Property ID
-      th Submimted
-      th Delete
-  tbody
-    - @inquiries.each do |inquiry|
-      = render inquiry
-center
-  = paginate @inquiries
+.header
+  .title = @title
+
+.content
+  table.table
+    thead
+      tr
+        th Name
+        th Email
+        th Mobile Phone
+        th Comment
+        th Property ID
+        th Submimted
+        th Delete
+    tbody
+      - @inquiries.each do |inquiry|
+        = render inquiry
+  center
+    = paginate @inquiries

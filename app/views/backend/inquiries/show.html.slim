@@ -1,25 +1,27 @@
 - @title = "#{@inquiry.name}"
-.page-actions.btn-group
-  = link_to 'Back', backend_inquiries_path, :class => 'btn btn-default btn-round'
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to 'Back', backend_inquiries_path, :class => 'btn btn-default btn-round'
 
-.clearfix
-table.table
-  tr
-    th Submitted
-    td = @inquiry.created_at.to_s
-  tr
-    th Name
-    td = @inquiry.name
-  tr
-    th Email
-    td =mail_to(@inquiry.email)
-  tr
-    th Mobile Phone
-    td
-      a href="tel:#{@inquiry.mobile_phone}" = @inquiry.mobile_phone
-  tr
-    th Property ID:
-    td = link_to(@inquiry.property_id, [:backend, @inquiry.property]) rescue @inquiry.property_id
-  tr
-    th Comment
-    td = @inquiry.comment
+.content
+  table.table
+    tr
+      th Submitted
+      td = @inquiry.created_at.to_s
+    tr
+      th Name
+      td = @inquiry.name
+    tr
+      th Email
+      td =mail_to(@inquiry.email)
+    tr
+      th Mobile Phone
+      td
+        a href="tel:#{@inquiry.mobile_phone}" = @inquiry.mobile_phone
+    tr
+      th Property ID:
+      td = link_to(@inquiry.property_id, [:backend, @inquiry.property]) rescue @inquiry.property_id
+    tr
+      th Comment
+      td = @inquiry.comment

@@ -1,13 +1,16 @@
 - @title = "#{@banner.new_record? ? 'New' : 'Editing'} Banner"
-.page-actions.btn-group
-  = link_to backend_banners_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-backward
-    |  Back
+.header
+  .title = @title
 
-= simple_form_for([:backend, @banner]) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :file, hint: 'Best size: 1200px*410px'
-    = f.input :url
-  .form-actions
-    = f.button :submit, class: 'btn btn-primary'
+  .actions.btn-group
+    = link_to backend_banners_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-backward
+      |  Back
+.content
+  = simple_form_for([:backend, @banner]) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :file, hint: 'Best size: 1200px*410px'
+      = f.input :url
+    .form-actions
+      = f.button :submit, class: 'btn btn-primary'

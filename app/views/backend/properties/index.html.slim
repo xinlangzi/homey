@@ -1,21 +1,22 @@
-- @title = "Properties"
-.page-actions.btn-group
-  = link_to new_backend_property_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-plus-sign
-    |  New Property
+.header
+  .title Properties
+  .actions.btn-group
+    = link_to new_backend_property_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-plus-sign
+      |  New Property
 
-.clearfix
-table.table
-  thead
-    tr
-      th Property ID
-      th Category
-      th Title
-      th Price
-      th District
-      th Surface area
-      th
-      th
-  tbody
-    - @properties.each do |property|
-      = render property
+.content
+  table.table
+    thead
+      tr
+        th Property ID
+        th Category
+        th Title
+        th Price
+        th District
+        th Surface area
+        th
+        th
+    tbody
+      - @properties.each do |property|
+        = render property

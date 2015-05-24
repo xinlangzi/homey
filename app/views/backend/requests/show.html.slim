@@ -1,48 +1,49 @@
 - @title = "Online Request: #{@request.name}"
-.page-actions.btn-group
-  = link_to 'Back', backend_requests_path, :class => 'btn btn-default btn-round'
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to 'Back', backend_requests_path, :class => 'btn btn-default btn-round'
 
-.clearfix
-
-table.table
-  tr
-    th Submitted
-    td = @request.created_at.to_s
-  tr
-    th Kind
-    td = @request.kind
-  tr
-    th Name
-    td = @request.name
-  tr
-    th Email
-    td = mail_to(@request.email)
-  tr
-    th Mobile Phone
-    td
-      a href="tel:#{@request.mobile_phone}" = @request.mobile_phone
-  tr
-    th Comment
-    td = @request.comments
-  - if @request.expat?
+.content
+  table.table
     tr
-      th Intention
-      td = @request.intention
+      th Submitted
+      td = @request.created_at.to_s
     tr
-      th Category
-      td = @request.category
+      th Kind
+      td = @request.kind
     tr
-      th Bathroom Count
-      td = "#{@request.bathroom_min} - #{@request.bathroom_max}"
+      th Name
+      td = @request.name
     tr
-      th Bedroom Count
-      td = "#{@request.bedroom_min} - #{@request.bedroom_max}"
+      th Email
+      td = mail_to(@request.email)
     tr
-      th Budget
-      td = "#{@request.budget_min} - #{@request.budget_max}"
+      th Mobile Phone
+      td
+        a href="tel:#{@request.mobile_phone}" = @request.mobile_phone
     tr
-      th Start of Lease
-      td = @request.start_of_lease
-    tr
-      th End of Lease
-      td = @request.end_of_lease
+      th Comment
+      td = @request.comments
+    - if @request.expat?
+      tr
+        th Intention
+        td = @request.intention
+      tr
+        th Category
+        td = @request.category
+      tr
+        th Bathroom Count
+        td = "#{@request.bathroom_min} - #{@request.bathroom_max}"
+      tr
+        th Bedroom Count
+        td = "#{@request.bedroom_min} - #{@request.bedroom_max}"
+      tr
+        th Budget
+        td = "#{@request.budget_min} - #{@request.budget_max}"
+      tr
+        th Start of Lease
+        td = @request.start_of_lease
+      tr
+        th End of Lease
+        td = @request.end_of_lease

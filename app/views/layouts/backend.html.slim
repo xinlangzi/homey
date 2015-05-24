@@ -9,15 +9,17 @@ html
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
-  body
+  body.backend
     header
       == render 'shared/backend_navigation'
       == switch_user_select
       .wrapper
-        == render "shared/page_header"
-        .page-content
+        .container-fluid
           .row
             .col-md-2
-              == render 'shared/backend_sidebar'
-            .col-md-10.white-block
-              == yield
+              .left
+                == render 'shared/backend_sidebar'
+            .col-md-10
+              .right
+                / == render "shared/page_header"
+                == yield

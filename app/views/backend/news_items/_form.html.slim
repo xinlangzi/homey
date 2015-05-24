@@ -1,17 +1,17 @@
 - @title = "#{@news_item.new_record? ? 'New' : 'Editing'} Resource"
-.page-actions.btn-group
-  = link_to backend_news_items_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-backward
-    |  Back
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to backend_news_items_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-backward
+      |  Back
 
-.clearfix
+.content
+  = simple_form_for([:backend, @news_item]) do |f|
+    = f.error_notification
 
-= simple_form_for([:backend, @news_item]) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :title, required: true
-    = f.input :content, as: :ckeditor
-
-  .form-actions
-    = f.button :submit, "#{@news_item.new_record? ? 'Create' : 'Update'} Resource"
+    .form-inputs
+      = f.input :title, required: true
+      = f.input :content, as: :ckeditor
+    .form-actions
+      = f.button :submit, "#{@news_item.new_record? ? 'Create' : 'Update'} Resource", class: 'btn btn-primary'

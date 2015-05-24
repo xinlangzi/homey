@@ -1,0 +1,11 @@
+.search-box
+  = search_form_for @q, url: backend_users_path, html: {method: :get} do |f|
+    .row
+      .col-md-2
+        = f.input :name_cont, label: false, placeholder: 'Name', required: false
+      .col-md-2
+        = f.input :email_cont, label: false, placeholder: 'Email', required: false
+      .col-md-2
+        = f.input :role_eq, label: false, collection: enum_options(User.roles, use_integer: true), include_blank: '-Role-', required: false
+      .col-md-2
+        = f.submit 'Search', class: 'btn btn-success'

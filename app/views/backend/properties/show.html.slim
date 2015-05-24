@@ -1,7 +1,9 @@
 - @title = "#{@property.property_id}: #{@property.title}"
-.page-actions.btn-group
-  = link_to 'Edit', edit_backend_property_path(@property), :class => 'btn btn-default btn-round'
-  = link_to 'Back', backend_properties_path, :class => 'btn btn-default btn-round'
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to 'Edit', edit_backend_property_path(@property), :class => 'btn btn-default btn-round'
+    = link_to 'Back', backend_properties_path, :class => 'btn btn-default btn-round'
 
-.clearfix
-= render 'detail'
+.content
+  = render 'detail'

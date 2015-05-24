@@ -19,6 +19,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
 gem 'simple_form'
+gem 'nested_form_fields'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"

@@ -17,6 +17,7 @@
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
+//= require nested_form_fields
 //= require dropzone
 //= require ckeditor/init
 //= require_tree .

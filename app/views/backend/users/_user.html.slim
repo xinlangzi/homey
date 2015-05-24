@@ -1,5 +1,5 @@
 tr
-  td = link_to user.email, [:backend, user]
+  td = link_to user.name || 'N/A', [:backend, user]
   td = user.email
   td = user.last_sign_in_at
   td

@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523215035) do
+ActiveRecord::Schema.define(version: 20150524090906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "areas", force: :cascade do |t|
     t.string   "name",        null: false
@@ -35,6 +34,18 @@ ActiveRecord::Schema.define(version: 20150523215035) do
     t.string "question"
     t.string "answer"
   end
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "category"
+    t.decimal  "amount"
+    t.text     "note"
+    t.boolean  "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "charges", ["order_id"], name: "index_charges_on_order_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -87,6 +98,22 @@ ActiveRecord::Schema.define(version: 20150523215035) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "property_id"
+    t.date     "lease_start"
+    t.date     "lease_end"
+    t.text     "bank_account"
+    t.decimal  "rent"
+    t.integer  "period_length"
+    t.integer  "pre_alert_day"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -253,5 +280,7 @@ ActiveRecord::Schema.define(version: 20150523215035) do
     t.string  "icon"
   end
 
+  add_foreign_key "charges", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "properties", "areas"
 end
