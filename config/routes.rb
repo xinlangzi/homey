@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :base
     resources :areas
     resources :banners
-    resources :users
+    resources :users do
+      resources :orders
+    end
     resources :images
     resources :properties
     resources :systems, only: [:edit, :update]

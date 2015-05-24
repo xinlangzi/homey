@@ -1,0 +1,51 @@
+- @title = "#{@order.new_record? ? 'New' : 'Editing'} Order"
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to [:backend, @user], :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-backward
+      |  Back
+
+.content
+  = simple_form_for [:backend, @user, @order] do |f|
+    = f.error_notification
+    .row
+      .col-md-3
+        = f.input :name
+      .col-md-3
+        = f.input :property_id, label: "Property ID"
+      .col-md-3
+        = f.input :lease_start, as: :date_picker
+      .col-md-3
+        = f.input :lease_end, as: :date_picker
+    .row
+      .col-md-3
+        = f.input :rent, label: "Monthly Rent"
+      .col-md-3
+        = f.input :period_length, label: "Period for Rent"
+      .col-md-3
+        = f.input :pre_alert_day, label: "Pre-Alert Days"
+    .row
+      .col-md-12
+        = f.input :bank_account, input_html: { rows: 5 }
+
+    table.table
+      thead
+        tr
+          th.col-md-1
+          th.col-md-3 Category
+          th.col-md-3 Amount
+          th.col-md-4 Note
+          th.col-md-1 Paid
+      tbody
+        = f.nested_fields_for :charges, wrapper_tag: 'tr' do |ff|
+          td = ff.remove_nested_fields_link 'Remove', class: 'btn btn-xs btn-danger'
+          td = ff.input :category, collection: enum_options(Charge.categories), label: false
+          td = ff.input :amount, label: false
+          td = ff.input :note, label: false, as: :string
+          td = ff.input :paid, label: false
+      tfoot
+        tr
+          td colspan=5
+            = f.add_nested_fields_link :charges, nil, class: 'btn btn-success btn-xs'
+    = f.submit class: 'btn btn-primary'

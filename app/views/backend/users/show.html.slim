@@ -1,4 +1,7 @@
 - @title = "Users"
 .header
   .title #{@user.name}: #{mail_to(@user.email, @user.email)}
-  .actions
+  .actions.btn-group
+    = link_to new_backend_user_order_path(@user), :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-plus-sign
+      |  New Order
