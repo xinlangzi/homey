@@ -53,6 +53,14 @@ Since we need to use very specific fonts for the watermark, we will need to inst
     <include file="/Users/philiphallstrom1/.magick/type.xml" />                       ### THIS LINE ADDED ### 
   </typemap>```
 
+
+On Ubuntu:
+
+1. Go to public directory of deploy
+2. sudo cp *.ttf /usr/local/share/fonts
+
+That simple!
+
 Documentation and Support
 -------------------------
 
