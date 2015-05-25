@@ -16,7 +16,7 @@ class WatermarkUploader < CarrierWave::Uploader::Base
         cmd.gravity 'center'
         cmd.draw 'text 0,0 "homeyagency.com"'
         cmd.pointsize "35"
-        cmd.font "Usuzi"
+        cmd.font(Rails.env.staging? || Rails.env.production? ? "Usuzi-Regular" : "Usuzi")
       end
 
       img
