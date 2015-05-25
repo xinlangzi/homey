@@ -1,0 +1,13 @@
+tr
+  td = order.name
+  td = order.property.property_id
+  td = order.lease_start
+  td = order.lease_end
+  td = order.rent
+  td = order.period_length
+  td = order.pre_alert_day
+  td = order.bank_account
+  td = link_to [:edit, :backend, order.user, order] do
+    = icon("pencil-square-o")
+  td = link_to [:backend, order.user, order], data: {:confirm => 'Are you sure?'}, :method => :delete
+    = icon("times-circle-o")

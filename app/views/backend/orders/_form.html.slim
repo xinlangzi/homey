@@ -13,18 +13,18 @@
       .col-md-3
         = f.input :name
       .col-md-3
-        = f.input :property_id, label: "Property ID"
+        = f.input :property_id_string, label: "Property ID"
       .col-md-3
         = f.input :lease_start, as: :date_picker
       .col-md-3
         = f.input :lease_end, as: :date_picker
     .row
       .col-md-3
-        = f.input :rent, label: "Monthly Rent"
+        = f.input :rent, label: "Rent Amount Per Period (in RMB)"
       .col-md-3
-        = f.input :period_length, label: "Period for Rent"
+        = f.input :period_length, label: "Length of Period (in months)"
       .col-md-3
-        = f.input :pre_alert_day, label: "Pre-Alert Days"
+        = f.input :pre_alert_day, label: "Advance Notification (in days)"
     .row
       .col-md-12
         = f.input :bank_account, input_html: { rows: 5 }
