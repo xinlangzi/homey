@@ -33,6 +33,26 @@ On Mac:
 
 ```brew install gs``` so that the watermark will not fail for lacking fonts.
 
+Since we need to use very specific fonts for the watermark, we will need to install them manually. I put the three fonts in public: usuziv2.ttf, usuzv2i.ttf, and Watford-Regular DB.ttf. You will need to follow these steps to make them available to imagemagick:
+
+1. Install them on your Mac by double-clicking each file and choosing "Install". The Watford font will give you a warning that I ignored.
+2. Make a new directory for ImageMagick local settings and cd into it
+  ```
+  mkdir ~/.magick
+  cd ~/.magick
+  ```
+3. Grab script to find all fonts on system and store them in a config file
+  ```curl http://www.imagemagick.org/Usage/scripts/imagick_type_gen > type_gen```
+4. Run script, telling it where my fonts are and create "type.xml" file with list  
+  ```find /System/Library/Fonts /Library/Fonts ~/Library/Fonts -name "*.[to]tf" | perl type_gen -f - > type.xml```
+5. Go to ImageMagick config folder - note that it differs with each release...
+  ```cd /usr/local/Cellar/imagemagick/6.9.0-3/etc/ImageMagick-6```
+6. Edit system config file called "type.xml" and add line near end to tell IM to look at local file we made in earlier step
+  ```<typemap>
+    <include file="type-ghostscript.xml" />
+    <include file="/Users/philiphallstrom1/.magick/type.xml" />                       ### THIS LINE ADDED ### 
+  </typemap>```
+
 Documentation and Support
 -------------------------
 
