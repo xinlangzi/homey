@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525185402) do
+ActiveRecord::Schema.define(version: 20150526235553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 20150525185402) do
   end
 
   create_table "charges", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "category"
-    t.decimal  "amount"
+    t.integer  "order_id",                   null: false
+    t.integer  "category",                   null: false
+    t.decimal  "amount",                     null: false
     t.text     "note"
-    t.boolean  "paid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "paid",       default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "reminded",   default: false, null: false
+    t.date     "due_date",                   null: false
   end
-
-  add_index "charges", ["order_id"], name: "index_charges_on_order_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -103,18 +103,16 @@ ActiveRecord::Schema.define(version: 20150525185402) do
   create_table "orders", force: :cascade do |t|
     t.string   "name"
     t.integer  "property_id",   null: false
-    t.date     "lease_start"
-    t.date     "lease_end"
+    t.date     "lease_start",   null: false
+    t.date     "lease_end",     null: false
     t.text     "bank_account"
-    t.decimal  "rent"
-    t.integer  "period_length"
-    t.integer  "pre_alert_day"
-    t.integer  "user_id"
+    t.decimal  "rent",          null: false
+    t.integer  "period_length", null: false
+    t.integer  "pre_alert_day", null: false
+    t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

@@ -61,6 +61,6 @@ class Backend::OrdersController < Backend::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :property_id_string, :lease_start, :lease_end, :bank_account, :rent, :period_length, :pre_alert_day, :user_id, charges_attributes: [:category, :amount, :note, :paid])
+      params.require(:order).permit(:name, :property_id_string, :lease_start, :lease_end, :bank_account, :rent, :period_length, :pre_alert_day, :user_id, charges_attributes: [:category, :amount, :note, :paid, :_destroy, :id])
     end
   end
