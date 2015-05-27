@@ -13,6 +13,8 @@ class Order < ActiveRecord::Base
   attr_accessor :property_id_string
 
   before_validation do |order|
-    order.property = Property.friendly.find(order.property_id_string) rescue nil
+    if order.property_id_string.present?
+      order.property = Property.friendly.find(order.property_id_string) rescue nil
+    end
   end
 end

@@ -33,15 +33,17 @@
       thead
         tr
           th.col-md-1
-          th.col-md-3 Category
-          th.col-md-3 Amount
+          th.col-md-2 Category
+          th.col-md-1 Amount
+          th.col-md-1 Due Date
           th.col-md-4 Note
           th.col-md-1 Paid
       tbody
-        = f.nested_fields_for :charges, wrapper_tag: 'tr' do |ff|
+        = f.nested_fields_for :charges, @visible_charges, wrapper_tag: 'tr' do |ff|
           td = ff.remove_nested_fields_link 'Remove', class: 'btn btn-xs btn-danger'
           td = ff.input :category, collection: enum_options(Charge.categories), label: false
           td = ff.input :amount, label: false
+          td = ff.input :due_date, label: false, as: :date_picker
           td = ff.input :note, label: false, as: :string
           td = ff.input :paid, label: false
       tfoot

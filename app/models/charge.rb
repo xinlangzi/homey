@@ -13,8 +13,8 @@ class Charge < ActiveRecord::Base
   enum category: { rent: 0, internet: 1, electric: 2, water: 3, gas: 4, property_management: 5, cable_tv: 6, satellite_tv: 7 }
   
   def send_reminder
-    # use mailer
-    self.update_attributes!(:reminder_sent_date, Today.now)
+    ApplicationMailer.charge_reminder(self.id).deliver_later
+    self.update_attributes!(reminded: true)
   end
   
   def self.automate
@@ -27,13 +27,14 @@ class Charge < ActiveRecord::Base
       order.charges.create!(category: :rent, amount: order.rent, due_date: order.lease_start) if order.charges.rentals.size == 0
       latest_due_date = order.charges.rentals.order("due_date desc").limit(1).first.due_date
       next_due_date = latest_due_date + order.period_length.send(:months)
-      order.charges.create!(category: :rent, amount: order.rent, due_date: next_due_date) if Time.now >= next_due_date - order.pre_alert_day.send(:days)
+      while Time.now >= next_due_date - order.pre_alert_day.send(:days)
+        order.charges.create!(category: :rent, amount: order.rent, due_date: next_due_date)
+        next_due_date = next_due_date + order.period_length.send(:months)
+      end
     end
   end
   
   def self.send_rental_reminders
-    Charge.unreminded.unpaid.rentals.each do |charge|
-      charge.send_reminder
-    end
+    Charge.unreminded.unpaid.rentals.each(&:send_reminder)
   end
 end

@@ -18,7 +18,7 @@ class OrderPolicy
   end
 
   def edit?
-    @current_user.admin?
+    @current_user.admin? || model.user == @current_user
   end
 
   def new?

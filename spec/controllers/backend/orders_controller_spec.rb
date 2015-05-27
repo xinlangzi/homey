@@ -31,11 +31,11 @@ RSpec.describe Backend::OrdersController, type: :controller do
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: "wow", property_id_string: property.property_id }
+    { name: "wow", property_id_string: property.property_id, lease_start: "2015-05-25", lease_end: "2015-12-25", period_length: 1, pre_alert_day: 7, rent: 300, user_id: user.id }
   }
 
   let(:invalid_attributes) {
-    { dog: "s"}
+    { property_id_string: "junk"}
   }
 
   # This should return the minimal set of values that should be in the session

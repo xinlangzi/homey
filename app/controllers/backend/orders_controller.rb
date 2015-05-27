@@ -9,6 +9,7 @@ class Backend::OrdersController < Backend::BaseController
   
   def edit
     @order.property_id_string = @order.property.property_id
+    @visible_charges = current_user.admin? ? @order.charges : @order.unpaid
   end
   
   def create
