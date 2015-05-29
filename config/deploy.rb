@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids')#, 'tmp/cache',
 # set :keep_releases, 5
 
 set :ssh_options, {
-  keys: ["~/.ssh/kells.pem"],
+  keys: ["~/.ssh/kells_japan.pem"],
   forward_agent: true,
   auth_methods: ["publickey"]
 }
