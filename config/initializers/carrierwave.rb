@@ -12,7 +12,7 @@ CarrierWave.configure do |config|
       # host:                  's3.example.com',             # optional, defaults to nil
       # endpoint:              'https://s3.example.com:8080' # optional, defaults to nil
     }
-    config.fog_directory  = "homey.#{Rails.env}"                          # required
+    config.fog_directory  = "homey.jp.#{Rails.env}"                          # required
     config.fog_use_ssl_for_aws = false
   end
   # config.fog_public     = false                                        # optional, defaults to true
