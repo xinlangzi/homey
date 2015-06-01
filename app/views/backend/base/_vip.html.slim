@@ -1,0 +1,32 @@
+.header
+  ol.title.breadcrumb
+    li Dashboard
+
+.content
+  .row
+    .col-md-8
+
+      - current_user.orders.each do |order|
+        - charges = order.charges.for_user(current_user)
+        .panel.panel-default
+          .panel-heading
+            = link_to order.property.title, [:backend, order.property]
+            | &nbsp;
+            i
+              small - #{order.property.category.titleize} #{order.property.district.try(:name)}
+            .pull-right
+              = link_to 'View Order', [:backend, order], class: 'label label-success'
+          table.table.table-striped
+            thead
+              tr
+                th Category
+                th Amount
+                th Due Date
+                th Note
+                th Status
+            tbody
+              = render charges
+          .panel-footer
+            h4.text-center
+              .label.label-danger Total Unpaid: #{charges.sum(:amount)} RMB
+    .col-md-4

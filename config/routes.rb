@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users do
       resources :orders
     end
+    resources :orders, only: [:index, :show]
     resources :images
     resources :properties
     resources :systems, only: [:edit, :update]

@@ -7,6 +7,7 @@ class Backend::PropertiesController < Backend::BaseController
     @search = Property.search(params[:q])
     @properties = @search.result.page(params[:page])
     authorize Property
+    authorize Property, :new?
   end
 
   # GET /propertys/1

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, :if => :new_record?
 
+  scope :name_asc, ->{ order("name ASC") }
+
   def set_default_role
     self.role ||= :user
   end
@@ -14,4 +16,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def name_email
+    [name, email].compact.join(': ')
+  end
 end

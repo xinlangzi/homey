@@ -1,10 +1,11 @@
 - @title = "Users"
 .header
-  .title = @title
-  .actions.btn-group
-    = link_to new_backend_user_path, class: 'btn btn-default btn-round'
-      span.glyphicon.glyphicon-plus-sign
-      |  New User
+  ol.title.breadcrumb
+    li.active = @title
+    li.btn-group.pull-right
+      = link_to new_backend_user_path, class: 'btn btn-default btn-round'
+        span.glyphicon.glyphicon-plus-sign
+        |  New User
 .content
   = render 'search'
   .table-responsive

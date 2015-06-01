@@ -4,6 +4,7 @@ window.App =
     App.disableWith()
 
   init: ->
+    App.tooltip()
     App.dropzone()
     App.datepicker()
     App.datetimepicker()
@@ -16,6 +17,8 @@ window.App =
       $(this).attr('data-disable-with', 'Please Waiting...')
 
 ##### END EVENTS#######
+  tooltip: ->
+    $('.e-tooltip').tooltip()
 
   dropzone: ->
     # need to disable autoDiscover otherwise non-AJAX will be discovered twice and throw JS exception
@@ -24,14 +27,15 @@ window.App =
     Dropzone.discover()
 
   datepicker: ->
-    $('input.date_picker').datetimepicker(
-      pickTime: false
-      defaultDate: ''
-      useCurrent: false
-      format: 'YYYY-MM-DD'
-    ).on('dp.change', ->
-      $(this).blur()
-    )
+    $(document).on 'mouseover', 'input.date_picker', ->
+      $(this).datetimepicker(
+        pickTime: false
+        defaultDate: ''
+        useCurrent: false
+        format: 'YYYY-MM-DD'
+      ).on('dp.change', ->
+        $(this).blur()
+      )
 
   datetimepicker: ->
     $('input.date_time_picker').datetimepicker()

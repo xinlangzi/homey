@@ -1,27 +1,45 @@
 - @title = "Users"
 .header
-  .title #{@user.name}: #{mail_to(@user.email, @user.email)}
-  .actions.btn-group
-    = link_to new_backend_user_order_path(@user), :class => 'btn btn-default btn-round' do
-      span.glyphicon.glyphicon-plus-sign
-      |  New Order
-
+  ol.title.breadcrumb
+    li = link_to "Users", [:backend, :users]
+    li.active = @user.name
+    li.btn-group.pull-right
+      = link_to new_backend_user_order_path(@user), :class => 'btn btn-default btn-round' do
+        span.glyphicon.glyphicon-plus-sign
+        |  New Order
 
 .content
-  table.table
-    thead
-      tr
-        th Name
-        th Property ID
-        th Lease Start
-        th Least End
-        th Rent Per Period
-        th Length of Period
-        th Advance Notification
-        th Bank Account
-        th
-        th
-    tbody
-      - @user.orders.each do |order|
-        = render order
+  .row
+    .col-md-9
+      .panel.panel-default
+        .panel-heading Orders
+        table.table
+          thead
+            tr
+              th Property ID
+              th Name
+              th Lease Start
+              th Lease End
+              th Rent/Month
+              th Period
+              th
+              th
+          tbody
+            - @user.orders.each do |order|
+              = render order
+    .col-md-3
+      .panel.panel-default
+        .panel-heading Basic Inforamtion
+        table.table
+          tr
+            th Email
+            td = mail_to(@user.email)
+          tr
+            th Role
+            td = @user.role.titleize
+          tr
+            th Logged
+            td = @user.last_sign_in_at
+
+
 

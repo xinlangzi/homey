@@ -3,30 +3,31 @@ class OrderPolicy
 
   def initialize(current_user, model)
     @current_user = current_user
+    @model = model
   end
 
   def index?
-    @current_user.admin?
+    @current_user.vip?
   end
 
   def show?
-    @current_user.admin?
+    @current_user.admin? || @current_user.customer_service? || @current_user.vip?
   end
 
   def update?
-    @current_user.admin?
+    @current_user.admin? || @current_user.customer_service?
   end
 
   def edit?
-    @current_user.admin? || model.user == @current_user
+    @current_user.admin? || @current_user.customer_service?
   end
 
   def new?
-    @current_user.admin?
+    @current_user.admin? || @current_user.customer_service?
   end
 
   def create?
-    @current_user.admin?
+    @current_user.admin? || @current_user.customer_service?
   end
 
   def destroy?

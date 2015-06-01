@@ -31,7 +31,17 @@ RSpec.describe Backend::OrdersController, type: :controller do
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: "wow", property_id_string: property.property_id, lease_start: "2015-05-25", lease_end: "2015-12-25", period_length: 1, pre_alert_day: 7, rent: 300, user_id: user.id }
+    {
+      name: "wow",
+      property_id_string: property.property_id,
+      lease_start: "2015-05-25",
+      lease_end: "2015-12-25",
+      period_length: 1,
+      pre_alert_day: 7,
+      rent: 300,
+      bank_account: "ICBC",
+      user_id: user.id
+    }
   }
 
   let(:invalid_attributes) {
@@ -66,7 +76,7 @@ RSpec.describe Backend::OrdersController, type: :controller do
         }.to change(Order, :count).by(1)
         expect(assigns(:order)).to be_a(Order)
         expect(assigns(:order)).to be_persisted
-        expect(response).to redirect_to([:backend, user])
+        expect(response).to redirect_to([:backend, user, assigns(:order)])
       end
     end
 
@@ -95,7 +105,7 @@ RSpec.describe Backend::OrdersController, type: :controller do
         order.reload
         expect(order.name).to eq("dot")
         expect(assigns(:order)).to eq(order)
-        expect(response).to redirect_to([:backend, user])
+        expect(response).to redirect_to([:backend, user, order])
       end
     end
 

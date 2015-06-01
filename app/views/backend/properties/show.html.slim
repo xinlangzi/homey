@@ -2,8 +2,9 @@
 .header
   .title = @title
   .actions.btn-group
-    = link_to 'Edit', edit_backend_property_path(@property), :class => 'btn btn-default btn-round'
-    = link_to 'Back', backend_properties_path, :class => 'btn btn-default btn-round'
+    - if policy(@property).edit?
+      = link_to 'Edit', edit_backend_property_path(@property), :class => 'btn btn-default btn-round'
+    = link_to 'Back', :back, :class => 'btn btn-default btn-round'
 
 .content
   = render 'detail'

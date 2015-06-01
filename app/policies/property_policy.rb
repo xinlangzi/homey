@@ -13,14 +13,6 @@ class PropertyPolicy
     true
   end
 
-  def update?
-    @current_user.admin?
-  end
-
-  def edit?
-    @current_user.admin?
-  end
-
   def new?
     @current_user.admin?
   end
@@ -28,6 +20,15 @@ class PropertyPolicy
   def create?
     @current_user.admin?
   end
+
+  def edit?
+    @current_user.admin?
+  end
+
+  def update?
+    @current_user.admin?
+  end
+
 
   def destroy?
     @current_user.admin?

@@ -9,7 +9,8 @@ class Order < ActiveRecord::Base
   validates :period_length, presence: true
   validates :pre_alert_day, presence: true
   validates :rent, presence: true
-  
+  validates :bank_account, presence: true
+
   attr_accessor :property_id_string
 
   before_validation do |order|
