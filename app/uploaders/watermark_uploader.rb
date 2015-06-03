@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class WatermarkUploader < CarrierWave::Uploader::Base
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   
   def store_dir
@@ -16,6 +15,7 @@ class WatermarkUploader < CarrierWave::Uploader::Base
         cmd.gravity 'center'
         cmd.draw 'text 0,0 "homeyagency.com"'
         cmd.pointsize "35"
+        cmd.fill "rgba(0,0,0,0.25)"
         cmd.font(Rails.env.staging? || Rails.env.production? ? "Usuzi-Regular" : "Usuzi")
       end
 
