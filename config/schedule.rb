@@ -23,10 +23,6 @@ every 10.minutes do
   runner "Weather.fetch"
 end
 
-every 1.minute do
-  runner "Captcha.fetch_new"
-end
-
 every 1.day do
   runner "Charge.automate"
 end

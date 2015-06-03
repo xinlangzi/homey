@@ -3,9 +3,9 @@ class InquiriesController < ApplicationController
   def new
     @inquiry = Inquiry.new(property_id: params[:property_id])
     authorize @inquiry
-    captcha = Captcha.random.first
-    @inquiry.captcha_question = captcha.question
-    session[:captcha_response] = eval(captcha.answer)
+    captcha = Captcha.random_qa
+    @inquiry.captcha_question = captcha[:question]
+    session[:captcha_response] = captcha[:answer]
   end
   
   # POST /inquiries
@@ -35,6 +35,6 @@ class InquiriesController < ApplicationController
     end
     
     def verify_captcha(inquiry)
-      return session[:captcha_response].include?(Digest::MD5.hexdigest(inquiry.captcha_response.strip.downcase)) rescue false
+      return session[:captcha_response] == Captcha.encode(inquiry.captcha_response) rescue false
     end
 end

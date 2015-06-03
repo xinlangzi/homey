@@ -12,5 +12,5 @@
           = f.input :property_id, as: :hidden
           fieldset
             legend Please prove that you are human!
-            = f.input :captcha_response, required: true, label: @inquiry.captcha_question
+            = f.input :captcha_response, required: true, label: "What does #{@inquiry.captcha_question} equal?".html_safe
             = f.button :submit, 'Ready to Send', :class=> "btn btn-danger send-mail pull-right"

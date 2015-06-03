@@ -24,11 +24,11 @@ RSpec.describe InquiriesController, type: :controller do
   # Inquiry. As you add validations to Inquiry, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: "Philip", email: "hi@example.com", comment: "stuff", captcha_response: "5" }
+    { name: "Philip", email: "hi@example.com", comment: "stuff", captcha_response: "13" }
   }
 
   let(:invalid_attributes) {
-    { email: "ss", captcha_response: "5" }
+    { email: "ss", captcha_response: "13" }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -37,13 +37,13 @@ RSpec.describe InquiriesController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #new" do
-    let!(:captcha) { create(:captcha) }
     it "assigns a new inquiry as @inquiry" do
+      srand 3
       get :new, {property_id: "xxx"}, valid_session
       expect(assigns(:inquiry)).to be_a_new(Inquiry)
       expect(assigns(:inquiry).property_id).to eq("xxx")
-      expect(assigns(:inquiry).captcha_question).to eq("What is the 3rd digit in 915428?")
-      expect(session[:captcha_response]).to eq(["e4da3b7fbbce2345d7772b0674a318d5", "30056e1cab7a61d256fc8edd970d14f5"])
+      expect(assigns(:inquiry).captcha_question).to eq("10 + 3")
+      expect(session[:captcha_response]).to eq("c51ce410c124a10e0db5e4b97fc2af39")
     end
   end
 
@@ -51,7 +51,7 @@ RSpec.describe InquiriesController, type: :controller do
     context "with valid params" do
       it "creates a new Inquiry" do
         expect {
-          session[:captcha_response] = ["e4da3b7fbbce2345d7772b0674a318d5", "30056e1cab7a61d256fc8edd970d14f5"]
+          session[:captcha_response] = "c51ce410c124a10e0db5e4b97fc2af39"
           post :create, {:inquiry => valid_attributes}, valid_session
         }.to change(Inquiry, :count).by(1)
         expect(assigns(:inquiry)).to be_a(Inquiry)
@@ -72,7 +72,7 @@ RSpec.describe InquiriesController, type: :controller do
 
     context "with invalid params" do
       it "assigns a newly created but unsaved inquiry as @inquiry" do
-        session[:captcha_response] = ["e4da3b7fbbce2345d7772b0674a318d5", "30056e1cab7a61d256fc8edd970d14f5"]
+        session[:captcha_response] = "c51ce410c124a10e0db5e4b97fc2af39"
         post :create, {:inquiry => invalid_attributes}, valid_session
         expect(flash[:error]).to eq("Cannot send message. Please try again.")
         expect(response).to redirect_to(new_inquiry_path)
