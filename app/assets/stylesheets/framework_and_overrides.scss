@@ -15,7 +15,12 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
-  }
+}
+.panel-heading{
+  font-weight: 500;
+  color: $base !important;
+  padding: 10px 5px;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -23,19 +28,19 @@ img {
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
 .form {
   @extend .col-md-6;
-  }
+}
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
+}
 // apply styles to HTML elements
 // to make views framework-neutral
 main {

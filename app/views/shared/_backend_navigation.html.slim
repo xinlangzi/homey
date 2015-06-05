@@ -1,5 +1,7 @@
 .navbar
-  .container
-    .top-header.primary-tooltips
-      a href=root_path Frontend
-      = link_to("Logout", destroy_user_session_path, method: :delete)
+  .navbar-brand
+    a href="/"
+      = image_tag(System.default.logo.url, class: 'logo') rescue 'Homey'
+  .top-header.primary-tooltips
+    a href=root_path Frontend
+    = link_to("Logout", destroy_user_session_path, method: :delete)

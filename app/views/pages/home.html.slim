@@ -16,16 +16,19 @@
         - @latest_properties.each do |area, properties|
           - next if properties.empty?
           .subtitle
-            .more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
-            .area = link_to properties_url(q: {area_id_eq: area.id}) do
-              = icon("dot-circle-o", area.name)
+            .row
+              .col-md-2.col-xs-6.area
+                = link_to properties_url(q: {area_id_eq: area.id}) do
+                  = icon("dot-circle-o", area.name)
+              .col-md-8.col-xs-6.desc = area.description
+              .col-md-2.col-xs-12.more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
           ul.row.list-unstyled
             - properties.each do |property|
               = render property
           hr
     .col-md-3
       .right-block
-        .title Latest News
+        .title Latest Resources
         ul.list-unstyled.block_copy
           - @latest_news.each do |news_item|
             li = link_to news_item.title, news_item, class: 'item'

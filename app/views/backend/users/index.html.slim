@@ -1,13 +1,23 @@
 - @title = "Users"
-
-.table-responsive
-  table.table.table-hover
-    thead
-      tr
-        th Name
-        th Email
-        th Last Signed In
-        th Role
-        th
-    tbody
-      = render @users
+.header
+  ol.title.breadcrumb
+    li.active = @title
+    li.btn-group.pull-right
+      = link_to new_backend_user_path, class: 'btn btn-default btn-round'
+        span.glyphicon.glyphicon-plus-sign
+        |  New User
+.content
+  = render 'search'
+  .table-responsive
+    table.table.table-hover
+      thead
+        tr
+          th Name
+          th Email
+          th Last Signed In
+          th Role
+          th
+      tbody
+        = render @users
+  center
+    = paginate @users

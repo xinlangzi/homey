@@ -23,4 +23,8 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def backend?
+    @current_user.present?
+  end
+
 end

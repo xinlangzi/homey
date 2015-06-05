@@ -1,3 +1,45 @@
 - @title = "Users"
-p = "Name: #{@user.name if @user.name}"
-p = "Email: #{@user.email if @user.email}"
+.header
+  ol.title.breadcrumb
+    li = link_to "Users", [:backend, :users]
+    li.active = @user.name
+    li.btn-group.pull-right
+      = link_to new_backend_user_order_path(@user), :class => 'btn btn-default btn-round' do
+        span.glyphicon.glyphicon-plus-sign
+        |  New Order
+
+.content
+  .row
+    .col-md-9
+      .panel.panel-default
+        .panel-heading Orders
+        table.table
+          thead
+            tr
+              th Property ID
+              th Name
+              th Lease Start
+              th Lease End
+              th Rent/Month
+              th Period
+              th
+              th
+          tbody
+            - @user.orders.each do |order|
+              = render order
+    .col-md-3
+      .panel.panel-default
+        .panel-heading Basic Inforamtion
+        table.table
+          tr
+            th Email
+            td = mail_to(@user.email)
+          tr
+            th Role
+            td = @user.role.titleize
+          tr
+            th Logged
+            td = @user.last_sign_in_at
+
+
+

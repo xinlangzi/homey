@@ -19,17 +19,26 @@
                 = simple_form_for(@request) do |f|
                   = f.error_notification
                   = f.input :kind, as: :hidden, input_html: { value: "expat" }
-                  = f.input :intention, collection: enum_options(Request.intentions), required: true, include_blank: false
                   .row
+                    .col-md-6
+                      = f.input :intention, collection: enum_options(Request.intentions), required: true, include_blank: false
                     .col-md-6
                       = f.input :category, collection: enum_options(Request.categories), required: true, include_blank: false
-                    .col-md-6
-                      = f.input :budget
                   .row
                     .col-md-6
-                      = f.input :bedroom_count
+                      = f.input :budget_min, label: "Minimum Budget"
                     .col-md-6
-                      = f.input :bathroom_count
+                      = f.input :budget_max, label: "Maximum Budget"
+                  .row
+                    .col-md-6
+                      = f.input :bedroom_min, label: "Minimum Bedroom Count"
+                    .col-md-6
+                      = f.input :bedroom_max, label: "Maximum Bedroom Count"
+                  .row
+                    .col-md-6
+                      = f.input :bathroom_min, label: "Minimum Bathroom Count"
+                    .col-md-6
+                      = f.input :bathroom_max, label: "Maximum Bathroom Count"
                   .row.rentable
                     .col-md-6
                       = f.input :start_of_lease, as: :date_picker
@@ -53,3 +62,5 @@
                   = f.input :mobile_phone, required: true, label: "Mobile/电话"
                   = f.input :comments, label: "Intention/意向", hint: "请尽量将您有意出租或出售房源的小区名，门牌号，楼层，意向月租金/售价，屋内设施等信息描述详尽，我们会根据您的要求第一时间给您回复。", input_html: { rows: 8}
                   = f.submit class: 'btn btn-primary'
+              .col-md-6
+                = System.default.faq_to_owner.try(:html_safe)

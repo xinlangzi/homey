@@ -1,0 +1,23 @@
+.header
+  ol.title.breadcrumb
+    li.active Orders
+
+.content
+  table.table
+    thead
+      tr
+        th Property ID
+        th Name
+        th Lease Start
+        th Lease End
+        th Rent/Month
+        th Period
+    tbody
+      - @orders.each do |order|
+        tr
+          td = link_to order.property.property_id, [:backend, order]
+          td = order.name
+          td = order.lease_start
+          td = order.lease_end
+          td #{order.rent} RMB
+          td #{order.period_length} months

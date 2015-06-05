@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids')#, 'tmp/cache',
 # set :keep_releases, 5
 
 set :ssh_options, {
-  keys: ["~/.ssh/kells.pem"],
+  keys: ["~/.ssh/kells_japan.pem"],
   forward_agent: true,
   auth_methods: ["publickey"]
 }
@@ -46,6 +46,8 @@ set :rvm_ruby_version, "ruby-2.2.2"
 set :bundle_without, [:test, :development, :capybara].join(" ")
 
 set :passenger_restart_with_sudo, true
+
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 namespace :deploy do
 

@@ -9,6 +9,7 @@ class PropertiesController < ApplicationController
 
   def index
     @q = Property.ransack(params[:q])
+    @area_desc = Area.find(params[:q][:area_id_eq]).description rescue nil
     @properties = @q.result(distinct: true).page(params[:page]).per(12)
     authorize Property
   end

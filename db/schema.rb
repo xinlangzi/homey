@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424205114) do
+ActiveRecord::Schema.define(version: 20150603202715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "areas", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "banners", force: :cascade do |t|
@@ -27,6 +28,18 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "url"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "order_id",                   null: false
+    t.integer  "category",                   null: false
+    t.decimal  "amount",                     null: false
+    t.text     "note"
+    t.boolean  "paid",       default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "reminded",   default: false, null: false
+    t.date     "due_date",                   null: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -79,6 +92,20 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.string   "property_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "property_id",   null: false
+    t.date     "lease_start",   null: false
+    t.date     "lease_end",     null: false
+    t.text     "bank_account"
+    t.decimal  "rent",          null: false
+    t.integer  "period_length", null: false
+    t.integer  "pre_alert_day", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -177,6 +204,7 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.text     "transportation"
     t.integer  "area_id"
     t.string   "map"
+    t.boolean  "long_term_lease",                                  default: true
   end
 
   add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree
@@ -185,9 +213,9 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.integer  "kind",           limit: 2, null: false
     t.integer  "intention",      limit: 2
     t.integer  "category",       limit: 2
-    t.integer  "bathroom_count", limit: 2
-    t.integer  "bedroom_count",  limit: 2
-    t.integer  "budget"
+    t.integer  "bathroom_min",   limit: 2
+    t.integer  "bedroom_min",    limit: 2
+    t.integer  "budget_min"
     t.date     "start_of_lease"
     t.date     "end_of_lease"
     t.string   "name",                     null: false
@@ -196,6 +224,9 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.text     "comments"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "bathroom_max",   limit: 2
+    t.integer  "bedroom_max",    limit: 2
+    t.integer  "budget_max"
   end
 
   create_table "systems", force: :cascade do |t|
@@ -203,8 +234,13 @@ ActiveRecord::Schema.define(version: 20150424205114) do
     t.string   "slogan"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.text     "our_service"
+    t.text     "contact_us"
+    t.text     "to_be_vip"
+    t.text     "escape_clause"
+    t.text     "faq_to_owner"
   end
 
   create_table "users", force: :cascade do |t|
@@ -231,5 +267,13 @@ ActiveRecord::Schema.define(version: 20150424205114) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "weathers", force: :cascade do |t|
+    t.integer "temp_c", limit: 2
+    t.integer "temp_f", limit: 2
+    t.string  "icon"
+  end
+
+  add_foreign_key "charges", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "properties", "areas"
 end

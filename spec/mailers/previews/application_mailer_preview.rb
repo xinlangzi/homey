@@ -9,4 +9,9 @@ class ApplicationMailerPreview < ActionMailer::Preview
     request = Request.first
     ApplicationMailer.new_request(request.id)
   end
+  
+  def charge_reminder
+    charge = Charge.first
+    ApplicationMailer.charge_reminder(charge.id)
+  end
 end

@@ -14,21 +14,21 @@ li.col-lg-4.col-md-6
               span.type = property.category.titleize
               span -
               span.location = property.district.try(:name)
-          .property-excerpt
-            ul
-              - if property.utility_charge_included
-                li.green
-                  = icon("check-circle-o", "Utility Charge Included")
-              - if property.short_term_lease
-                li.red
-                  = icon("check-circle-o", "Short Term Lease")
-              li class="#{property.available_date < Date.today ? 'green' : 'red'}"
-                = icon("calendar", date_label(property))
-                span = " " + property.available_date.to_s
-              li
-                div Business Center
-                small
-                  i = property.business_center
+          - if property.serviced_apartments?
+            .property-excerpt
+              ul
+                - if property.utility_charge_included
+                  li.green
+                    = icon("check-circle-o", "Utility Charge Included")
+                - if property.short_term_lease
+                  li.red
+                    = icon("check-circle-o", "Short Term Lease")
+                li class="#{property.available_date < Date.today ? 'green' : 'red'}"
+                  = icon("calendar", date_label(property))
+                  span = " " + property.available_date.to_s
+                - if property.business_center.present?
+                  li.red
+                    = property.business_center
     .property-content
       .property-meta.clearfix
         div

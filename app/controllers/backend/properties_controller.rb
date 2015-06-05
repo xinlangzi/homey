@@ -7,6 +7,7 @@ class Backend::PropertiesController < Backend::BaseController
     @search = Property.search(params[:q])
     @properties = @search.result.page(params[:page])
     authorize Property
+    authorize Property, :new?
   end
 
   # GET /propertys/1
@@ -80,8 +81,8 @@ class Backend::PropertiesController < Backend::BaseController
       features = Property::FEATURES.keys
       facilities = Property::FACILITIES.keys
       params.require(:property).permit(
-        :category, :title, :property_id, :price, :bedrooms, :bathrooms, :dens, :storage_rooms,
-        :surface_area, :utility_charge_included, :district_id, :area_id, :short_term_lease,
+        :category, :title, :price, :bedrooms, :bathrooms, :dens, :storage_rooms,
+        :surface_area, :utility_charge_included, :district_id, :area_id, :long_term_lease, :short_term_lease,
         :business_center, :available_date, *furnitures, *features, *facilities, :transportation,
         :map
       )

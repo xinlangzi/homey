@@ -1,17 +1,19 @@
-- @title = "News Items"
-.page-actions.btn-group
-  = link_to new_backend_news_item_path, :class => 'btn btn-default btn-round' do
-    span.glyphicon.glyphicon-plus-sign
-    |  New News Item
+- @title = "Resources"
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to new_backend_news_item_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-plus-sign
+      |  New Resource
 
-.clearfix
-table.table
-  thead
-    tr
-      th Title
-      th Last Updated
-      th
-      th
-  tbody
-    - @news_items.each do |news_item|
-      = render news_item
+.content
+  table.table
+    thead
+      tr
+        th Title
+        th Last Updated
+        th
+        th
+    tbody
+      - @news_items.each do |news_item|
+        = render news_item

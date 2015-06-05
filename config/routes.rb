@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web, at: '/sidekiq'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? || Rails.env.capybara?
-  
+
   namespace :backend do
+    resources :base
     resources :areas
     resources :banners
-    resources :users
+    resources :users do
+      resources :orders
+    end
+    resources :orders, only: [:index, :show]
     resources :images
     resources :properties
     resources :systems, only: [:edit, :update]
@@ -24,5 +28,9 @@ Rails.application.routes.draw do
   resources :subleases
 
   devise_for :users
+  get '/our_service', to: 'pages#our_service'
+  get '/contact_us', to: 'pages#contact_us'
+  get '/backend', to: 'backend/base#index'
   root to: 'pages#home'
+
 end

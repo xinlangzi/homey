@@ -1,12 +1,24 @@
 .logo{
   width: 150px;
+  margin: 0px;
 }
 .slogan{
-  font-family: Lato;
   padding: 5px 0px;
-  color: #444;
+  color: #666;
   font-size: 18px;
-  font-style: italic;
+  font-weight: 200;
+}
+.weather {
+  float: left;
+  color: black;
+  img {
+    display: inline;
+  }
+}
+#switch_user_identifier{
+  position: absolute;
+  top: 40px;
+  right: 300px;
 }
 *{
   -webkit-box-sizing: border-box;
@@ -14,7 +26,6 @@
   box-sizing: border-box;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: Lato;
   font-weight: normal;
   color: #666;
   opacity: 1;
@@ -59,7 +70,7 @@ header .navbar {
   -o-transition: all 0.4s;
   transition: all 0.4s;
   .navbar-header a {
-    color: #444;
+    color: #333;
   }
   background-color: #FFF;
   .navbar-collapse {
@@ -78,13 +89,23 @@ header .navbar {
     text-align: center;
     a {
       display: inline-block;
-      padding: 0 1em;
-      line-height: 2.5;
+      padding: 2px 1em 5px 1em;
+      line-height: 1.5;
       color: #F6F6F6;
-      opacity: 0.8;
+      opacity: 0.9;
       background-color: $base;
-      // background-color: rgba(255, 255, 255, 0.1);
       margin: 0px 1px;
+      @include border-radius-separate(0, 0, 10px, 10px);
+      border: 1px solid $base;
+      border-top: none;
+      &.online-request{
+        background: transparent;
+        color: $base;
+        font-weight: bold;
+        &:hover{
+          color: darken($base, 10%);
+        }
+      }
       &:hover {
         color: #FFF;
         opacity: 1;
@@ -134,11 +155,12 @@ header .navbar {
   .navbar-phone-number {
     font-size: 1em;
     color: #444;
+    font-weight: bold;
   }
   .navbar-email {
     margin-top: 5px;
     font-size: 1em;
-    opacity: 0.5;
+    opacity: 0.8;
   }
   .container .navbar-collapse {
     max-height: none;
@@ -392,8 +414,8 @@ header .navbar {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
-    padding: 15px 15px;
+    height: 80px;
+    padding: 10px;
     opacity: 0;
     line-height: 1.7;
     text-align: left;
@@ -403,6 +425,14 @@ header .navbar {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    ul{
+      padding-left: 15px;
+      li{
+        font-size: 12px;
+        padding-left: 0px;
+        line-height: 14px;
+      }
+    }
     &::after {
       position: absolute;
       top: 0;

@@ -1,0 +1,68 @@
+- @title = "#{@order.new_record? ? 'New' : 'Editing'} Order"
+.header
+  ol.title.breadcrumb
+    li = link_to "Users", [:backend, :users]
+    li = link_to @user.name, [:backend, @user]
+    - if @order.new_record?
+      li.active New Order
+    - else
+      li = link_to @order.property.property_id, [:backend, @user, @order]
+      li.active Editing
+    li.btn-group.pull-right
+      - if @order.new_record?
+        = link_to [:backend, @user], class: 'btn btn-default btn-round' do
+          span.glyphicon.glyphicon-backward
+          |  Back
+      - else
+        = link_to [:backend, @user, @order], class: 'btn btn-default btn-round' do
+          span.glyphicon.glyphicon-backward
+          |  Back
+
+.content
+  = simple_form_for [:backend, @user, @order] do |f|
+    = f.error_notification
+    .row
+      .col-md-3
+        = f.input :name
+      .col-md-3
+        = f.input :property_id_string, label: "Property ID", required: true
+      .col-md-3
+        = f.input :lease_start, as: :date_picker, label: "Lease Start"
+      .col-md-3
+        = f.input :lease_end, as: :date_picker, label: "Lease End"
+    .row
+      .col-md-3
+        = f.input :rent, label: "Rent Amount Per Period(RMB)"
+      .col-md-3
+        = f.input :period_length, label: "Length of Period(Months)"
+      .col-md-3
+        = f.input :pre_alert_day, label: "Advance Notification(Days)"
+    .row
+      .col-md-12
+        = f.input :bank_account, label: "Bank Account",  input_html: { rows: 5 }
+
+    .panel.panel-default
+      .panel-heading Charges
+      table.table.table-striped.vmiddle
+        thead
+          tr
+            th
+            th.col-md-3 Category
+            th.col-md-2 Amount
+            th.col-md-2 Due Date
+            th.col-md-4 Note
+            th.text-center.col-md-1 Paid
+        tbody
+          = f.nested_fields_for :charges, wrapper_tag: 'tr' do |ff|
+            td.text-center
+              h4 = ff.remove_nested_fields_link icon("times-circle-o").html_safe
+            td = ff.input :category, collection: enum_options(Charge.categories), label: false
+            td = ff.input :amount, label: false
+            td = ff.input :due_date, label: false, as: :date_picker
+            td = ff.input :note, label: false, as: :string
+            td.text-center = ff.input :paid, label: false
+        tfoot
+          tr
+            td colspan=6
+              = f.add_nested_fields_link :charges, nil, class: 'btn btn-success btn-xs'
+    = f.submit class: 'btn btn-primary'

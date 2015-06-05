@@ -1,15 +1,17 @@
 .navbar
   .container
+    .weather
+      img src="http://openweathermap.org/img/w/#{Weather.default.icon}.png"
+      span #{Weather.default.temp_c} &deg; C &nbsp; #{Weather.default.temp_f} &deg; F
     .top-header.primary-tooltips
       = link_to("Home", root_path)
       = link_to("Properties", properties_path)
-      = link_to("Online Request", new_request_path)
-      = link_to("Contact Us", new_inquiry_path)
+      = link_to("Our Service", '/our_service')
+      = link_to("Contact Us", '/contact_us')
+      = link_to("Subleases", subleases_path)
+      = link_to("Online Request", new_request_path, class: 'online-request')
       - if user_signed_in?
-        = link_to("Subleases", subleases_path)
-        - if current_user.admin?
-          a href=backend_properties_path Backend
-        = link_to("Edit Account", edit_user_registration_path)
+        = link_to("My Account", backend_path)
         = link_to("Logout", destroy_user_session_path, method: :delete)
       - else
         a href=new_user_registration_path Sign Up

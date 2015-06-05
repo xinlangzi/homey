@@ -4,11 +4,11 @@
     border: 1px solid #EEE;
     padding: 2px;
     .title{
-      background: #F6700E;
+      background: #F0B370;
       padding: 10px;
       color: #FFF;
       font-size: 20px;
-      font-weight: 300;
+      font-weight: 400;
       i{
         font-size: 13px;
         font-weight: bold;
@@ -78,19 +78,27 @@
   & > .title{
     padding: 10px 0px;
     font-size: 1.2em;
-    font-weight: bold;
-    background: lighten($base, 5%);
+    font-weight: 400;
     text-align: center;
-    color: #FFF;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
   }
   & > .subtitle{
     padding: 5px 0px;
+    margin: 5px 0px;
     .area{
       font-weight: bold;
       text-decoration: underline;
     }
+    .desc{
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
     .more{
-      float: right;
+      text-align: right;
       font-style: italic;
       text-decoration: underline;
     }

@@ -19,9 +19,11 @@ gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
 gem 'simple_form'
+gem 'nested_form_fields'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'fog', require: "fog/aws/storage"
+gem 'switch_user'
 # gem 'rmagick'
 gem 'awesome_print'
 gem 'seed-fu'
@@ -31,7 +33,6 @@ gem 'friendly_id'
 gem 'ransack'
 # pagination
 gem 'kaminari'
-gem 'recaptcha', require: 'recaptcha/rails'
 
 # queue
 gem 'sinatra', require: false
@@ -39,6 +40,7 @@ gem 'sidekiq'
 
 gem 'mini_magick'
 gem 'ckeditor'
+gem 'whenever', :require => false
 
 group :development do
   gem 'better_errors'
@@ -77,4 +79,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'timecop'
+  gem 'vcr'
+  gem 'webmock'
 end

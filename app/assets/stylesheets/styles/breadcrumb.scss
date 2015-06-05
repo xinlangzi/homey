@@ -1,0 +1,6 @@
+.breadcrumb{
+  margin-bottom: 10px;
+  & > li + li.pull-right:before{
+    content: none;
+  }
+}

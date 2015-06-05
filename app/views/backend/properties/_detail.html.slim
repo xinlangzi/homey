@@ -35,6 +35,9 @@
           - if @property.utility_charge_included
             li.green
               = icon("check-circle-o", "Utility Charge Included")
+          - if @property.long_term_lease
+            li.green
+              = icon("check-circle-o", "Long Term Lease")
           - if @property.short_term_lease
             li.red
               = icon("check-circle-o", "Short Term Lease")
@@ -45,10 +48,12 @@
             div Business Center
             small
               i = @property.business_center
-
           li
             = link_to new_inquiry_path(property_id: @property.property_id), class: 'btn btn-lg btn-success btn-block' do
               = icon("envelope-o", "Online Request")
+          - if user_signed_in? && policy(@property).edit?
+            li
+              = link_to 'Edit this Property', edit_backend_property_path(@property), :class => 'btn btn-danger btn-block'
     .col-md-9.col-sm-8
       .flexslider.images
         ul.slides
@@ -65,33 +70,31 @@
       a aria-controls="facilities" data-toggle="tab" href="#facilities" role="tab" Facilities
     li role="presentation"
       a aria-controls="transportation" data-toggle="tab" href="#transportation" role="tab" Transportation
-    - if @property.map.present?
-      li role="presentation"
-        a aria-controls="transportation" data-toggle="tab" href="#map" role="tab" Map
-
   .tab-content.white-block
     #furnitures.tab-pane.active role="tabpanel"
       .row.booleans
         - Property::FURNITURES.each do |column, name|
           - if @property.send(column)
-            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
             .col-xs-3 class="yes" = icon("check", name)
     #features.tab-pane role="tabpanel"
       .row.booleans
         - Property::FEATURES.each do |column, name|
           - if @property.send(column)
-            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
             .col-xs-3 class="yes" = icon("check", name)
     #facilities.tab-pane role="tabpanel"
       .row.booleans
         - Property::FACILITIES.each do |column, name|
           - if @property.send(column)
-            / - vals = @property.send(column) ? ["yes", "check"] : ["no", "close"]
             .col-xs-3 class="yes" = icon("check", name)
     #transportation.tab-pane role="tabpanel"
       = simple_format(@property.transportation)
-    - if @property.map.present?
-      #map.tab-pane role="tabpanel"
+  br
+  - if @property.map.present?
+    ul.nav.nav-tabs role="tablist"
+      li.active role="presentation"
+        a aria-controls="transportation" data-toggle="tab" href="#map" role="tab" Map
+    .tab-content.white-block
+      #map.tab-pane.active role="tabpanel"
         = image_tag(@property.map.url)
   br
   br

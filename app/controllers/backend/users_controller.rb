@@ -1,6 +1,7 @@
 class Backend::UsersController < Backend::BaseController
   def index
-    @users = User.all
+    @q = User.search(params[:q])
+    @users = @q.result.order('name asc').page(params[:page])
     authorize User
   end
 
@@ -8,7 +9,7 @@ class Backend::UsersController < Backend::BaseController
     @user = User.find(params[:id])
     authorize @user
   end
-  
+
   def update
     @user = User.find(params[:id])
     authorize @user

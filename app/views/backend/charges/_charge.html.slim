@@ -1,0 +1,11 @@
+tr
+  td = charge.category.titleize
+  td = charge.amount
+  td = charge.due_date
+  td
+    a.e-tooltip data-container="body" data-toggle="tooltip" data-placement="bottom" title=charge.note = truncate(charge.note, length: 20)
+  td
+    - if charge.paid
+      .label.label-success = icon("check", "Paid")
+    - else
+      .label.label-danger Unpaid

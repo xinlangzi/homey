@@ -23,6 +23,6 @@ class Backend::SystemsController < Backend::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_params
-      params.require(:system).permit(:logo, :slogan, :email, :phone)
+      params.require(:system).permit(:logo, :slogan, :email, :phone, :our_service, :contact_us, :to_be_vip, :escape_clause, :faq_to_owner)
     end
 end

@@ -1,0 +1,69 @@
+- @title = "Orders"
+.header
+  - if current_user.vip?
+    ol.title.breadcrumb
+      li = link_to "Orders", [:backend, :orders]
+      li.active = @order.property.property_id
+  - else
+    ol.title.breadcrumb
+      li = link_to "Users", [:backend, :users]
+      li = link_to @user.name, [:backend, @user]
+      li.active Orders
+      li.btn-group.pull-right
+        = link_to [:edit, :backend, @order.user, @order], class: 'btn btn-default btn-round' do
+          = icon("pencil-square-o", "Edit Order")
+
+.content
+  .row
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          = link_to @order.property.title, [:backend, @order.property]
+          | &nbsp;
+          i
+            small - #{@order.property.category.titleize} #{@order.property.district.try(:name)}
+        - charges = @order.charges.for_user(current_user)
+        table.table.table-striped
+          thead
+            tr
+              th Category
+              th Amount
+              th Due Date
+              th Note
+              th Status
+          tbody
+            = render charges
+        .panel-footer
+          h3.text-center
+            .label.label-danger Total Unpaid: #{charges.unpaid.sum(:amount)} RMB
+    .col-md-4
+      .panel.panel-default
+        .panel-heading Basic Information
+        table.table
+          tr
+            th Name
+            td = @order.name
+          tr
+            th Property ID
+            td = link_to @order.property.property_id, [:backend, @order.property]
+          tr
+            th Lease Start
+            td = @order.lease_start
+          tr
+            th Lease End
+            td = @order.lease_end
+          tr
+            th Rent/Month
+            td #{@order.rent} RMB
+          tr
+            th Rent Period
+            td #{@order.period_length} months
+          tr
+            th Advance Notification
+            td #{@order.pre_alert_day} days
+          tr
+            th.green colspan=2
+              = icon("angle-double-down", "Bank Account")
+
+          tr
+            td colspan=2 = simple_format(@order.bank_account)
