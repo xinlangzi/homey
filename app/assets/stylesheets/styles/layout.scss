@@ -89,16 +89,22 @@ header .navbar {
     text-align: center;
     a {
       display: inline-block;
-      padding: 3px 1em 6px 1em;
+      padding: 2px 1em 5px 1em;
       line-height: 1.5;
       color: #F6F6F6;
       opacity: 0.9;
       background-color: $base;
       margin: 0px 1px;
       @include border-radius-separate(0, 0, 10px, 10px);
+      border: 1px solid $base;
+      border-top: none;
       &.online-request{
-        background: #FF2A6D;
+        background: transparent;
+        color: $base;
         font-weight: bold;
+        &:hover{
+          color: darken($base, 10%);
+        }
       }
       &:hover {
         color: #FFF;

@@ -10,7 +10,7 @@
   = simple_form_for([:backend, @banner]) do |f|
     = f.error_notification
     .form-inputs
-      = f.input :file, hint: 'Best size: 1200px*410px'
+      = f.input :file, hint: 'Best size: 1200px*410px', required: @banner.new_record?
       = f.input :url
     .form-actions
       = f.button :submit, class: 'btn btn-primary'

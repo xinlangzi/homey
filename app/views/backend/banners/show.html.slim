@@ -1,13 +1,9 @@
-p#notice = notice
+.header
+  .title Banner
+  .actions.btn-group
+    = link_to 'Edit', edit_backend_banner_path(@banner), :class => 'btn btn-default btn-round'
+    = link_to 'Back', backend_banners_path, :class => 'btn btn-default btn-round'
 
-p
-  strong File:
+.content
   img src=@banner.file.url width="500px"
-  
-p
-  strong Url:
-  = @banner.url
-
-= link_to 'Edit', edit_backend_banner_path(@banner)
-'|
-= link_to 'Back', backend_banners_path
+  center = @banner.url
