@@ -346,13 +346,11 @@ header .navbar {
   }
   .title {
     margin-bottom: 0em;
-    font-size: 1.3em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    text-transform: uppercase;
   }
   .property-content {
     text-align: center;
@@ -487,7 +485,8 @@ header .navbar {
   .property-item {
     font-size: 0.9em;
     .title {
-      font-size: 1.3em;
+      font-size: 14px;
+      font-weight: bold;
     }
   }
 }
