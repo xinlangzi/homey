@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :inquiries, only: [:show, :index, :destroy]
     resources :requests, only: [:show, :index, :destroy]
     resources :news_items
+    resources :subleases
   end
 
   resources :properties, only: [:show, :index]

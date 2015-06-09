@@ -1,0 +1,19 @@
+- @title = "Subleases"
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to new_backend_sublease_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-plus-sign
+      |  New Sublease
+
+.content
+  table.table
+    thead
+      tr
+        th Title
+        th Last Updated
+        th
+        th
+    tbody
+      - @subleases.each do |sublease|
+        = render sublease

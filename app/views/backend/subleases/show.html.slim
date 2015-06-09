@@ -1,0 +1,9 @@
+- @title = @sublease.title
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to 'Edit', edit_backend_sublease_path(@sublease), :class => 'btn btn-default btn-round'
+    = link_to 'Back', backend_subleases_path, :class => 'btn btn-default btn-round'
+
+.content
+  = render 'detail'
