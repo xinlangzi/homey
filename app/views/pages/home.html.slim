@@ -17,11 +17,11 @@
           - next if properties.empty?
           .subtitle
             .row
-              .col-md-4.col-xs-6.area
+              .col-md-4.col-xs-12.area
                 = link_to properties_url(q: {area_id_eq: area.id}) do
                   = icon("dot-circle-o", area.name)
-              .col-md-6.col-xs-6.desc = area.description
-              .col-md-2.col-xs-12.more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
+              .col-md-6.col-xs-8.desc = area.description
+              .col-md-2.col-xs-4.more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
           ul.row.list-unstyled
             - properties.each do |property|
               = render property

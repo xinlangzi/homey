@@ -10,8 +10,10 @@
   font-weight: 200;
 }
 .weather {
-  float: left;
+  position: absolute;
   color: black;
+  top: 0px;
+  left: 8px;
   img {
     display: inline;
   }
@@ -258,15 +260,29 @@ header .navbar {
 }
 
 @media (max-width: 767px) {
-  header .navbar .navbar-collapse {
-    position: absolute;
-    z-index: 1001;
-    top: 0;
-    left: 100%;
-    width: 75%;
-    height: 100% !important;
-    margin: 0;
-    text-align: left;
+  header .navbar {
+    .weather{
+      left: 180px;
+      top: 60px;
+    }
+    .top-header{
+      font-size: 12px;
+      margin: 0 -15px;
+      a {
+        padding: 3px 6px;
+        @include border-radius-separate(0, 0, 8px, 8px);
+      }
+    }
+    .navbar-collapse {
+      position: absolute;
+      z-index: 1001;
+      top: 0;
+      left: 100%;
+      width: 75%;
+      height: 100% !important;
+      margin: 0;
+      text-align: left;
+    }
   }
   body.show-nav {
     left: -75%;
