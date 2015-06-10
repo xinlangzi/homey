@@ -17,4 +17,19 @@ RSpec.describe Order, type: :model do
       Order.automate
     end
   end
+
+  it '#lease_renewable?' do
+    expect(Date.today.to_s).to eq("2015-05-01")
+    expect(order.lease_end.to_s).to eq("2015-06-01")
+    expect(order.lease_renewable?).to be_truthy
+    Timecop.freeze(Time.local(2015, 5, 7, 6, 0)) do
+      expect(order.lease_renewable?).to be_truthy
+    end
+    Timecop.freeze(Time.local(2015, 5, 8, 6, 0)) do
+      expect(order.lease_renewable?).to be_falsey
+    end
+    Timecop.freeze(Time.local(2015, 6, 2, 6, 0)) do
+      expect(order.lease_renewable?).to be_falsey
+    end
+  end
 end
