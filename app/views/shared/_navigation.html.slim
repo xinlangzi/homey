@@ -1,8 +1,6 @@
 .navbar
-  .container.relative
-    .weather
-      img src="http://openweathermap.org/img/w/#{Weather.default.icon}.png"
-      span #{Weather.default.temp_c} &deg; C &nbsp; #{Weather.default.temp_f} &deg; F
+  .container
+    = render 'shared/weather'
     .top-header.primary-tooltips
       = link_to("Home", root_path)
       = link_to("Properties", properties_path)

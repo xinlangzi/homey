@@ -10,10 +10,12 @@ html
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
-  body
+  body.relative
     header
       == render 'shared/alert'
       == render 'shared/navigation'
       == switch_user_select
       == yield
-    = render 'shared/copy_warning'
+    footer
+      == render 'shared/weather'
+    == render 'shared/copy_warning'

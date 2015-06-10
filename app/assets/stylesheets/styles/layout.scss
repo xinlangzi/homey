@@ -9,15 +9,6 @@
   font-size: 18px;
   font-weight: 200;
 }
-.weather {
-  position: absolute;
-  color: black;
-  top: 0px;
-  left: 8px;
-  img {
-    display: inline;
-  }
-}
 #switch_user_identifier{
   position: absolute;
   top: 40px;
@@ -72,6 +63,13 @@ header .navbar {
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+  .weather {
+    float: left;
+    color: black;
+    img {
+      display: inline;
+    }
+  }
   .navbar-header a {
     color: #333;
   }
@@ -229,6 +227,17 @@ header .navbar {
     background-color: #FFF;
   }
 }
+footer{
+  background: #FFF;
+  .weather {
+    width: 150px;
+    margin: auto;
+    color: black;
+    img {
+      display: inline;
+    }
+  }
+}
 
 @media (min-width: 768px) {
   header .navbar {
@@ -262,8 +271,7 @@ header .navbar {
 @media (max-width: 767px) {
   header .navbar {
     .weather{
-      left: 180px;
-      top: 60px;
+      display: none;
     }
     .top-header{
       font-size: 12px;
