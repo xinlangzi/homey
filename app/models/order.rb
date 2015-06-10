@@ -18,4 +18,20 @@ class Order < ActiveRecord::Base
       order.property = Property.friendly.find(order.property_id_string) rescue nil
     end
   end
+
+  def self.automate
+    lease_reminder
+  end
+
+  def lease_renewable?
+    Date.today < lease_end.ago(1.month).to_date + 7.days
+  end
+
+  private
+
+  def self.lease_reminder
+    Order.where(lease_end: 1.month.since.to_date).find_each do |order|
+      ApplicationMailer.lease_reminder(order.id).deliver_later!(wait: 1.minute)
+    end
+  end
 end

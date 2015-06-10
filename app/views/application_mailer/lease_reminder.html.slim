@@ -1,0 +1,3 @@
+b Dear #{@user.name},
+
+p The end lease of this property #{link_to(@order.property.property_id, @order.property)} is #{@order.lease_end}. If you want to renew the lease, you have 7 days to consider about it. You can click #{link_to("here", [:backend, @order])} to view the detail of the related order.

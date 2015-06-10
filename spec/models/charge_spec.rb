@@ -18,11 +18,11 @@ RSpec.describe Charge, type: :model do
       expect(charge.reload.reminded).to be_truthy
     end
   end
-  
+
   describe ".create_rental_charges" do
     let(:property) { create(:property) }
     let!(:order) { create(:order, property_id_string: property.property_id) }
-    
+
     context "not yet time" do
       before do
         Timecop.freeze(Date.new(2015,9,16))

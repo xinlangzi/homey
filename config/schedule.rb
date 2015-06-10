@@ -26,3 +26,7 @@ end
 every 1.day do
   runner "Charge.automate"
 end
+
+every 1.day do
+  runner "Order.automate"
+end

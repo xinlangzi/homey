@@ -70,3 +70,7 @@ RSpec.configure do |config|
     config.hook_into :webmock
   end
 end
+
+def deliver_mailer
+  double("mailer").tap{|mailer| expect(mailer).to receive(:deliver_later!).with({ wait: 1.minute}) }
+end

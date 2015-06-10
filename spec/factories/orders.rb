@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :order do
-    name "MyString"
+    name "John Smith"
     association :user
     association :property
-    lease_start "2015-05-24"
-    lease_end "2015-12-24"
+    lease_start { 1.year.ago.to_date }
+    lease_end { 1.month.since.to_date }
     bank_account "MyText"
     rent "9.99"
     period_length 2
