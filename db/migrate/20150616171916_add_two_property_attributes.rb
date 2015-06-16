@@ -5,7 +5,7 @@ class AddTwoPropertyAttributes < ActiveRecord::Migration
     add_column :images, :default_image, :boolean, default: false, null: false
     
     Property.all.each do |property|
-      property.images.first.update_attributes!(default_image: true)
+      property.images.first.try(:update_attributes!, default_image: true)
     end
   end
 end
