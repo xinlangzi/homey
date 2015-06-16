@@ -11,7 +11,6 @@ window.Property =
       controlNav: "thumbnails"
       slideshow: false
       animationLoop: false
-    # console.log(window.Property.flexslider.data().flexslider.vars)
 
 
 Property.events()

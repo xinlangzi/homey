@@ -526,15 +526,15 @@ footer{
 @media (min-width: 768px){
   .property-item{
     img{
-      width: -webkit-calc(120%);
-      width: calc(120%);
+      width: -webkit-calc(102%);
+      width: calc(102%);
       -webkit-filter: grayscale(0%);
       filter: none;
-      -webkit-transform: translate3d(-10px, 0, 0);
-      -moz-transform: translate3d(-10px, 0, 0);
-      -ms-transform: translate3d(-10px, 0, 0);
-      -o-transform: translate3d(-10px, 0, 0);
-      transform: translate3d(-10px, 0, 0);
+      // -webkit-transform: translate3d(-10px, 0, 0);
+      // -moz-transform: translate3d(-10px, 0, 0);
+      // -ms-transform: translate3d(-10px, 0, 0);
+      // -o-transform: translate3d(-10px, 0, 0);
+      // transform: translate3d(-10px, 0, 0);
     }
     figcaption{
       position: absolute;
