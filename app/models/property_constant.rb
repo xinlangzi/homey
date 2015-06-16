@@ -25,7 +25,8 @@ module PropertyConstant
     boolean23: "Book Cabinet",
     boolean24: "Beds",
     boolean25: "Desk",
-    boolean26: "Internet"
+    boolean26: "Internet",
+    boolean60: "Water Filter System"
   }.freeze
 
   FEATURES = {
@@ -65,7 +66,8 @@ module PropertyConstant
     boolean56: "Parking Space",
     boolean57: "Snooker",
     boolean58: "Salon",
-    boolean59: "Park"
+    boolean59: "Park",
+    boolean61: "Metro"
   }.freeze
 
 end

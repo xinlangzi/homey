@@ -1,5 +1,7 @@
 window.Property =
   events: ->
+    $(document).on 'change', '.default_image', ->
+      $("[type='submit']", this.form).click()
 
   init: ->
     Property.slideImages()

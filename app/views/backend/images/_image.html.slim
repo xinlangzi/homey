@@ -3,3 +3,5 @@
   .pull-right
     = link_to [:backend, image], data: {:confirm => 'Are you sure?'}, method: :delete, remote: true
       = icon("times-circle-o")
+  = radio_button(:property, "default_image_id", image.id, class: "default_image")
+  span &nbsp; Default

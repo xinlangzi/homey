@@ -1,0 +1,1 @@
+alert("Default image updated.")
