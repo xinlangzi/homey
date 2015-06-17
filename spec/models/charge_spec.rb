@@ -25,7 +25,7 @@ RSpec.describe Charge, type: :model do
 
     context "not yet time" do
       before do
-        Timecop.freeze(Date.new(2015,9,16))
+        Timecop.freeze(order.lease_start + 4.months - 8.days)
         Charge.create_rental_charges
       end
 
@@ -50,7 +50,7 @@ RSpec.describe Charge, type: :model do
 
     context "time to create next charge" do
       before do
-        Timecop.freeze(Date.new(2015,9,17))
+        Timecop.freeze(order.lease_start + 4.months - 7.days)
         Charge.create_rental_charges
       end
 
