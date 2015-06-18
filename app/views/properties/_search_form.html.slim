@@ -11,12 +11,13 @@
         = f.input :price_gteq, label: false, placeholder: "Min Price", required: false
       .col-md-2
         = f.input :price_lteq, label: false, placeholder: "Max Price", required: false
-      .col-md-8
+      .col-md-9
         .checkboxs
           - [:boolean33, :boolean39, :boolean40, :boolean41].each do |column|
             = f.input column.to_s + "_eq", label: PropertyConstant::FEATURES[column], required: false, as: :boolean, unchecked_value: ""
           = f.input :boolean44_eq, label: "XIS Bus Stop", required: false, as: :boolean, unchecked_value: ""
           = f.input :short_term_lease_eq, label: "Short Term Lease", required: false, as: :boolean, unchecked_value: ""
+          = f.input :boolean61_eq, label: "Metro", required: false, as: :boolean, unchecked_value: ""
       .col-md-10
         = f.input :property_id_eq, label: false, placeholder: "If you know the Property ID of the apartment you are looking for, type it in here and directly click 'Search Properties'.", required: false
       .col-md-2

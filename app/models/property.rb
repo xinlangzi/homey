@@ -7,7 +7,7 @@ class Property < ActiveRecord::Base
 
   belongs_to :district
   belongs_to :area
-  has_many :images, as: :imageable
+  has_many :images, -> { order("default_image desc") }, as: :imageable
 
   validates :category, :title, :available_date, presence: true
   validates :district, presence: true, associated: true
@@ -44,7 +44,21 @@ class Property < ActiveRecord::Base
       hash
     end
   end
+  
+  def default_image
+    images.where(default_image: true).first
+  end
 
+  def default_image_id
+    default_image.id
+  end
+
+  def default_image_id=(image_id)
+    old_image = default_image
+    old_image.update_attributes!(default_image: false)
+    images.where(id: image_id).first.update_attributes!(default_image: true)
+  end
+  
   private
 
   def self.ransackable_scopes(auth_object = nil)

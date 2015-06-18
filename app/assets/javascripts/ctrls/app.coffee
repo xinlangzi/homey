@@ -41,7 +41,7 @@ window.App =
     $('input.date_time_picker').datetimepicker()
 
   fadeAlert: ->
-    $(".flash .alert").delay(200).addClass("in").fadeOut(4000);
+    $(".flash .alert").delay(200).addClass("in").fadeOut(2000);
 
 # events only run once to avoid the firing twice or more
 App.events()

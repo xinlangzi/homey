@@ -3,17 +3,11 @@
   margin: 0px;
 }
 .slogan{
+  margin-top: 15px;
   padding: 5px 0px;
   color: #666;
   font-size: 18px;
   font-weight: 200;
-}
-.weather {
-  float: left;
-  color: black;
-  img {
-    display: inline;
-  }
 }
 #switch_user_identifier{
   position: absolute;
@@ -69,6 +63,13 @@ header .navbar {
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+  .weather {
+    float: left;
+    color: black;
+    img {
+      display: inline;
+    }
+  }
   .navbar-header a {
     color: #333;
   }
@@ -226,6 +227,17 @@ header .navbar {
     background-color: #FFF;
   }
 }
+footer{
+  background: #FFF;
+  .weather {
+    width: 150px;
+    margin: auto;
+    color: black;
+    img {
+      display: inline;
+    }
+  }
+}
 
 @media (min-width: 768px) {
   header .navbar {
@@ -257,15 +269,28 @@ header .navbar {
 }
 
 @media (max-width: 767px) {
-  header .navbar .navbar-collapse {
-    position: absolute;
-    z-index: 1001;
-    top: 0;
-    left: 100%;
-    width: 75%;
-    height: 100% !important;
-    margin: 0;
-    text-align: left;
+  header .navbar {
+    .weather{
+      display: none;
+    }
+    .top-header{
+      font-size: 12px;
+      margin: 0 -15px;
+      a {
+        padding: 3px 6px;
+        @include border-radius-separate(0, 0, 8px, 8px);
+      }
+    }
+    .navbar-collapse {
+      position: absolute;
+      z-index: 1001;
+      top: 0;
+      left: 100%;
+      width: 75%;
+      height: 100% !important;
+      margin: 0;
+      text-align: left;
+    }
   }
   body.show-nav {
     left: -75%;
@@ -345,13 +370,11 @@ header .navbar {
   }
   .title {
     margin-bottom: 0em;
-    font-size: 1.3em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    text-transform: uppercase;
   }
   .property-content {
     text-align: center;
@@ -486,7 +509,8 @@ header .navbar {
   .property-item {
     font-size: 0.9em;
     .title {
-      font-size: 1.3em;
+      font-size: 14px;
+      font-weight: bold;
     }
   }
 }
@@ -502,15 +526,15 @@ header .navbar {
 @media (min-width: 768px){
   .property-item{
     img{
-      width: -webkit-calc(120%);
-      width: calc(120%);
+      width: -webkit-calc(102%);
+      width: calc(102%);
       -webkit-filter: grayscale(0%);
       filter: none;
-      -webkit-transform: translate3d(-10px, 0, 0);
-      -moz-transform: translate3d(-10px, 0, 0);
-      -ms-transform: translate3d(-10px, 0, 0);
-      -o-transform: translate3d(-10px, 0, 0);
-      transform: translate3d(-10px, 0, 0);
+      // -webkit-transform: translate3d(-10px, 0, 0);
+      // -moz-transform: translate3d(-10px, 0, 0);
+      // -ms-transform: translate3d(-10px, 0, 0);
+      // -o-transform: translate3d(-10px, 0, 0);
+      // transform: translate3d(-10px, 0, 0);
     }
     figcaption{
       position: absolute;

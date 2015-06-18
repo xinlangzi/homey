@@ -50,10 +50,12 @@ class Backend::PropertiesController < Backend::BaseController
       if @property.update(property_params)
         format.html { redirect_to [:backend, @property], notice: 'Rental unit was successfully updated.' }
         format.json { render :show, status: :ok, location: [:backend, @property] }
+        format.js
       else
         @image = @property.images.build
         format.html { render :edit }
         format.json { render json: @property.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -84,7 +86,7 @@ class Backend::PropertiesController < Backend::BaseController
         :category, :title, :price, :bedrooms, :bathrooms, :dens, :storage_rooms,
         :surface_area, :utility_charge_included, :district_id, :area_id, :long_term_lease, :short_term_lease,
         :business_center, :available_date, *furnitures, *features, *facilities, :transportation,
-        :map
+        :map, :default_image_id
       )
     end
 end

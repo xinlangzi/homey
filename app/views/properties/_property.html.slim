@@ -4,7 +4,7 @@ li.col-lg-4.col-md-6
       figure.property-thumbnail
         - image = property.images.first
         - if image
-          = image_tag(image.file.url, class: 'attachment-property-thumb wp-post-image', width: 600, height: 300)
+          = image_tag(image.file.url(:medium), class: 'attachment-property-thumb wp-post-image', width: 600, height: 450)
         - else
           = image_tag("/noimage.png", width: 600, height: 300)
         figcaption
@@ -33,20 +33,20 @@ li.col-lg-4.col-md-6
       .property-meta.clearfix
         div
           .meta-title
-            i.fa.fa-expand
-          .meta-data data-original-title="Size" data-toggle="tooltip" title="" #{property.surface_area} sqm
-        div
-          .meta-title
-            i.fa.fa-building-o
-          .meta-data data-original-title="Rooms" data-toggle="tooltip" title="" #{property.rooms} Rooms
-        div
-          .meta-title
             i.fa.fa-bed
           .meta-data data-original-title="Bedrooms" data-toggle="tooltip" title=""  #{property.bedrooms} Bedrooms
         div
           .meta-title
             i.fa.fa-tint
           .meta-data data-original-title="Bathrooms" data-toggle="tooltip" title=""  #{property.bathrooms} Bathrooms
+        div
+          .meta-title
+            i.fa.fa-expand
+          .meta-data data-original-title="Size" data-toggle="tooltip" title="" #{property.surface_area} sqm
+        div
+          .meta-title
+            i.fa.fa-building-o
+          .meta-data data-original-title="Rooms" data-toggle="tooltip" title="" #{property.rooms} Rooms
       .property-price
         / span.property-status data-original-title="Status" data-toggle="tooltip" title=""  Rented Out
         / i.fa.fa-star data-original-title=("Featured Property") data-toggle="tooltip" title=""

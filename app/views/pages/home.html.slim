@@ -16,12 +16,10 @@
         - @latest_properties.each do |area, properties|
           - next if properties.empty?
           .subtitle
-            .row
-              .col-md-2.col-xs-6.area
-                = link_to properties_url(q: {area_id_eq: area.id}) do
-                  = icon("dot-circle-o", area.name)
-              .col-md-8.col-xs-6.desc = area.description
-              .col-md-2.col-xs-12.more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
+            = link_to properties_url(q: {area_id_eq: area.id}), class: 'area' do
+              = icon("dot-circle-o", area.name)
+            .desc = area.description
+            .more = link_to("view more", properties_url(q: {area_id_eq: area.id}))
           ul.row.list-unstyled
             - properties.each do |property|
               = render property

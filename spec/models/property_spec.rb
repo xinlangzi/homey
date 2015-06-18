@@ -44,4 +44,18 @@ RSpec.describe Property, type: :model do
       expect(Property.ransack("bedroom_count" => "6").result.length).to eq(1)
     end
   end
+  
+  context "default images" do
+    let(:file) { extend ActionDispatch::TestProcess; fixture_file_upload("test1.jpg") }
+    let!(:image) { subject.images.create!(file: file) }
+    it "should return the idea of the default image" do
+      expect(subject.default_image_id).to eq(image.id)
+      x = subject.images.create!(file: file)
+      expect(x.default_image).to be_falsey
+
+      subject.default_image_id = x.id
+      expect(x.reload.default_image).to be_truthy
+      expect(image.reload.default_image).to be_falsey
+    end
+  end
 end

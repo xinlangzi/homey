@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
+  let(:vip){ create(:user, :vip) }
+  let!(:order){ create(:order, user: vip) }
   it { should belong_to(:user) }
   it { should belong_to(:property) }
   it { should validate_presence_of(:property) }
@@ -8,4 +10,26 @@ RSpec.describe Order, type: :model do
   it { should validate_presence_of(:period_length)}
   it { should validate_presence_of(:pre_alert_day)}
   it { should validate_presence_of(:rent)}
+
+  context '.automate' do
+    it 'renew leases' do
+      expect(ApplicationMailer).to receive(:lease_reminder).with(order.id){deliver_mailer}
+      Order.automate
+    end
+  end
+
+  it '#lease_renewable?' do
+    expect(Date.today.to_s).to eq("2015-05-01")
+    expect(order.lease_end.to_s).to eq("2015-06-01")
+    expect(order.lease_renewable?).to be_truthy
+    Timecop.freeze(Time.local(2015, 5, 7, 6, 0)) do
+      expect(order.lease_renewable?).to be_truthy
+    end
+    Timecop.freeze(Time.local(2015, 5, 8, 6, 0)) do
+      expect(order.lease_renewable?).to be_falsey
+    end
+    Timecop.freeze(Time.local(2015, 6, 2, 6, 0)) do
+      expect(order.lease_renewable?).to be_falsey
+    end
+  end
 end

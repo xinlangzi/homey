@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603202715) do
+ActiveRecord::Schema.define(version: 20150616171916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150603202715) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "default_image",  default: false, null: false
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -205,6 +206,8 @@ ActiveRecord::Schema.define(version: 20150603202715) do
     t.integer  "area_id"
     t.string   "map"
     t.boolean  "long_term_lease",                                  default: true
+    t.boolean  "boolean60",                                        default: false, null: false
+    t.boolean  "boolean61",                                        default: false, null: false
   end
 
   add_index "properties", ["slug"], name: "index_properties_on_slug", unique: true, using: :btree

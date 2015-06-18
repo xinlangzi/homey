@@ -15,11 +15,16 @@ Rails.application.routes.draw do
     end
     resources :orders, only: [:index, :show]
     resources :images
-    resources :properties
+    resources :properties do
+      member do
+        post :default_image
+      end
+    end
     resources :systems, only: [:edit, :update]
     resources :inquiries, only: [:show, :index, :destroy]
     resources :requests, only: [:show, :index, :destroy]
     resources :news_items
+    resources :subleases
   end
 
   resources :properties, only: [:show, :index]

@@ -58,8 +58,8 @@
       .flexslider.images
         ul.slides
           - @property.images.each do |image|
-            li  data-thumb=image.file.url
-              img src=image.file.url
+            li data-thumb=image.file.url(:thumb)
+              img src=image.file.url(:medium)
   br
   ul.nav.nav-tabs role="tablist"
     li.active role="presentation"

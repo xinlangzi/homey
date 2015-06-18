@@ -91,9 +91,11 @@
     .area{
       font-weight: bold;
       text-decoration: underline;
+      padding-right: 20px;
     }
     .desc{
-      text-align: center;
+      display: inline;
+      text-align: left;
       color: #777;
       font-size: 12px;
     }
@@ -103,5 +105,21 @@
       text-decoration: underline;
     }
 
+  }
+}
+
+@media (max-width: 768px){
+  .latest-properties{
+    .subtitle{
+      .area{
+        display: block;
+        text-align: center;
+        padding: 0px;
+      }
+      .desc{
+        display: block;
+        text-align: center;
+      }
+    }
   }
 }
