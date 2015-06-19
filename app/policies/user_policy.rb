@@ -5,6 +5,14 @@ class UserPolicy
     @current_user = current_user
     @user = model
   end
+  
+  def new?
+    @current_user.admin?
+  end
+
+  def create?
+    @current_user.admin?
+  end
 
   def index?
     @current_user.admin?

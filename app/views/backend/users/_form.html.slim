@@ -1,0 +1,23 @@
+- @title = "#{@user.new_record? ? 'New' : 'Editing'} User"
+.header
+  .title = @title
+  .actions.btn-group
+    = link_to backend_users_path, :class => 'btn btn-default btn-round' do
+      span.glyphicon.glyphicon-backward
+      |  Back
+
+.content
+  = simple_form_for([:backend, @user]) do |f|
+    = f.error_notification
+    .row
+      = f.input :name
+    .row
+      = f.input :email
+    .row
+      = f.input :password, required: true
+    .row
+      = f.input :password_confirmation, required: true
+    .row
+      = f.input :role, collection: User.roles.keys.map {|role| [role.titleize,role]}, include_blank: false, required: true
+    .form-actions
+      = f.button :submit, class: 'btn btn-primary'

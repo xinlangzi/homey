@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616171916) do
+ActiveRecord::Schema.define(version: 20150619162854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "areas", force: :cascade do |t|
     t.string   "name",        null: false
@@ -277,6 +278,7 @@ ActiveRecord::Schema.define(version: 20150616171916) do
   end
 
   add_foreign_key "charges", "orders"
+  add_foreign_key "orders", "properties"
   add_foreign_key "orders", "users"
   add_foreign_key "properties", "areas"
 end
