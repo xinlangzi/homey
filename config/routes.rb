@@ -1,9 +1,9 @@
-require 'sidekiq/web'
+# require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :requests
   mount Ckeditor::Engine => '/ckeditor'
-  mount Sidekiq::Web, at: '/sidekiq'
+  # mount Sidekiq::Web, at: '/sidekiq'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? || Rails.env.capybara?
 
   namespace :backend do

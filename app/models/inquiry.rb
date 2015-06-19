@@ -6,7 +6,7 @@ class Inquiry < ActiveRecord::Base
   attr_accessor :captcha_response, :captcha_question
 
   after_create do
-    ApplicationMailer.new_inquiry(self.id).deliver_later(wait: 1.minute)
+    ApplicationMailer.new_inquiry(self.id).deliver_later#(wait: 1.minute)
   end
 
   def property

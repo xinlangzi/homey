@@ -35,8 +35,8 @@ gem 'ransack'
 gem 'kaminari'
 
 # queue
-gem 'sinatra', require: false
-gem 'sidekiq'
+# gem 'sinatra', require: false
+# gem 'sidekiq'
 
 gem 'mini_magick'
 gem 'ckeditor'
