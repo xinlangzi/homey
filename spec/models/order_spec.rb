@@ -32,4 +32,16 @@ RSpec.describe Order, type: :model do
       expect(order.lease_renewable?).to be_falsey
     end
   end
+
+  it "#renewal_lease_reminder" do
+    expect(ApplicationMailer).to receive(:renewal_lease_reminder).with(order.id){deliver_mailer}
+    order.update(renewal_lease_month: 3)
+    expect(order.reload.renew_lease_at).to eq(Time.now)
+  end
+
+  it "#renewal_internet_reminder" do
+    expect(ApplicationMailer).to receive(:renewal_internet_reminder).with(order.id){deliver_mailer}
+    order.update(renewal_internet_month: 3)
+    expect(order.reload.renew_internet_at).to eq(Time.now)
+  end
 end

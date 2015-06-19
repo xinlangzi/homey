@@ -1,0 +1,4 @@
+p
+  | #{@order.user.name} requested to renew the internet for #{@order.renewal_internet_month} months. Please click
+  span = link_to(" here ", [:backend, @order])
+  | to view detail.
