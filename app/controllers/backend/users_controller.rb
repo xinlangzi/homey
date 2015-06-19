@@ -34,7 +34,6 @@ class Backend::UsersController < Backend::BaseController
     if @user.update_attributes(secure_params)
       redirect_to backend_users_path, :notice => "User updated."
     else
-      ap @user.errors
       redirect_to backend_users_path, :alert => "Unable to update user."
     end
   end
