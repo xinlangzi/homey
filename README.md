@@ -64,9 +64,9 @@ That simple!
 
 In order to run this, you need to set 3 environment variables:
 
-export AWS_ACCESS_KEY_ID=AKIAIUMOOR6LOU4JS2HQ
-export AWS_SECRET_ACCESS_KEY=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
-export WEATHER_API_ID=80b6ec393a6d1d7484a3cb1c2eaafabd
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export WEATHER_API_ID=
 
 Documentation and Support
 -------------------------
