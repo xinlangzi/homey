@@ -39,7 +39,7 @@
           br
           .alert.alert-success
             - if @order.lease_renewable?
-              = simple_form_for [:renew_lease, :backend, @order], method: :patch do |s|
+              = simple_form_for [:renew_lease, :backend, @user, @order], method: :patch do |s|
                 = s.input :renewal_lease_month, collection: (1..24), label: "Months of Renewal Lease", required: true, input_html: { class: 'btn-block'}, hint: "You won't be able to change the renewal lease during last 3 weeks of lease."
                 = s.submit "Confirm to Renew", class: 'btn btn-success'
                 - if @order.renew_lease_at
@@ -51,7 +51,7 @@
               b Do you want to set/change renewal lease? Please contact our customer service.
 
           .alert.alert-info
-            = simple_form_for [:renew_internet, :backend, @order], method: :patch do |s|
+            = simple_form_for [:renew_internet, :backend, @user, @order], method: :patch do |s|
               = s.input :renewal_internet_month, collection: (1..24), label: "Months of Renewal Internet", required: true, input_html: { class: 'btn-block'}
               = s.submit "Confirm to Renew", class: 'btn btn-success'
               - if @order.renew_internet_at

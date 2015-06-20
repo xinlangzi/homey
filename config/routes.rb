@@ -11,13 +11,18 @@ Rails.application.routes.draw do
     resources :areas
     resources :banners
     resources :users do
-      resources :orders
+      resources :orders do
+        member do
+          patch :renew_lease
+          patch :renew_internet
+        end
+      end
     end
     resources :orders, only: [:index, :show] do
-      member do
-        patch :renew_lease
-        patch :renew_internet
-      end
+      # member do
+      #   patch :renew_lease
+      #   patch :renew_internet
+      # end
     end
     resources :images
     resources :properties do

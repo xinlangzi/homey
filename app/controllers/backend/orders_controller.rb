@@ -59,7 +59,7 @@ class Backend::OrdersController < Backend::BaseController
   def renew_lease
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to [:backend, @order], notice: 'The renewal lease was successfully submitted and notified to customer service.' }
+        format.html { redirect_to [:backend, @user, @order], notice: 'The renewal lease was successfully submitted and notified to customer service.' }
       else
         format.html { render :show }
       end
@@ -69,7 +69,7 @@ class Backend::OrdersController < Backend::BaseController
   def renew_internet
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to [:backend, @order], notice: 'The renewal internet was successfully submitted and notified to customer service.' }
+        format.html { redirect_to [:backend, @user, @order], notice: 'The renewal internet was successfully submitted and notified to customer service.' }
       else
         format.html { render :show }
       end

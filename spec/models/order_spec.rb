@@ -10,11 +10,15 @@ RSpec.describe Order, type: :model do
   it { should validate_presence_of(:period_length)}
   it { should validate_presence_of(:pre_alert_day)}
   it { should validate_presence_of(:rent)}
+  
+  before do
+    ActionMailer::Base.deliveries.clear
+  end
 
   context '.automate' do
     it 'renew leases' do
-      expect(ApplicationMailer).to receive(:lease_reminder).with(order.id){deliver_mailer}
       Order.automate
+      expect(ActionMailer::Base.deliveries.first.subject).to eq("Do you want to renew the lease?")
     end
   end
 
@@ -34,14 +38,14 @@ RSpec.describe Order, type: :model do
   end
 
   it "#renewal_lease_reminder" do
-    expect(ApplicationMailer).to receive(:renewal_lease_reminder).with(order.id){deliver_mailer}
     order.update(renewal_lease_month: 3)
+    expect(ActionMailer::Base.deliveries.first.subject).to eq("Notification: Renewal lease")
     expect(order.reload.renew_lease_at).to eq(Time.now)
   end
 
   it "#renewal_internet_reminder" do
-    expect(ApplicationMailer).to receive(:renewal_internet_reminder).with(order.id){deliver_mailer}
     order.update(renewal_internet_month: 3)
+    expect(ActionMailer::Base.deliveries.first.subject).to eq("Notification: Renewal internet")
     expect(order.reload.renew_internet_at).to eq(Time.now)
   end
 end

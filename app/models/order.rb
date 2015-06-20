@@ -33,21 +33,21 @@ class Order < ActiveRecord::Base
 
   def self.lease_reminder
     Order.where(lease_end: 1.month.since.to_date).find_each do |order|
-      ApplicationMailer.lease_reminder(order.id).deliver_later!(wait: 1.minute)
+      ApplicationMailer.lease_reminder(order.id).deliver_later#!(wait: 1.minute)
     end
   end
 
   def renewal_lease_reminder
     if renewal_lease_month_changed?
       update_column(:renew_lease_at, Time.now)
-      ApplicationMailer.renewal_lease_reminder(id).deliver_later!(wait: 1.minute)
+      ApplicationMailer.renewal_lease_reminder(id).deliver_later#!(wait: 1.minute)
     end
   end
 
   def renewal_internet_reminder
     if renewal_internet_month_changed?
       update_column(:renew_internet_at, Time.now)
-      ApplicationMailer.renewal_internet_reminder(id).deliver_later!(wait: 1.minute)
+      ApplicationMailer.renewal_internet_reminder(id).deliver_later#!(wait: 1.minute)
     end
   end
 
