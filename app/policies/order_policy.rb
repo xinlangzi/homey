@@ -33,4 +33,12 @@ class OrderPolicy
   def destroy?
     @current_user.admin?
   end
+
+  def renew_lease?
+    @current_user.admin? || @model.user == @current_user
+  end
+
+  def renew_internet?
+    @current_user.admin? || @model.user == @current_user
+  end
 end

@@ -45,7 +45,7 @@ class Property < ActiveRecord::Base
       hash
     end
   end
-  
+
   def default_image
     images.where(default_image: true).first
   end
@@ -59,7 +59,7 @@ class Property < ActiveRecord::Base
     old_image.update_attributes!(default_image: false)
     images.where(id: image_id).first.update_attributes!(default_image: true)
   end
-  
+
   private
 
   def self.ransackable_scopes(auth_object = nil)

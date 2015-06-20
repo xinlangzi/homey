@@ -230,12 +230,7 @@ header .navbar {
 footer{
   background: #FFF;
   .weather {
-    width: 150px;
-    margin: auto;
-    color: black;
-    img {
-      display: inline;
-    }
+    display: none;
   }
 }
 
@@ -294,6 +289,18 @@ footer{
   }
   body.show-nav {
     left: -75%;
+  }
+  footer{
+    background: #FFF;
+    .weather {
+      display: block;
+      width: 150px;
+      margin: auto;
+      color: black;
+      img {
+        display: inline;
+      }
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 class Backend::OrdersController < Backend::BaseController
   before_action :set_user
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :renew_lease, :renew_internet]
 
   def index
     @orders = current_user.orders
@@ -56,6 +56,26 @@ class Backend::OrdersController < Backend::BaseController
     end
   end
 
+  def renew_lease
+    respond_to do |format|
+      if @order.update(order_params)
+        format.html { redirect_to [:backend, @order], notice: 'The renewal lease was successfully submitted and notified to customer service.' }
+      else
+        format.html { render :show }
+      end
+    end
+  end
+
+  def renew_internet
+    respond_to do |format|
+      if @order.update(order_params)
+        format.html { redirect_to [:backend, @order], notice: 'The renewal internet was successfully submitted and notified to customer service.' }
+      else
+        format.html { render :show }
+      end
+    end
+  end
+
   private
     def set_user
       @user = case current_user.role.titleize
@@ -76,7 +96,9 @@ class Backend::OrdersController < Backend::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(
-        :name, :property_id_string, :lease_start, :lease_end, :bank_account, :rent, :period_length, :pre_alert_day, :user_id,
+        :name, :property_id_string, :lease_start, :lease_end, :bank_account,
+        :rent, :period_length, :pre_alert_day, :user_id,
+        :renewal_lease_month, :renewal_internet_month,
         charges_attributes: [:category, :amount, :due_date, :note, :paid, :_destroy, :id]
       )
     end

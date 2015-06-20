@@ -24,4 +24,16 @@ class ApplicationMailer < ActionMailer::Base
     @user = @order.user
     mail(to: @user.email, subject: "Do you want to renew the lease?")
   end
+
+  def renewal_lease_reminder(order_id)
+    @order = Order.find(order_id)
+    @user = @order.user
+    mail(to: System.first.email, subject: "Notification: Renewal lease")
+  end
+
+  def renewal_internet_reminder(order_id)
+    @order = Order.find(order_id)
+    @user = @order.user
+    mail(to: System.first.email, subject: "Notification: Renewal internet")
+  end
 end

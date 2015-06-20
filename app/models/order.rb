@@ -12,6 +12,8 @@ class Order < ActiveRecord::Base
   validates :bank_account, presence: true
 
   attr_accessor :property_id_string
+  after_save :renewal_lease_reminder
+  after_save :renewal_internet_reminder
 
   before_validation do |order|
     if order.property_id_string.present?
@@ -34,4 +36,19 @@ class Order < ActiveRecord::Base
       ApplicationMailer.lease_reminder(order.id).deliver_later!(wait: 1.minute)
     end
   end
+
+  def renewal_lease_reminder
+    if renewal_lease_month_changed?
+      update_column(:renew_lease_at, Time.now)
+      ApplicationMailer.renewal_lease_reminder(id).deliver_later!(wait: 1.minute)
+    end
+  end
+
+  def renewal_internet_reminder
+    if renewal_internet_month_changed?
+      update_column(:renew_internet_at, Time.now)
+      ApplicationMailer.renewal_internet_reminder(id).deliver_later!(wait: 1.minute)
+    end
+  end
+
 end
