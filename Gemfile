@@ -35,12 +35,18 @@ gem 'ransack'
 gem 'kaminari'
 
 # queue
-gem 'sinatra', require: false
-gem 'sidekiq'
+# gem 'sinatra', require: false
+# gem 'sidekiq'
 
 gem 'mini_magick'
 gem 'ckeditor'
 gem 'whenever', :require => false
+
+gem 'passenger'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'better_errors'

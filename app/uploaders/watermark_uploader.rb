@@ -23,7 +23,8 @@ class WatermarkUploader < CarrierWave::Uploader::Base
         cmd.draw 'text 0,0 "homeyagency.com"'
         cmd.pointsize "20"
         cmd.fill "rgba(0,0,0,0.25)"
-        cmd.font(Rails.env.staging? || Rails.env.production? ? "Usuzi-Regular" : "Usuzi")
+        # cmd.font(Rails.env.staging? || Rails.env.production? ? "Usuzi-Regular" : "Usuzi")
+        cmd.font("#{Rails.root}/public/usuziv2.ttf")
       end
       img
     end

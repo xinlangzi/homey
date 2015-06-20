@@ -8,6 +8,7 @@ class Property < ActiveRecord::Base
   belongs_to :district
   belongs_to :area
   has_many :images, -> { order("default_image desc") }, as: :imageable
+  has_many :orders, dependent: :destroy
 
   validates :category, :title, :available_date, presence: true
   validates :district, presence: true, associated: true
