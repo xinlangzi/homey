@@ -3,18 +3,15 @@ require 'rails_helper'
 RSpec.describe Charge, type: :model do
   describe ".send_rental_reminders" do
     let!(:charge) { create(:charge) }
-    let(:jobs) { Sidekiq::Worker.jobs }
-    let(:job) { jobs[ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper].first }
     let(:args) { job["args"].first["arguments"] }
 
     before do
-      Sidekiq::Worker.jobs.clear
+      ActionMailer::Base.deliveries.clear
       Charge.send_rental_reminders
     end
 
     it "should send a reminder" do
-      expect(jobs.length).to eq(1)
-      expect(args[0..3]).to eq(["ApplicationMailer", "charge_reminder", "deliver_now", charge.id])
+      expect(ActionMailer::Base.deliveries.first.subject).to eq("You have a charge that needs to be paid")
       expect(charge.reload.reminded).to be_truthy
     end
   end

@@ -8,6 +8,6 @@ class Request < ActiveRecord::Base
   validates :mobile_phone, presence: true
 
   after_create do
-    ApplicationMailer.new_request(self.id).deliver_later(wait: 1.minute)
+    ApplicationMailer.new_request(self.id).deliver_later#(wait: 1.minute)
   end
 end

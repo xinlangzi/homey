@@ -7,6 +7,7 @@ RSpec.describe Property, type: :model do
   it { should validate_presence_of(:available_date) }
   it { should validate_presence_of(:district) }
   it { should have_many(:images) }
+  it { should have_many(:orders) }
 
   context "callback" do
     it "auto property id" do

@@ -30,7 +30,7 @@ RSpec.describe Backend::UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { email: "test2@example.com", password: "12345678", role: :user }
+    { name: "John Doe", email: "test2@example.com", password: "12345678", role: :user }
   }
 
   let(:invalid_attributes) {
@@ -46,7 +46,7 @@ RSpec.describe Backend::UsersController, type: :controller do
     it "assigns all users as @users" do
       user = User.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:users)).to eq([admin, user])
+      expect(assigns(:users)).to include(admin, user)
     end
   end
 
@@ -55,6 +55,34 @@ RSpec.describe Backend::UsersController, type: :controller do
       user = User.create! valid_attributes
       get :show, {:id => user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
+    end
+  end
+  
+  describe "GET #new" do
+    it "assigns a new property as @user" do
+      get :new, {}, valid_session
+      expect(assigns(:user)).to be_a_new(User)
+    end
+  end
+
+  describe "POST #create" do
+    context "with valid params" do
+      it "creates a new User" do
+        expect {
+          post :create, {:user => valid_attributes}, valid_session
+          expect(assigns(:user)).to be_a(User)
+          expect(assigns(:user)).to be_persisted
+          expect(response).to redirect_to([:backend, User.last])
+        }.to change(User, :count).by(1)
+      end
+    end
+
+    context "with invalid params" do
+      it "assigns a newly created but unsaved user as @user" do
+        post :create, {:user => invalid_attributes}, valid_session
+        expect(assigns(:user)).to be_a_new(User)
+        expect(response).to render_template("new")
+      end
     end
   end
 
